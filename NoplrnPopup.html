@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Plate Setting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background: rgba(59, 59, 59, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .popup-container {
+            width: 1878px;
+            height: 900px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0px 0px 16px 20px rgba(59, 59, 59, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .popup-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: #FFFFFF;
+            border-radius: 16px 16px 0px 0px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .popup-title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: -0.5px;
+            color: #1F2937;
+        }
+
+        .close-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #FFFFFF;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .close-button:hover {
+            background: #F3F4F6;
+        }
+
+        .material-icons {
+            color: #1F2937;
+            font-size: 24px;
+        }
+
+        /* Content */
+        .popup-content {
+            display: flex;
+            flex-direction: row;
+            padding: 20px 24px;
+            gap: 24px;
+            background: #FFFFFF;
+            height: calc(900px - 72px - 64px);
+            overflow: hidden;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+            min-width: 750px;
+            max-width: 850px;
+            overflow-y: auto;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            min-width: 550px;
+        }
+
+        /* PCR File Open */
+        .pcr-file-open {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            border: 1px solid #D1D5DB;
+        }
+
+        .file-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .file-icon .material-icons {
+            font-size: 24px;
+            color: #6B7280;
+        }
+
+        .pcr-label {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.25px;
+            color: #6B7280;
+        }
+
+        .pcr-filename {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.25px;
+            color: #1F2937;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #6B7280;
+            margin-bottom: 10px;
+        }
+
+        /* Assay Table Section */
+        .assay-table-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .assay-table-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Instruction */
+        .instruction-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .instruction-title {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: -0.5px;
+            color: #1F2937;
+        }
+
+        .instruction-text {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            color: #6B7280;
+        }
+
+        /* Search Box */
+        .search-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 8px 12px;
+            height: 40px;
+            background: #F9FAFB;
+            border: 1px solid #6B7280;
+            border-radius: 8px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.25px;
+            color: #1F2937;
+        }
+
+        .search-input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .search-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 16px;
+            height: 40px;
+            background: #1F2937;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.25px;
+            color: #FFFFFF;
+        }
+
+        .search-button:hover {
+            background: #374151;
+        }
+
+        /* Table */
+        .assay-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .table-header {
+            background: #E5E7EB;
+            border: 1px solid #9CA3AF;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            color: #1F2937;
+        }
+
+        .table-row {
+            cursor: pointer;
+        }
+
+        .table-row:hover td {
+            background: #F3F4F6 !important;
+        }
+
+        .table-cell {
+            border: 1px solid #D1D5DB;
+            padding: 8px;
+            font-size: 13px;
+            line-height: 18px;
+            color: #1F2937;
+            background: #FFFFFF;
+        }
+
+        .table-cell.selected {
+            background: #BFDBFE !important;
+        }
+
+        .table-cell-center {
+            text-align: center;
+        }
+
+        /* Consumables Section */
+        .consumables-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 12px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .consumables-category {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .category-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1F2937;
+            margin-bottom: 4px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-item label {
+            font-size: 13px;
+            color: #1F2937;
+            cursor: pointer;
+        }
+
+        /* Combination Assay Section */
+        .combination-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            border: 2px solid #D1D5DB;
+            border-radius: 6px;
+            background: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: #F9FAFB;
+            border-color: #9CA3AF;
+        }
+
+        .checkbox-item.active {
+            background: #EFF6FF;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .checkbox-item label {
+            font-size: 13px;
+            color: #1F2937;
+            cursor: pointer;
+            flex: 1;
+            user-select: none;
+        }
+
+        .checkbox-item.active label {
+            font-weight: 600;
+            color: #2563EB;
+        }
+
+        .assay-color-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            border: 1px solid #D1D5DB;
+        }
+
+        /* Plate Section */
+        .plate-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .plate-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .plate-grid-wrapper {
+            display: flex;
+            gap: 4px;
+        }
+
+        .plate-row-labels {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding-top: 27px;
+        }
+
+        .row-label {
+            width: 24px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 13px;
+            color: #1F2937;
+        }
+
+        .plate-grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .plate-col-labels {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 3px;
+        }
+
+        .col-label {
+            width: 36px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 13px;
+            color: #1F2937;
+        }
+
+        .plate-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 36px);
+            grid-template-rows: repeat(8, 36px);
+            gap: 3px;
+        }
+
+        .well {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #9CA3AF;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        .well:hover {
+            border-color: #1F2937;
+            border-width: 2px;
+        }
+
+        .well.selected-for-drag {
+            border: 2px solid #2563EB;
+        }
+
+        .disabled-section {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        /* Footer */
+        .popup-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 16px 24px;
+            gap: 12px;
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+            border-radius: 0px 0px 16px 16px;
+        }
+
+        .footer-button {
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .footer-button.cancel {
+            background: #FFFFFF;
+            color: #1F2937;
+            border: 1px solid #D1D5DB;
+        }
+
+        .footer-button.cancel:hover {
+            background: #F3F4F6;
+        }
+
+        .footer-button.primary {
+            background: #2563EB;
+            color: #FFFFFF;
+        }
+
+        .footer-button.primary:hover {
+            background: #1D4ED8;
+        }
+
+        .footer-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .reset-button {
+            padding: 6px 16px;
+            background: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #1F2937;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-button:hover {
+            background: #F3F4F6;
+        }
+
+        .reset-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .plate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <div class="popup-header">
+            <div class="popup-title">Manual</div>
+            <button class="close-button">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="popup-content">
+            <!-- Left Section -->
+            <div class="left-section">
+                <!-- PCR File Display -->
+                <div class="pcr-file-open">
+                    <div class="file-icon">
+                        <span class="material-icons">insert_drive_file</span>
+                    </div>
+                    <span class="pcr-label">PCR Raw Data:</span>
+                    <span class="pcr-filename">Sample_PCR_Data_20231226.pcr</span>
+                </div>
+
+                <!-- Assay Pack Selection -->
+                <div class="assay-table-section">
+                    <div class="section-title">Select Assay Pack</div>
+                    <div class="section-subtitle">Select an assay pack to apply to the plate</div>
+                    
+                    <!-- Search -->
+                    <div class="search-container">
+                        <input type="text" class="search-input" id="assaySearch" placeholder="Search Assay Pack...">
+                        <button class="search-button">Search</button>
+                    </div>
+
+                    <!-- Assay Pack Table -->
+                    <div style="max-height: 160px; overflow-y: auto; border: 1px solid #E5E7EB; border-radius: 8px;">
+                        <table class="assay-table">
+                            <thead>
+                                <tr>
+                                    <th class="table-header">Purpose</th>
+                                    <th class="table-header">Assay Pack Name</th>
+                                    <th class="table-header">Vendor</th>
+                                </tr>
+                            </thead>
+                            <tbody id="assayPackTable">
+                                <tr class="table-row" data-assay-id="1" data-color="#BFDBFE">
+                                    <td class="table-cell table-cell-center">IVD</td>
+                                    <td class="table-cell">Allplex™ Respiratory Panel 1</td>
+                                    <td class="table-cell table-cell-center">Seegene</td>
+                                </tr>
+                                <tr class="table-row" data-assay-id="2" data-color="#FED7AA">
+                                    <td class="table-cell table-cell-center">EUA</td>
+                                    <td class="table-cell">Allplex™ SARS-CoV-2 Assay</td>
+                                    <td class="table-cell table-cell-center">Seegene</td>
+                                </tr>
+                                <tr class="table-row" data-assay-id="3" data-color="#D1FAE5">
+                                    <td class="table-cell table-cell-center">IVD</td>
+                                    <td class="table-cell">Allplex™ Gastrointestinal Panel</td>
+                                    <td class="table-cell table-cell-center">Seegene</td>
+                                </tr>
+                                <tr class="table-row" data-assay-id="4" data-color="#E9D5FF">
+                                    <td class="table-cell table-cell-center">IVD</td>
+                                    <td class="table-cell">Allplex™ Respiratory Panel 2</td>
+                                    <td class="table-cell table-cell-center">Seegene</td>
+                                </tr>
+                                <tr class="table-row" data-assay-id="5" data-color="#FBCFE8">
+                                    <td class="table-cell table-cell-center">EUA</td>
+                                    <td class="table-cell">Allplex™ STI Essential Assay</td>
+                                    <td class="table-cell table-cell-center">Seegene</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Consumables Selection -->
+                <div class="consumables-section hidden-section" id="consumablesSection">
+                    <div class="section-title">Select Consumables</div>
+                    
+                    <div class="consumables-category">
+                        <div class="category-title">Cap/Film</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="cap1" name="capFilm" value="8-Cap Strip">
+                                <label for="cap1">8-Cap Strip</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cap2" name="capFilm" value="Sealing Film">
+                                <label for="cap2">Sealing Film</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="consumables-category">
+                        <div class="category-title">Plate/Tube</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="plate1" name="plateTube" value="8-strip Bio-Rad White Tube">
+                                <label for="plate1">8-strip Bio-Rad White Tube</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="plate2" name="plateTube" value="Plate Bio Plastics White">
+                                <label for="plate2">Plate Bio Plastics White</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="plate3" name="plateTube" value="Plate Bio-Rad White">
+                                <label for="plate3">Plate Bio-Rad White</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="plate4" name="plateTube" value="8-strip Bio Plastics Tube">
+                                <label for="plate4">8-strip Bio Plastics Tube</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combination Assay Pack Selection -->
+                <div class="combination-section hidden-section" id="combinationSection">
+                    <div class="section-title">Select Additional Assay Packs (Optional)</div>
+                    <div class="section-subtitle">Select compatible assay packs to combine</div>
+                    
+                    <div id="combinationList">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section - Plate Layout -->
+            <div class="right-section">
+                <div class="plate-section">
+                    <div class="plate-header">
+                        <div class="section-title" style="margin-bottom: 0;">Plate Setting (96-well)</div>
+                        <button class="reset-button" id="resetPlateBtn" disabled>
+                            <span class="material-icons" style="font-size: 16px; vertical-align: middle;">refresh</span>
+                            Reset
+                        </button>
+                    </div>
+                    <div class="section-subtitle" id="plateInstruction">Select an assay pack to start</div>
+                    
+                    <div class="plate-container">
+                        <div class="plate-grid-wrapper">
+                            <!-- Row Labels (A-H) -->
+                            <div class="plate-row-labels">
+                                <div class="row-label">A</div>
+                                <div class="row-label">B</div>
+                                <div class="row-label">C</div>
+                                <div class="row-label">D</div>
+                                <div class="row-label">E</div>
+                                <div class="row-label">F</div>
+                                <div class="row-label">G</div>
+                                <div class="row-label">H</div>
+                            </div>
+                            
+                            <!-- Plate Grid -->
+                            <div class="plate-grid-container">
+                                <!-- Column Labels (1-12) -->
+                                <div class="plate-col-labels">
+                                    <div class="col-label">1</div>
+                                    <div class="col-label">2</div>
+                                    <div class="col-label">3</div>
+                                    <div class="col-label">4</div>
+                                    <div class="col-label">5</div>
+                                    <div class="col-label">6</div>
+                                    <div class="col-label">7</div>
+                                    <div class="col-label">8</div>
+                                    <div class="col-label">9</div>
+                                    <div class="col-label">10</div>
+                                    <div class="col-label">11</div>
+                                    <div class="col-label">12</div>
+                                </div>
+                                
+                                <!-- Wells Grid -->
+                                <div class="plate-grid" id="plateGrid">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div id="plateLegend" style="margin-top: 16px; display: none;">
+                        <div style="font-weight: 600; font-size: 14px; margin-bottom: 8px;">Legend:</div>
+                        <div id="legendItems" style="display: flex; flex-wrap: wrap; gap: 12px;">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="popup-footer">
+            <button class="footer-button cancel" id="cancelBtn">Cancel</button>
+            <button class="footer-button primary" id="startAnalysisBtn" disabled>Start Analysis</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedAssay = null;
+        let selectedCombinationAssays = [];
+        let plateData = [];
+        let isDragging = false;
+        let currentBrushAssay = null;
+        const MAX_COMBINATION_ASSAYS = 3;
+
+        // Initialize 96-well plate
+        function initializePlate() {
+            const plateGrid = document.getElementById('plateGrid');
+            plateGrid.innerHTML = '';
+            plateData = [];
+
+            const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            
+            for (let row = 0; row < 8; row++) {
+                for (let col = 0; col < 12; col++) {
+                    const well = document.createElement('div');
+                    well.className = 'well';
+                    well.dataset.row = row;
+                    well.dataset.col = col;
+                    well.dataset.wellId = `${rows[row]}${col + 1}`;
+                    
+                    // Mouse events for drag functionality
+                    well.addEventListener('mousedown', startDrag);
+                    well.addEventListener('mouseenter', onDragOver);
+                    well.addEventListener('mouseup', endDrag);
+                    
+                    plateGrid.appendChild(well);
+                    plateData.push({ row, col, assayId: null, color: '#FFFFFF' });
+                }
+            }
+        }
+
+        // Fill entire plate with selected assay
+        function fillPlateWithAssay(assayId, color) {
+            const wells = document.querySelectorAll('.well');
+            wells.forEach((well, index) => {
+                well.style.backgroundColor = color;
+                plateData[index].assayId = assayId;
+                plateData[index].color = color;
+            });
+        }
+
+        // Drag functionality
+        function startDrag(e) {
+            if (!currentBrushAssay) {
+                alert('Please select an assay from the list first.');
+                return;
+            }
+            isDragging = true;
+            applyAssayToWell(e.target);
+        }
+
+        function onDragOver(e) {
+            if (isDragging && currentBrushAssay) {
+                applyAssayToWell(e.target);
+            }
+        }
+
+        function endDrag() {
+            isDragging = false;
+        }
+
+        function applyAssayToWell(well) {
+            if (!well.classList.contains('well')) return;
+            
+            const row = parseInt(well.dataset.row);
+            const col = parseInt(well.dataset.col);
+            const index = row * 12 + col;
+            
+            // Add to selectedCombinationAssays if not already there and not base assay
+            if (currentBrushAssay && currentBrushAssay.id !== selectedAssay.id) {
+                if (!selectedCombinationAssays.find(a => a.id === currentBrushAssay.id)) {
+                    selectedCombinationAssays.push({
+                        id: currentBrushAssay.id,
+                        name: currentBrushAssay.name,
+                        color: currentBrushAssay.color
+                    });
+                    updateLegend();
+                }
+            }
+            
+            well.style.backgroundColor = currentBrushAssay.color;
+            plateData[index].assayId = currentBrushAssay.id;
+            plateData[index].color = currentBrushAssay.color;
+        }
+
+        // Set default consumables
+        function setDefaultConsumables() {
+            // Set default Cap/Film (first option)
+            document.getElementById('cap1').checked = true;
+            
+            // Set default Plate/Tube (first option)
+            document.getElementById('plate1').checked = true;
+        }
+
+        // Assay Pack selection
+        document.getElementById('assayPackTable').addEventListener('click', function(e) {
+            const row = e.target.closest('.table-row');
+            if (!row) return;
+
+            // Remove selection from all rows
+            document.querySelectorAll('#assayPackTable .table-row').forEach(r => {
+                r.querySelectorAll('td').forEach(cell => {
+                    cell.classList.remove('selected');
+                });
+            });
+
+            // Add selection to clicked row
+            row.querySelectorAll('td').forEach(cell => {
+                cell.classList.add('selected');
+            });
+
+            // Store selected assay
+            selectedAssay = {
+                id: row.dataset.assayId,
+                name: row.cells[1].textContent,
+                color: row.dataset.color
+            };
+
+            // Show and enable consumables section and set defaults
+            const consumablesSection = document.getElementById('consumablesSection');
+            consumablesSection.classList.remove('hidden-section');
+            consumablesSection.classList.remove('disabled-section');
+            setDefaultConsumables();
+
+            // Initialize and fill plate
+            initializePlate();
+            fillPlateWithAssay(selectedAssay.id, selectedAssay.color);
+
+            // Update plate instruction
+            document.getElementById('plateInstruction').textContent = 
+                `Base assay: ${selectedAssay.name}. Select an assay to paint on plate.`;
+
+            // Enable reset and start analysis buttons
+            document.getElementById('resetPlateBtn').disabled = false;
+            document.getElementById('startAnalysisBtn').disabled = false;
+
+            // Load compatible assays
+            loadCombinationAssays();
+
+            // Show combination section
+            const combinationSection = document.getElementById('combinationSection');
+            combinationSection.classList.remove('hidden-section');
+            combinationSection.classList.remove('disabled-section');
+
+            // Update legend
+            updateLegend();
+        });
+
+        // Load combination assays
+        function loadCombinationAssays() {
+            const combinationList = document.getElementById('combinationList');
+            combinationList.innerHTML = '';
+
+            // Mock compatible assays (excluding selected one)
+            const allAssays = [
+                { id: '1', name: 'Allplex™ Respiratory Panel 1', color: '#BFDBFE' },
+                { id: '2', name: 'Allplex™ SARS-CoV-2 Assay', color: '#FED7AA' },
+                { id: '3', name: 'Allplex™ Gastrointestinal Panel', color: '#D1FAE5' },
+                { id: '4', name: 'Allplex™ Respiratory Panel 2', color: '#E9D5FF' },
+                { id: '5', name: 'Allplex™ STI Essential Assay', color: '#FBCFE8' }
+            ];
+
+            const compatibleAssays = allAssays.filter(a => a.id !== selectedAssay.id);
+
+            compatibleAssays.forEach(assay => {
+                const checkboxItem = document.createElement('div');
+                checkboxItem.className = 'checkbox-item';
+                checkboxItem.dataset.assayId = assay.id;
+                checkboxItem.dataset.assayName = assay.name;
+                checkboxItem.dataset.color = assay.color;
+                checkboxItem.innerHTML = `
+                    <div class="assay-color-indicator" style="background-color: ${assay.color};"></div>
+                    <label>${assay.name}</label>
+                `;
+
+                checkboxItem.addEventListener('click', function() {
+                    // Remove active class from all items
+                    document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Add active class to clicked item
+                    checkboxItem.classList.add('active');
+
+                    // Set as current brush
+                    currentBrushAssay = {
+                        id: checkboxItem.dataset.assayId,
+                        name: checkboxItem.dataset.assayName,
+                        color: checkboxItem.dataset.color
+                    };
+
+                    // Check if this assay is already used
+                    if (!selectedCombinationAssays.find(a => a.id === currentBrushAssay.id)) {
+                        // Check max limit
+                        if (selectedCombinationAssays.length >= MAX_COMBINATION_ASSAYS) {
+                            alert(`최대 ${MAX_COMBINATION_ASSAYS}개의 추가 Assay Pack만 사용할 수 있습니다.\n다른 Assay를 사용하려면 Reset을 눌러주세요.`);
+                            checkboxItem.classList.remove('active');
+                            currentBrushAssay = null;
+                            document.getElementById('plateInstruction').textContent = 
+                                `Base assay: ${selectedAssay.name}. Select an assay to paint on plate.`;
+                            return;
+                        }
+                    }
+
+                    document.getElementById('plateInstruction').textContent = 
+                        `Click or drag on wells to apply: ${currentBrushAssay.name}`;
+                });
+
+                combinationList.appendChild(checkboxItem);
+            });
+        }
+
+        // Update legend
+        function updateLegend() {
+            const legendItems = document.getElementById('legendItems');
+            const plateLegend = document.getElementById('plateLegend');
+            
+            legendItems.innerHTML = '';
+
+            if (selectedAssay) {
+                plateLegend.style.display = 'block';
+
+                // Add base assay
+                const baseItem = document.createElement('div');
+                baseItem.style.display = 'flex';
+                baseItem.style.alignItems = 'center';
+                baseItem.style.gap = '6px';
+                baseItem.innerHTML = `
+                    <div style="width: 20px; height: 20px; background-color: ${selectedAssay.color}; border: 1px solid #9CA3AF; border-radius: 3px;"></div>
+                    <span style="font-size: 12px;">${selectedAssay.name}</span>
+                `;
+                legendItems.appendChild(baseItem);
+
+                // Add combination assays (all checked ones)
+                selectedCombinationAssays.forEach(assay => {
+                    const item = document.createElement('div');
+                    item.style.display = 'flex';
+                    item.style.alignItems = 'center';
+                    item.style.gap = '6px';
+                    item.innerHTML = `
+                        <div style="width: 20px; height: 20px; background-color: ${assay.color}; border: 1px solid #9CA3AF; border-radius: 3px;"></div>
+                        <span style="font-size: 12px;">${assay.name}</span>
+                    `;
+                    legendItems.appendChild(item);
+                });
+            }
+        }
+
+        // Search functionality
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const searchValue = document.getElementById('assaySearch').value.toLowerCase();
+            document.querySelectorAll('#assayPackTable .table-row').forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchValue) ? '' : 'none';
+            });
+        });
+
+        document.getElementById('assaySearch').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-button').click();
+            }
+        });
+
+        // Reset plate button
+        document.getElementById('resetPlateBtn').addEventListener('click', function() {
+            if (selectedAssay && confirm('Reset to initial state?')) {
+                // Clear assay selection
+                selectedAssay = null;
+                selectedCombinationAssays = [];
+                currentBrushAssay = null;
+                
+                // Remove table selection
+                document.querySelectorAll('#assayPackTable .table-row').forEach(r => {
+                    r.querySelectorAll('td').forEach(cell => {
+                        cell.classList.remove('selected');
+                    });
+                });
+                
+                // Hide consumables and combination sections
+                document.getElementById('consumablesSection').classList.add('hidden-section');
+                document.getElementById('combinationSection').classList.add('hidden-section');
+                
+                // Clear consumables selection
+                document.querySelectorAll('input[name="capFilm"]').forEach(radio => radio.checked = false);
+                document.querySelectorAll('input[name="plateTube"]').forEach(radio => radio.checked = false);
+                
+                // Clear combination list
+                document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Reset plate
+                initializePlate();
+                
+                // Reset instruction
+                document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
+                
+                // Disable buttons
+                document.getElementById('resetPlateBtn').disabled = true;
+                document.getElementById('startAnalysisBtn').disabled = true;
+                
+                // Hide legend
+                document.getElementById('plateLegend').style.display = 'none';
+            }
+        });
+
+        // Cancel button
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            if (confirm('Cancel and close the popup?')) {
+                window.close();
+            }
+        });
+
+        // Start Analysis button
+        document.getElementById('startAnalysisBtn').addEventListener('click', function() {
+            if (!selectedAssay) {
+                alert('Please select an assay pack first.');
+                return;
+            }
+
+            // Check if consumables are selected
+            const capFilmSelected = document.querySelector('input[name="capFilm"]:checked');
+            const plateTubeSelected = document.querySelector('input[name="plateTube"]:checked');
+
+            if (!capFilmSelected || !plateTubeSelected) {
+                alert('Please select both Cap/Film and Plate/Tube consumables.');
+                return;
+            }
+
+            // Collect plate data
+            const plateConfig = {
+                pcrFile: document.querySelector('.pcr-filename').textContent,
+                baseAssay: selectedAssay,
+                consumables: {
+                    capFilm: capFilmSelected.value,
+                    plateTube: plateTubeSelected.value
+                },
+                additionalAssays: selectedCombinationAssays,
+                plateData: plateData
+            };
+
+            console.log('Starting analysis with configuration:', plateConfig);
+            alert('Starting analysis...\n\nConfiguration:\n' + 
+                  `Base Assay: ${selectedAssay.name}\n` +
+                  `Cap/Film: ${capFilmSelected.value}\n` +
+                  `Plate/Tube: ${plateTubeSelected.value}\n` +
+                  `Additional Assays: ${selectedCombinationAssays.length}`);
+            
+            // Here you would typically send the data to your backend
+            // window.close();
+        });
+
+        // Close button
+        document.querySelector('.close-button').addEventListener('click', function() {
+            if (confirm('Close the popup?')) {
+                window.close();
+            }
+        });
+
+        // Prevent text selection during drag
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+        });
+
+        // Initialize plate on load
+        initializePlate();
+    </script>
+</body>
+</html>
