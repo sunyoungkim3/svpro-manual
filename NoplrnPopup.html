@@ -290,10 +290,6 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            padding: 12px;
-            background: #F9FAFB;
-            border-radius: 8px;
-            border: 1px solid #E5E7EB;
         }
 
         .consumables-category {
@@ -374,6 +370,41 @@
         .checkbox-item.active label {
             font-weight: 600;
             color: #2563EB;
+        }
+
+        .checkbox-item-delete {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            background: transparent;
+            color: #EF4444;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1;
+            border: none;
+            padding: 0;
+            margin-left: auto;
+            transition: background 0.2s;
+        }
+
+        .checkbox-item-delete:hover {
+            background: #FEE2E2;
+        }
+
+        .checkbox-item.has-selection .checkbox-item-delete {
+            display: inline-flex;
+        }
+
+        .checkbox-item.base-assay {
+            border-color: #2563EB;
+            background: #EFF6FF;
+        }
+
+        .checkbox-item.base-assay label {
+            font-weight: 600;
         }
 
         .assay-color-indicator {
@@ -542,6 +573,42 @@
             max-height: 30px;
         }
 
+        /* Legend Item Delete Button */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            background: #F9FAFB;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .legend-item-delete {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            background: transparent;
+            color: #EF4444;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+            border: none;
+            padding: 0;
+            transition: background 0.2s;
+        }
+
+        .legend-item-delete:hover {
+            background: #FEE2E2;
+        }
+
+        .legend-item-delete .material-icons {
+            font-size: 12px;
+        }
+
         /* Footer */
         .popup-footer {
             display: flex;
@@ -591,7 +658,7 @@
 
         .reset-button {
             padding: 6px 16px;
-            background: #FFFFFF;
+            background: transparent;
             border: 1px solid #D1D5DB;
             border-radius: 6px;
             font-size: 14px;
@@ -651,15 +718,15 @@
                     </div>
                     <div class="section-content">
                         <div class="section-subtitle">Select an assay pack to apply to the plate</div>
-                    
-                    <!-- Search -->
-                    <div class="search-container">
-                        <input type="text" class="search-input" id="assaySearch" placeholder="Search Assay Pack...">
-                        <button class="search-button">Search</button>
-                    </div>
+                        
+                        <!-- Search -->
+                        <div class="search-container">
+                            <input type="text" class="search-input" id="assaySearch" placeholder="Search Assay Pack...">
+                            <button class="search-button">Search</button>
+                        </div>
 
-                    <!-- Assay Pack Table -->
-                    <div style="border: 1px solid #E5E7EB; border-radius: 8px;">
+                        <!-- Assay Pack Table -->
+                        <div style="border: 1px solid #E5E7EB; border-radius: 8px;">
                         <table class="assay-table">
                             <thead>
                                 <tr>
@@ -710,42 +777,41 @@
                         <span class="material-icons collapse-icon">expand_more</span>
                     </div>
                     <div class="section-content">
-                    
-                    <div class="consumables-category">
-                        <div class="category-title">Cap/Film</div>
-                        <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="cap1" name="capFilm" value="8-Cap Strip">
-                                <label for="cap1">8-Cap Strip</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="cap2" name="capFilm" value="Sealing Film">
-                                <label for="cap2">Sealing Film</label>
+                        <div class="consumables-category">
+                                <div class="category-title">Cap/Film</div>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="cap1" name="capFilm" value="8-Cap Strip">
+                                    <label for="cap1">8-Cap Strip</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="cap2" name="capFilm" value="Sealing Film">
+                                    <label for="cap2">Sealing Film</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="consumables-category">
-                        <div class="category-title">Plate/Tube</div>
-                        <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="plate1" name="plateTube" value="8-strip Bio-Rad White Tube">
-                                <label for="plate1">8-strip Bio-Rad White Tube</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="plate2" name="plateTube" value="Plate Bio Plastics White">
-                                <label for="plate2">Plate Bio Plastics White</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="plate3" name="plateTube" value="Plate Bio-Rad White">
-                                <label for="plate3">Plate Bio-Rad White</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="plate4" name="plateTube" value="8-strip Bio Plastics Tube">
-                                <label for="plate4">8-strip Bio Plastics Tube</label>
+                        <div class="consumables-category">
+                            <div class="category-title">Plate/Tube</div>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="plate1" name="plateTube" value="8-strip Bio-Rad White Tube">
+                                    <label for="plate1">8-strip Bio-Rad White Tube</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="plate2" name="plateTube" value="Plate Bio Plastics White">
+                                    <label for="plate2">Plate Bio Plastics White</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="plate3" name="plateTube" value="Plate Bio-Rad White">
+                                    <label for="plate3">Plate Bio-Rad White</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="plate4" name="plateTube" value="8-strip Bio Plastics Tube">
+                                    <label for="plate4">8-strip Bio Plastics Tube</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 
@@ -753,17 +819,17 @@
                 <div class="combination-section hidden-section" id="combinationSection">
                     <div class="section-header" onclick="toggleSection('combinationSection')">
                         <div>
-                            <div class="section-title" style="margin-bottom: 0;">Select Additional Assay Packs (Optional)</div>
+                            <div class="section-title" style="margin-bottom: 0;">Assay Combination (Optional)</div>
                             <div class="section-summary" id="combinationSummary"></div>
                         </div>
                         <span class="material-icons collapse-icon">expand_more</span>
                     </div>
                     <div class="section-content">
-                        <div class="section-subtitle">Select compatible assay packs to combine</div>
-                    
-                    <div id="combinationList">
-                        <!-- Will be populated dynamically -->
-                    </div>
+                        <div class="section-subtitle">If Assay Combination is required, select additional Assay pack(s) and apply them to wells on the Plate Setting (96-well).</div>
+                        
+                        <div id="combinationList">
+                            <!-- Will be populated dynamically -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -773,10 +839,6 @@
                 <div class="plate-section">
                     <div class="plate-header">
                         <div class="section-title" style="margin-bottom: 0;">Plate Setting (96-well)</div>
-                        <button class="reset-button" id="resetPlateBtn" disabled>
-                            <span class="material-icons" style="font-size: 16px; vertical-align: middle;">refresh</span>
-                            Reset
-                        </button>
                     </div>
                     <div class="section-subtitle" id="plateInstruction">Select an assay pack to start</div>
                     
@@ -820,9 +882,17 @@
                         </div>
                     </div>
 
+                    <!-- Reset Button -->
+                    <div style="display: flex; justify-content: center; margin-top: 16px;">
+                        <button class="reset-button" id="resetPlateBtn" disabled>
+                            <span class="material-icons" style="font-size: 16px; vertical-align: middle;">refresh</span>
+                            Reset
+                        </button>
+                    </div>
+
                     <!-- Legend -->
                     <div id="plateLegend" style="margin-top: 16px; display: none;">
-                        <div style="font-weight: 600; font-size: 14px; margin-bottom: 8px;">Legend:</div>
+                        <div style="font-weight: 600; font-size: 14px; margin-bottom: 8px;">Selected Assay(s):</div>
                         <div id="legendItems" style="display: flex; flex-wrap: wrap; gap: 12px;">
                             <!-- Will be populated dynamically -->
                         </div>
@@ -953,12 +1023,48 @@
                         color: currentBrushAssay.color
                     });
                     updateLegend();
+                    updateAdditionalAssaysSelection();
+                    updateCombinationSummary();
                 }
             }
             
             well.style.backgroundColor = currentBrushAssay.color;
             plateData[index].assayId = currentBrushAssay.id;
             plateData[index].color = currentBrushAssay.color;
+        }
+
+        // Update Additional Assays visual selection state
+        function updateAdditionalAssaysSelection() {
+            document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                const isSelected = selectedCombinationAssays.find(a => a.id === item.dataset.assayId);
+                if (isSelected) {
+                    item.style.background = '#F3F4F6';
+                    item.style.borderColor = '#9CA3AF';
+                    item.classList.add('has-selection');
+                } else {
+                    item.style.background = '#FFFFFF';
+                    item.style.borderColor = '#D1D5DB';
+                    item.classList.remove('has-selection');
+                }
+            });
+        }
+
+        // Update combination summary
+        function updateCombinationSummary() {
+            const summaryElement = document.getElementById('combinationSummary');
+            const allAssays = [];
+            
+            if (selectedAssay) {
+                allAssays.push(selectedAssay.name);
+            }
+            
+            selectedCombinationAssays.forEach(a => allAssays.push(a.name));
+            
+            if (allAssays.length > 0) {
+                summaryElement.textContent = `Selected: ${allAssays.join(', ')}`;
+            } else {
+                summaryElement.textContent = '';
+            }
         }
 
         // Set default consumables
@@ -1045,6 +1151,56 @@
             const combinationList = document.getElementById('combinationList');
             combinationList.innerHTML = '';
 
+            // Add base assay first
+            if (selectedAssay) {
+                const baseAssayItem = document.createElement('div');
+                baseAssayItem.className = 'checkbox-item base-assay has-selection';
+                baseAssayItem.dataset.assayId = selectedAssay.id;
+                baseAssayItem.dataset.assayName = selectedAssay.name;
+                baseAssayItem.dataset.color = selectedAssay.color;
+                baseAssayItem.innerHTML = `
+                    <div class="assay-color-indicator" style="background-color: ${selectedAssay.color};"></div>
+                    <label>${selectedAssay.name} (Base)</label>
+                    <button class="checkbox-item-delete" data-assay-id="${selectedAssay.id}" title="Remove this assay">
+                        <span class="material-icons" style="font-size: 14px;">close</span>
+                    </button>
+                `;
+
+                // Base assay click handler - can be used as brush
+                baseAssayItem.addEventListener('click', function(e) {
+                    if (e.target.closest('.checkbox-item-delete')) {
+                        return;
+                    }
+                    
+                    // Set base assay as current brush
+                    currentBrushAssay = {
+                        id: selectedAssay.id,
+                        name: selectedAssay.name,
+                        color: selectedAssay.color
+                    };
+
+                    // Remove active class from all items
+                    document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Add active class to base assay item
+                    baseAssayItem.classList.add('active');
+
+                    document.getElementById('plateInstruction').textContent = 
+                        `Click or drag on wells to apply: ${selectedAssay.name}`;
+                });
+
+                // Delete button for base assay
+                const baseDeleteBtn = baseAssayItem.querySelector('.checkbox-item-delete');
+                baseDeleteBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    removeBaseAssay();
+                });
+
+                combinationList.appendChild(baseAssayItem);
+            }
+
             // Mock compatible assays (excluding selected one)
             const allAssays = [
                 { id: '1', name: 'Allplex™ Respiratory Panel 1', color: '#BFDBFE' },
@@ -1065,9 +1221,24 @@
                 checkboxItem.innerHTML = `
                     <div class="assay-color-indicator" style="background-color: ${assay.color};"></div>
                     <label>${assay.name}</label>
+                    <button class="checkbox-item-delete" data-assay-id="${assay.id}" title="Remove this assay">
+                        <span class="material-icons" style="font-size: 14px;">close</span>
+                    </button>
                 `;
 
-                checkboxItem.addEventListener('click', function() {
+                checkboxItem.addEventListener('click', function(e) {
+                    // Don't trigger if clicking delete button
+                    if (e.target.closest('.checkbox-item-delete')) {
+                        return;
+                    }
+                    
+                    // Set as current brush
+                    currentBrushAssay = {
+                        id: checkboxItem.dataset.assayId,
+                        name: checkboxItem.dataset.assayName,
+                        color: checkboxItem.dataset.color
+                    };
+
                     // Remove active class from all items
                     document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
                         item.classList.remove('active');
@@ -1075,13 +1246,6 @@
 
                     // Add active class to clicked item
                     checkboxItem.classList.add('active');
-
-                    // Set as current brush
-                    currentBrushAssay = {
-                        id: checkboxItem.dataset.assayId,
-                        name: checkboxItem.dataset.assayName,
-                        color: checkboxItem.dataset.color
-                    };
 
                     // Check if this assay is already used
                     if (!selectedCombinationAssays.find(a => a.id === currentBrushAssay.id)) {
@@ -1100,6 +1264,13 @@
                         `Click or drag on wells to apply: ${currentBrushAssay.name}`;
                 });
 
+                // Add delete button event listener
+                const deleteBtn = checkboxItem.querySelector('.checkbox-item-delete');
+                deleteBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    removeAssayFromPlate(assay.id);
+                });
+
                 combinationList.appendChild(checkboxItem);
             });
         }
@@ -1116,27 +1287,115 @@
 
                 // Add base assay
                 const baseItem = document.createElement('div');
-                baseItem.style.display = 'flex';
-                baseItem.style.alignItems = 'center';
-                baseItem.style.gap = '6px';
+                baseItem.className = 'legend-item';
                 baseItem.innerHTML = `
                     <div style="width: 20px; height: 20px; background-color: ${selectedAssay.color}; border: 1px solid #9CA3AF; border-radius: 3px;"></div>
                     <span style="font-size: 12px;">${selectedAssay.name}</span>
                 `;
                 legendItems.appendChild(baseItem);
 
-                // Add combination assays (all checked ones)
+                // Add combination assays (no delete buttons)
                 selectedCombinationAssays.forEach(assay => {
                     const item = document.createElement('div');
-                    item.style.display = 'flex';
-                    item.style.alignItems = 'center';
-                    item.style.gap = '6px';
+                    item.className = 'legend-item';
                     item.innerHTML = `
                         <div style="width: 20px; height: 20px; background-color: ${assay.color}; border: 1px solid #9CA3AF; border-radius: 3px;"></div>
                         <span style="font-size: 12px;">${assay.name}</span>
                     `;
+                    
                     legendItems.appendChild(item);
                 });
+            }
+        }
+
+        // Remove base assay and reset to initial state
+        function removeBaseAssay() {
+            if (confirm('Remove base assay? This will reset everything.')) {
+                // Clear all state
+                selectedAssay = null;
+                selectedCombinationAssays = [];
+                currentBrushAssay = null;
+                
+                // Remove table selection
+                document.querySelectorAll('#assayPackTable .table-row').forEach(r => {
+                    r.querySelectorAll('td').forEach(cell => {
+                        cell.classList.remove('selected');
+                    });
+                });
+                
+                // Hide consumables and combination sections
+                document.getElementById('consumablesSection').classList.add('hidden-section');
+                document.getElementById('combinationSection').classList.add('hidden-section');
+                
+                // Expand sections
+                document.getElementById('assayPackSection').classList.remove('section-collapsed');
+                document.getElementById('consumablesSection').classList.remove('section-collapsed');
+                document.getElementById('combinationSection').classList.remove('section-collapsed');
+                
+                // Clear summaries
+                document.getElementById('assayPackSummary').textContent = '';
+                document.getElementById('consumablesSummary').textContent = '';
+                document.getElementById('combinationSummary').textContent = '';
+                
+                // Clear consumables selection
+                document.querySelectorAll('input[name="capFilm"]').forEach(radio => radio.checked = false);
+                document.querySelectorAll('input[name="plateTube"]').forEach(radio => radio.checked = false);
+                
+                // Reset plate
+                initializePlate();
+                
+                // Reset instruction
+                document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
+                
+                // Disable buttons
+                document.getElementById('resetPlateBtn').disabled = true;
+                document.getElementById('startAnalysisBtn').disabled = true;
+                
+                // Hide legend
+                document.getElementById('plateLegend').style.display = 'none';
+            }
+        }
+
+        // Remove assay from plate and revert to base assay
+        function removeAssayFromPlate(assayId) {
+            if (confirm('Remove this assay from the plate?')) {
+                // Revert all wells with this assay to base assay
+                plateData.forEach((well, index) => {
+                    if (well.assayId === assayId) {
+                        well.assayId = selectedAssay.id;
+                        well.color = selectedAssay.color;
+                        
+                        // Update visual
+                        const wellElement = document.querySelectorAll('.well')[index];
+                        if (wellElement) {
+                            wellElement.style.backgroundColor = selectedAssay.color;
+                        }
+                    }
+                });
+                
+                // Remove from selectedCombinationAssays
+                selectedCombinationAssays = selectedCombinationAssays.filter(a => a.id !== assayId);
+                
+                // Update Additional Assays selection state
+                updateAdditionalAssaysSelection();
+                updateCombinationSummary();
+                
+                // Remove active state from Additional Assays list
+                document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                    if (item.dataset.assayId === assayId) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Clear current brush if it was the removed assay
+                if (currentBrushAssay && currentBrushAssay.id === assayId) {
+                    currentBrushAssay = null;
+                    document.getElementById('plateInstruction').textContent = 
+                        `Base assay: ${selectedAssay.name}. Select an assay to paint on plate.`;
+                }
+                
+                // Update legend
+                updateLegend();
             }
         }
 
@@ -1191,7 +1450,12 @@
                 // Clear combination list
                 document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
                     item.classList.remove('active');
+                    item.style.background = '#FFFFFF';
+                    item.style.borderColor = '#D1D5DB';
                 });
+                
+                // Clear combination summary
+                updateCombinationSummary();
                 
                 // Reset plate
                 initializePlate();
