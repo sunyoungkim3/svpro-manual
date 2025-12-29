@@ -395,6 +395,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            position: relative;
         }
 
         .plate-grid-wrapper {
@@ -480,6 +481,65 @@
 
         .hidden-section {
             display: none;
+        }
+
+        /* Selection Rectangle */
+        .selection-rectangle {
+            position: absolute;
+            border: 2px dashed #2563EB;
+            background: rgba(37, 99, 235, 0.1);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Collapsible Section */
+        .section-content {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+            opacity: 1;
+        }
+
+        .section-collapsed .section-content {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+
+        .section-header:hover {
+            opacity: 0.8;
+        }
+
+        .collapse-icon {
+            font-size: 18px;
+            color: #6B7280;
+            transition: transform 0.2s;
+        }
+
+        .section-collapsed .collapse-icon {
+            transform: rotate(-90deg);
+        }
+
+        .section-summary {
+            font-size: 12px;
+            color: #6B7280;
+            margin-top: 4px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease-in 0.3s, max-height 0.3s ease-in 0.3s;
+        }
+
+        .section-collapsed .section-summary {
+            opacity: 1;
+            max-height: 30px;
         }
 
         /* Footer */
@@ -581,9 +641,16 @@
                 </div>
 
                 <!-- Assay Pack Selection -->
-                <div class="assay-table-section">
-                    <div class="section-title">Select Assay Pack</div>
-                    <div class="section-subtitle">Select an assay pack to apply to the plate</div>
+                <div class="assay-table-section" id="assayPackSection">
+                    <div class="section-header" onclick="toggleSection('assayPackSection')">
+                        <div>
+                            <div class="section-title" style="margin-bottom: 0;">Select Assay Pack</div>
+                            <div class="section-summary" id="assayPackSummary"></div>
+                        </div>
+                        <span class="material-icons collapse-icon">expand_more</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-subtitle">Select an assay pack to apply to the plate</div>
                     
                     <!-- Search -->
                     <div class="search-container">
@@ -592,7 +659,7 @@
                     </div>
 
                     <!-- Assay Pack Table -->
-                    <div style="max-height: 160px; overflow-y: auto; border: 1px solid #E5E7EB; border-radius: 8px;">
+                    <div style="border: 1px solid #E5E7EB; border-radius: 8px;">
                         <table class="assay-table">
                             <thead>
                                 <tr>
@@ -630,11 +697,19 @@
                             </tbody>
                         </table>
                     </div>
+                    </div>
                 </div>
 
                 <!-- Consumables Selection -->
                 <div class="consumables-section hidden-section" id="consumablesSection">
-                    <div class="section-title">Select Consumables</div>
+                    <div class="section-header" onclick="toggleSection('consumablesSection')">
+                        <div>
+                            <div class="section-title" style="margin-bottom: 0;">Select Consumables</div>
+                            <div class="section-summary" id="consumablesSummary"></div>
+                        </div>
+                        <span class="material-icons collapse-icon">expand_more</span>
+                    </div>
+                    <div class="section-content">
                     
                     <div class="consumables-category">
                         <div class="category-title">Cap/Film</div>
@@ -671,15 +746,24 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
 
                 <!-- Combination Assay Pack Selection -->
                 <div class="combination-section hidden-section" id="combinationSection">
-                    <div class="section-title">Select Additional Assay Packs (Optional)</div>
-                    <div class="section-subtitle">Select compatible assay packs to combine</div>
+                    <div class="section-header" onclick="toggleSection('combinationSection')">
+                        <div>
+                            <div class="section-title" style="margin-bottom: 0;">Select Additional Assay Packs (Optional)</div>
+                            <div class="section-summary" id="combinationSummary"></div>
+                        </div>
+                        <span class="material-icons collapse-icon">expand_more</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-subtitle">Select compatible assay packs to combine</div>
                     
                     <div id="combinationList">
                         <!-- Will be populated dynamically -->
+                    </div>
                     </div>
                 </div>
             </div>
@@ -761,6 +845,12 @@
         let isDragging = false;
         let currentBrushAssay = null;
         const MAX_COMBINATION_ASSAYS = 3;
+        
+        // Rectangle selection
+        let isRectangleSelecting = false;
+        let selectionStart = { x: 0, y: 0 };
+        let selectionRect = null;
+        let plateGridRect = null;
 
         // Initialize 96-well plate
         function initializePlate() {
@@ -778,11 +868,6 @@
                     well.dataset.col = col;
                     well.dataset.wellId = `${rows[row]}${col + 1}`;
                     
-                    // Mouse events for drag functionality
-                    well.addEventListener('mousedown', startDrag);
-                    well.addEventListener('mouseenter', onDragOver);
-                    well.addEventListener('mouseup', endDrag);
-                    
                     plateGrid.appendChild(well);
                     plateData.push({ row, col, assayId: null, color: '#FFFFFF' });
                 }
@@ -799,24 +884,57 @@
             });
         }
 
-        // Drag functionality
+        // Rectangle selection functionality
         function startDrag(e) {
             if (!currentBrushAssay) {
                 alert('Please select an assay from the list first.');
                 return;
             }
-            isDragging = true;
-            applyAssayToWell(e.target);
+            
+            isRectangleSelecting = true;
+            const plateGrid = document.getElementById('plateGrid');
+            plateGridRect = plateGrid.getBoundingClientRect();
+            
+            selectionStart = {
+                x: e.clientX,
+                y: e.clientY
+            };
+            
+            e.preventDefault();
         }
 
         function onDragOver(e) {
-            if (isDragging && currentBrushAssay) {
-                applyAssayToWell(e.target);
-            }
+            if (!isRectangleSelecting) return;
+            // Just track mouse position, no visual feedback
         }
 
-        function endDrag() {
-            isDragging = false;
+        function endDrag(e) {
+            if (!isRectangleSelecting) return;
+            
+            // Calculate selection bounds
+            const currentX = e.clientX;
+            const currentY = e.clientY;
+            
+            const left = Math.min(selectionStart.x, currentX);
+            const top = Math.min(selectionStart.y, currentY);
+            const right = Math.max(selectionStart.x, currentX);
+            const bottom = Math.max(selectionStart.y, currentY);
+            
+            // Find all wells within the rectangle
+            const wells = document.querySelectorAll('.well');
+            wells.forEach(well => {
+                const wellBounds = well.getBoundingClientRect();
+                
+                // Check if well intersects with selection area
+                if (!(right < wellBounds.left || 
+                      left > wellBounds.right || 
+                      bottom < wellBounds.top || 
+                      top > wellBounds.bottom)) {
+                    applyAssayToWell(well);
+                }
+            });
+            
+            isRectangleSelecting = false;
         }
 
         function applyAssayToWell(well) {
@@ -850,6 +968,20 @@
             
             // Set default Plate/Tube (first option)
             document.getElementById('plate1').checked = true;
+            
+            // Update summary
+            updateConsumablesSummary();
+        }
+
+        // Update consumables summary
+        function updateConsumablesSummary() {
+            const capFilm = document.querySelector('input[name="capFilm"]:checked');
+            const plateTube = document.querySelector('input[name="plateTube"]:checked');
+            
+            if (capFilm && plateTube) {
+                const summary = `Selected: ${capFilm.nextElementSibling.textContent} / ${plateTube.nextElementSibling.textContent}`;
+                document.getElementById('consumablesSummary').textContent = summary;
+            }
         }
 
         // Assay Pack selection
@@ -880,6 +1012,7 @@
             const consumablesSection = document.getElementById('consumablesSection');
             consumablesSection.classList.remove('hidden-section');
             consumablesSection.classList.remove('disabled-section');
+            consumablesSection.classList.add('section-collapsed');
             setDefaultConsumables();
 
             // Initialize and fill plate
@@ -901,6 +1034,7 @@
             const combinationSection = document.getElementById('combinationSection');
             combinationSection.classList.remove('hidden-section');
             combinationSection.classList.remove('disabled-section');
+            combinationSection.classList.add('section-collapsed');
 
             // Update legend
             updateLegend();
@@ -1040,6 +1174,16 @@
                 document.getElementById('consumablesSection').classList.add('hidden-section');
                 document.getElementById('combinationSection').classList.add('hidden-section');
                 
+                // Expand all sections
+                document.getElementById('assayPackSection').classList.remove('section-collapsed');
+                document.getElementById('consumablesSection').classList.remove('section-collapsed');
+                document.getElementById('combinationSection').classList.remove('section-collapsed');
+                
+                // Clear summaries
+                document.getElementById('assayPackSummary').textContent = '';
+                document.getElementById('consumablesSummary').textContent = '';
+                document.getElementById('combinationSummary').textContent = '';
+                
                 // Clear consumables selection
                 document.querySelectorAll('input[name="capFilm"]').forEach(radio => radio.checked = false);
                 document.querySelectorAll('input[name="plateTube"]').forEach(radio => radio.checked = false);
@@ -1117,13 +1261,37 @@
             }
         });
 
-        // Prevent text selection during drag
-        document.addEventListener('mouseup', function() {
-            isDragging = false;
-        });
+        // Add global mouse event listeners for rectangle selection
+        document.getElementById('plateGrid').addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', onDragOver);
+        document.addEventListener('mouseup', endDrag);
+
+        // Toggle section collapse/expand
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('section-collapsed');
+        }
+
+        // Auto-collapse section after selection
+        function collapseSection(sectionId, summary) {
+            const section = document.getElementById(sectionId);
+            const summaryElement = document.getElementById(sectionId.replace('Section', 'Summary'));
+            
+            section.classList.add('section-collapsed');
+            if (summaryElement && summary) {
+                summaryElement.textContent = summary;
+            }
+        }
 
         // Initialize plate on load
         initializePlate();
+
+        // Add event listeners for consumables to update summary
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[name="capFilm"], input[name="plateTube"]').forEach(radio => {
+                radio.addEventListener('change', updateConsumablesSummary);
+            });
+        });
     </script>
 </body>
 </html>
