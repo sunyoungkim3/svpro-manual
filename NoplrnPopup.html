@@ -562,8 +562,8 @@
             font-size: 12px;
             color: #6B7280;
             margin-top: 4px;
-            opacity: 0;
-            max-height: 0;
+            opacity: 1;
+            max-height: 30px;
             overflow: hidden;
             transition: opacity 0.3s ease-in 0.3s, max-height 0.3s ease-in 0.3s;
         }
@@ -825,8 +825,6 @@
                         <span class="material-icons collapse-icon">expand_more</span>
                     </div>
                     <div class="section-content">
-                        <div class="section-subtitle">If Assay Combination is required, select additional Assay pack(s) and apply them to wells on the Plate Setting (96-well).</div>
-                        
                         <div id="combinationList">
                             <!-- Will be populated dynamically -->
                         </div>
@@ -1052,19 +1050,9 @@
         // Update combination summary
         function updateCombinationSummary() {
             const summaryElement = document.getElementById('combinationSummary');
-            const allAssays = [];
             
-            if (selectedAssay) {
-                allAssays.push(selectedAssay.name);
-            }
-            
-            selectedCombinationAssays.forEach(a => allAssays.push(a.name));
-            
-            if (allAssays.length > 0) {
-                summaryElement.textContent = `Selected: ${allAssays.join(', ')}`;
-            } else {
-                summaryElement.textContent = '';
-            }
+            // Always show description instead of Selected
+            summaryElement.textContent = 'If Assay Combination is required, select additional Assay pack(s) and apply them to wells on the Plate Setting (96-well).';
         }
 
         // Set default consumables
@@ -1141,6 +1129,9 @@
             combinationSection.classList.remove('hidden-section');
             combinationSection.classList.remove('disabled-section');
             combinationSection.classList.add('section-collapsed');
+            
+            // Update combination summary to show description
+            updateCombinationSummary();
 
             // Update legend
             updateLegend();
@@ -1534,6 +1525,11 @@
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             section.classList.toggle('section-collapsed');
+            
+            // Update combination summary when toggling
+            if (sectionId === 'combinationSection') {
+                updateCombinationSummary();
+            }
         }
 
         // Auto-collapse section after selection
