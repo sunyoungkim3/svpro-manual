@@ -1,0 +1,8763 @@
+/* NoplrnPopup */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 1804px;
+height: 896px;
+left: calc(50% - 1804px/2);
+top: 142px;
+
+/* PopupShadow */
+box-shadow: 0px 0px 16px 20px rgba(59, 59, 59, 0.3);
+
+
+/* CommonPopupHeader */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 32px 28px 32px 32px;
+gap: 384px;
+
+width: 1804px;
+height: 100px;
+
+background: #FFFFFF;
+border-radius: 16px 16px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonPopupTitle */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 96px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Pop-up */
+
+width: 415px;
+height: 36px;
+
+/* TextDefault/TitleMain/LargeBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 36px;
+/* identical to box height, or 129% */
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonButtonIcon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 4px;
+
+width: 32px;
+height: 32px;
+
+background: #FFFFFF;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* close */
+
+position: absolute;
+left: 22.28%;
+right: 22.28%;
+top: 22.28%;
+bottom: 22.27%;
+
+background: #1F2937;
+
+
+/* PopupStartAnalysisNoplrn/Variant3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px 32px;
+
+width: 1804px;
+height: 690px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565381 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+width: 1740px;
+height: 692px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565375 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+width: 818px;
+height: 724px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonOpenPCR */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+width: 418px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonButtonIcon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 6px;
+
+width: 36px;
+height: 36px;
+
+background: #D1D5DB;
+border-radius: 20px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* folder_open */
+
+position: absolute;
+left: 10.42%;
+right: 3.41%;
+top: 18.75%;
+bottom: 18.75%;
+
+background: #1F2937;
+
+
+/* CommonOpenPCRLabel */
+
+width: 155px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* PCR Raw Data file */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+
+/* CommonOpenPCRName */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 179px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Opened file name.pcr */
+
+width: 179px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565391 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 818px;
+height: 656px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommmonAssayTableWithInstruction */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 818px;
+height: 352px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonInstruction */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 411px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonInstrcuctionLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 106px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565312 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 106px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 1 Assay */
+
+width: 106px;
+height: 36px;
+
+/* TextDefault/TitleMain/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565350 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 293px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Select an assay to apply to the plate. */
+
+width: 204px;
+height: 24px;
+
+/* TextDefault/Body/SmallRegular
+
+필요시 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommmonSearch */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 818px;
+height: 44px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonInputBox */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 8px 12px;
+
+width: 726px;
+height: 44px;
+
+background: #F9FAFB;
+border: 1px solid #6B7280;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* HintingText */
+
+width: 95px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #9CA3AF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonButton */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+
+width: 80px;
+height: 44px;
+
+background: #1F2937;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonButtonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 56px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 56px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565346 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 818px;
+height: 240px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Frame 1686565342 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 818px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonNormalTableHeader */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 142px;
+height: 40px;
+
+background: #E5E7EB;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableHeaderText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 33px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Table Header */
+
+width: 33px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableHeader */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 500px;
+height: 40px;
+
+background: #E5E7EB;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* CommonNormalTableHeaderText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 70px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Table Header */
+
+width: 70px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableHeader */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 176px;
+height: 40px;
+
+background: #E5E7EB;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CommonNormalTableHeaderText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 50px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Table Header */
+
+width: 50px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565341 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 818px;
+height: 200px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565340 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 800px;
+height: 200px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565340 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 800px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+gap: 8px;
+
+width: 142px;
+height: 40px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+width: 59px;
+height: 24px;
+
+background: #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* chips */
+
+width: 24px;
+height: 24px;
+
+/* TextDefault/Body/XSmallRegular
+
+필요시 본문, Label에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+display: none;
+width: 59px;
+height: 24px;
+
+background: #FFFFFF;
+border: 1px solid #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+
+width: 500px;
+height: 40px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 243px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Assay Name */
+
+width: 243px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyLogo */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 158px;
+height: 40px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CompanyLogo */
+
+width: 108.71px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 25.69%;
+right: 0%;
+top: 14.05%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 25.69%;
+right: 63.55%;
+top: 14.05%;
+bottom: 17.19%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 37.17%;
+right: 52.93%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 47.8%;
+right: 42.31%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 58.42%;
+right: 31.83%;
+top: 29.76%;
+bottom: 0%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 69.11%;
+right: 21%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 79.9%;
+right: 10.69%;
+top: 29.88%;
+bottom: 18.35%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 90.11%;
+right: 0%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Frame 1686565341 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 800px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+gap: 8px;
+
+width: 142px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+width: 59px;
+height: 24px;
+
+background: #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* chips */
+
+width: 24px;
+height: 24px;
+
+/* TextDefault/Body/XSmallRegular
+
+필요시 본문, Label에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+width: 59px;
+height: 24px;
+
+background: #FFFFFF;
+border: 1px solid #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* chips */
+
+width: 27px;
+height: 24px;
+
+/* TextDefault/Body/XSmallRegular
+
+필요시 본문, Label에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #2563EB;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+
+width: 500px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 232px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Assay Name */
+
+width: 232px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyLogo */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 158px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CompanyLogo */
+
+width: 108.71px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 25.69%;
+right: 0%;
+top: 14.05%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 25.69%;
+right: 63.55%;
+top: 14.05%;
+bottom: 17.19%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 37.17%;
+right: 52.93%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 47.8%;
+right: 42.31%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 58.42%;
+right: 31.83%;
+top: 29.76%;
+bottom: 0%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 69.11%;
+right: 21%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 79.9%;
+right: 10.69%;
+top: 29.88%;
+bottom: 18.35%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 90.11%;
+right: 0%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Frame 1686565343 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 800px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+gap: 8px;
+
+width: 142px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+width: 59px;
+height: 24px;
+
+background: #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* chips */
+
+width: 24px;
+height: 24px;
+
+/* TextDefault/Body/XSmallRegular
+
+필요시 본문, Label에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+display: none;
+width: 59px;
+height: 24px;
+
+background: #FFFFFF;
+border: 1px solid #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+
+width: 500px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 232px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Assay Name */
+
+width: 232px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyLogo */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 158px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CompanyLogo */
+
+width: 108.71px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 25.69%;
+right: 0%;
+top: 14.05%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 25.69%;
+right: 63.55%;
+top: 14.05%;
+bottom: 17.19%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 37.17%;
+right: 52.93%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 47.8%;
+right: 42.31%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 58.42%;
+right: 31.83%;
+top: 29.76%;
+bottom: 0%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 69.11%;
+right: 21%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 79.9%;
+right: 10.69%;
+top: 29.88%;
+bottom: 18.35%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 90.11%;
+right: 0%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Frame 1686565344 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 800px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+gap: 8px;
+
+width: 142px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+width: 59px;
+height: 24px;
+
+background: #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* chips */
+
+width: 24px;
+height: 24px;
+
+/* TextDefault/Body/XSmallRegular
+
+필요시 본문, Label에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+display: none;
+width: 59px;
+height: 24px;
+
+background: #FFFFFF;
+border: 1px solid #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+
+width: 500px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 287px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Assay Name */
+
+width: 287px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyLogo */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 158px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CompanyLogo */
+
+width: 108.71px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 25.69%;
+right: 0%;
+top: 14.05%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 25.69%;
+right: 63.55%;
+top: 14.05%;
+bottom: 17.19%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 37.17%;
+right: 52.93%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 47.8%;
+right: 42.31%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 58.42%;
+right: 31.83%;
+top: 29.76%;
+bottom: 0%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 69.11%;
+right: 21%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 79.9%;
+right: 10.69%;
+top: 29.88%;
+bottom: 18.35%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 90.11%;
+right: 0%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Frame 1686565345 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 800px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+gap: 8px;
+
+width: 142px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+width: 59px;
+height: 24px;
+
+background: #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* chips */
+
+width: 24px;
+height: 24px;
+
+/* TextDefault/Body/XSmallRegular
+
+필요시 본문, Label에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonChip */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 12px;
+
+display: none;
+width: 59px;
+height: 24px;
+
+background: #FFFFFF;
+border: 1px solid #2563EB;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px;
+
+width: 500px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyText */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 256px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Assay Name */
+
+width: 256px;
+height: 24px;
+
+/* TextDefault/Table/BodyDefaultRegular
+
+테이블 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonNormalTableBodyLogo */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px;
+
+width: 158px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CompanyLogo */
+
+width: 108.71px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 80.22%;
+top: 0%;
+bottom: 0.85%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.53%;
+right: 83.74%;
+top: 17.67%;
+bottom: 18.53%;
+
+background: #1F2937;
+
+
+/* Group */
+
+position: absolute;
+left: 25.69%;
+right: 0%;
+top: 14.05%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 25.69%;
+right: 63.55%;
+top: 14.05%;
+bottom: 17.19%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 37.17%;
+right: 52.93%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 47.8%;
+right: 42.31%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 58.42%;
+right: 31.83%;
+top: 29.76%;
+bottom: 0%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 69.11%;
+right: 21%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 79.9%;
+right: 10.69%;
+top: 29.88%;
+bottom: 18.35%;
+
+background: #1F2937;
+
+
+/* Vector */
+
+position: absolute;
+left: 90.11%;
+right: 0%;
+top: 29.84%;
+bottom: 17.18%;
+
+background: #1F2937;
+
+
+/* CommonScrollBarTraditional */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 18px;
+height: 200px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonScrollBarTraditionalArrowButton */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+background: #F3F4F6;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Polygon 1 */
+
+width: 9px;
+height: 8px;
+
+background: #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonScrollBarTraditional/Default */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 4px;
+gap: 10px;
+
+width: 18px;
+height: 164px;
+
+background: #F3F4F6;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* CommonScrollBarTraditionalTrack */
+
+width: 8px;
+height: 130px;
+
+background: #F3F4F6;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonScrollBarTraditionalThumb */
+
+position: absolute;
+width: 8px;
+height: 60px;
+left: 0px;
+top: 0px;
+
+
+
+/* Rectangle 28 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #9CA3AF;
+border-radius: 8px;
+
+
+/* CommonScrollBarTraditionalArrowButton */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+background: #F3F4F6;
+border: 1px solid #9CA3AF;
+transform: rotate(-180deg);
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Polygon 1 */
+
+width: 9px;
+height: 8px;
+
+background: #9CA3AF;
+transform: rotate(-180deg);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565377 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 818px;
+height: 256px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonInstruction */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 439px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonInstrcuctionLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 134px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565312 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 134px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 1 Assay */
+
+width: 134px;
+height: 36px;
+
+/* TextDefault/TitleMain/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565350 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 293px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Select an assay to apply to the plate. */
+
+width: 219px;
+height: 24px;
+
+/* TextDefault/Body/SmallRegular
+
+필요시 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565380 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 634px;
+height: 204px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565378 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+width: 293px;
+height: 96px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565350 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 293px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Cap/Film */
+
+width: 67px;
+height: 24px;
+
+/* TextDefault/Body/SmallRegular
+
+필요시 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 123px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_checked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 91px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 91px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 131px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 99px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 99px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565379 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+width: 293px;
+height: 204px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565350 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 293px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Plate/Tube */
+
+width: 81px;
+height: 24px;
+
+/* TextDefault/Body/SmallRegular
+
+필요시 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 251px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_checked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 219px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 219px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 222px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 190px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 190px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 194px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 162px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 162px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 226px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 194px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 194px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 77px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+
+
+/* CommonIcons */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* CommonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 45px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 45px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonDivider */
+
+width: 0px;
+height: 692px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Line 2 */
+
+position: absolute;
+left: -1441.67%;
+right: -32981487616%;
+top: 0%;
+bottom: 100%;
+
+border: 1px solid #9CA3AF;
+transform: rotate(90deg);
+
+
+/* Frame 1686565387 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 858px;
+height: 670px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* SelectingAssayWithRadio */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 858px;
+height: 212px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonInstruction */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 493px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonInstrcuctionLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 188px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565312 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 188px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 1 Assay */
+
+width: 188px;
+height: 36px;
+
+/* TextDefault/TitleMain/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565350 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 293px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Select an assay to apply to the plate. */
+
+width: 620px;
+height: 24px;
+
+/* TextDefault/Body/SmallRegular
+
+필요시 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565386 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 40px;
+
+width: 858px;
+height: 160px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565384 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 409px;
+height: 160px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565380 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonColorRadioWithLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommmonColorRadio */
+
+width: 28px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BFDBFE;
+border-radius: 4px;
+
+
+/* CommonIcons */
+
+position: absolute;
+height: 24px;
+left: 7.14%;
+right: 7.14%;
+top: 2px;
+
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_checked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* Assay NameAssay NameAssay NameAssay */
+
+width: 369px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Frame 1686565381 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonColorRadioWithLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommmonColorRadio */
+
+width: 28px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #FCA5A5;
+border-radius: 4px;
+
+
+/* CommonIcons */
+
+position: absolute;
+height: 24px;
+left: 7.14%;
+right: 7.14%;
+top: 2px;
+
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* Assay NameAssay NameAssay NameAssay */
+
+width: 369px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Frame 1686565382 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CommonColorRadioWithLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommmonColorRadio */
+
+width: 28px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #FDE68A;
+border-radius: 4px;
+
+
+/* CommonIcons */
+
+position: absolute;
+height: 24px;
+left: 7.14%;
+right: 7.14%;
+top: 2px;
+
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* Assay NameAssay NameAssay NameAssay */
+
+width: 369px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Frame 1686565383 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* CommonColorRadioWithLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommmonColorRadio */
+
+width: 28px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BBF7D0;
+border-radius: 4px;
+
+
+/* CommonIcons */
+
+position: absolute;
+height: 24px;
+left: 7.14%;
+right: 7.14%;
+top: 2px;
+
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* Assay NameAssay NameAssay NameAssay */
+
+width: 369px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Frame 1686565385 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565380 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonColorRadioWithLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommmonColorRadio */
+
+width: 28px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D1D5DB;
+border-radius: 4px;
+
+
+/* CommonIcons */
+
+position: absolute;
+height: 24px;
+left: 7.14%;
+right: 7.14%;
+top: 2px;
+
+
+
+/* Bounding box */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* radio_button_unchecked */
+
+position: absolute;
+left: 10.42%;
+right: 10.42%;
+top: 10.42%;
+bottom: 10.42%;
+
+background: #1F2937;
+
+
+/* Assay NameAssay NameAssay NameAssay */
+
+width: 369px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Frame 1686565381 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+display: none;
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1686565382 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+display: none;
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Frame 1686565383 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 48px;
+
+display: none;
+width: 409px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* CommmonWellPlateWithColor */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 858px;
+height: 410px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonInstruction */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 858px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonInstrcuctionLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 173px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565312 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 173px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 1 Assay */
+
+width: 173px;
+height: 36px;
+
+/* TextDefault/TitleMain/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+letter-spacing: -0.5px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565350 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 673px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Select an assay to apply to the plate. */
+
+width: 435px;
+height: 24px;
+
+/* TextDefault/Body/SmallRegular
+
+필요시 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565389 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 442px;
+height: 358px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonWellPlate */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 442px;
+height: 306px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565079 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 442px;
+height: 34px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 8;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 9;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 10;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 21px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 11;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 21px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 12;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 21px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565087 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 442px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565080 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 13px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 13px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 12px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 14px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 11px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 10px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 14px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #FFFFFF;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* 1 */
+
+width: 14px;
+height: 28px;
+
+/* TextDefault/Body/DefaultBold */
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1686565081 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565082 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565083 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565084 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565085 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565086 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565087 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565088 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 8;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565089 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 9;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565090 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 10;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565091 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 11;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565092 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 34px;
+height: 272px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 12;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWellItem */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Ellipse 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #DC2626;
+
+
+/* C */
+
+position: absolute;
+left: 22.92%;
+right: 29.17%;
+top: 20.83%;
+bottom: 18.75%;
+
+background: #FFFFFF;
+
+
+/* CommonWellPlateWell */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 34px;
+height: 34px;
+
+background: #BFDBFE;
+border: 1px solid #9CA3AF;
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonWellPlateWellItem */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Ellipse 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #DC2626;
+
+
+/* S */
+
+position: absolute;
+width: 10.71px;
+height: 15px;
+left: calc(50% - 10.71px/2 - 0px);
+top: calc(50% - 15px/2 - 0.14px);
+
+background: #FFFFFF;
+
+
+/* Frame 1686565388 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 442px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* CommonButton */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+
+width: 442px;
+height: 36px;
+
+background: #FFFFFF;
+border: 1px solid #6B7280;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* CommonButtonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 46px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 46px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonPopupFooter */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 32px;
+gap: 384px;
+
+width: 1804px;
+height: 116px;
+
+background: #FFFFFF;
+border-radius: 0px 0px 16px 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1686565390 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 664px;
+height: 52px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonButton */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px;
+
+width: 320px;
+height: 52px;
+
+background: #FFFFFF;
+border: 1px solid #6B7280;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonButtonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 55px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 55px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #1F2937;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* CommonButton */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px;
+
+width: 320px;
+height: 52px;
+
+background: #1F2937;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CommonButtonLabel */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 111px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 111px;
+height: 28px;
+
+/* TextDefault/Body/DefaultRegular
+
+기본 본문에 사용
+*/
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.25px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;

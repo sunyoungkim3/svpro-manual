@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual Plate Setting</title>
+    <title>Create Preset</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -102,45 +102,6 @@
             flex-direction: column;
             gap: 16px;
             min-width: 550px;
-        }
-
-        /* PCR File Open */
-        .pcr-file-open {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            background: #F9FAFB;
-            border-radius: 8px;
-            border: 1px solid #D1D5DB;
-        }
-
-        .file-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .file-icon .material-icons {
-            font-size: 24px;
-            color: #6B7280;
-        }
-
-        .pcr-label {
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 24px;
-            letter-spacing: -0.25px;
-            color: #6B7280;
-        }
-
-        .pcr-filename {
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 24px;
-            letter-spacing: -0.25px;
-            color: #1F2937;
         }
 
         /* Section Title */
@@ -682,13 +643,47 @@
             align-items: center;
             margin-bottom: 8px;
         }
+
+        /* Preset Name Input */
+        .preset-name-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 16px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .preset-name-label {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1F2937;
+        }
+
+        .preset-name-input {
+            padding: 8px 12px;
+            height: 40px;
+            background: #FFFFFF;
+            border: 1px solid #6B7280;
+            border-radius: 8px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.25px;
+            color: #1F2937;
+        }
+
+        .preset-name-input::placeholder {
+            color: #9CA3AF;
+        }
     </style>
 </head>
 <body>
     <div class="popup-container">
         <!-- Header -->
         <div class="popup-header">
-            <div class="popup-title">Manual</div>
+            <div class="popup-title">Create Preset</div>
             <button class="close-button">
                 <span class="material-icons">close</span>
             </button>
@@ -698,13 +693,10 @@
         <div class="popup-content">
             <!-- Left Section -->
             <div class="left-section">
-                <!-- PCR File Display -->
-                <div class="pcr-file-open">
-                    <div class="file-icon">
-                        <span class="material-icons">insert_drive_file</span>
-                    </div>
-                    <span class="pcr-label">PCR Raw Data:</span>
-                    <span class="pcr-filename">Sample_PCR_Data_20231226.pcr</span>
+                <!-- Preset Name Input -->
+                <div class="preset-name-section">
+                    <label class="preset-name-label" for="presetNameInput">Preset Name</label>
+                    <input type="text" class="preset-name-input" id="presetNameInput" placeholder="Enter preset name...">
                 </div>
 
                 <!-- Assay Pack Selection -->
@@ -904,7 +896,7 @@
         <!-- Footer -->
         <div class="popup-footer">
             <button class="footer-button cancel" id="cancelBtn">Cancel</button>
-            <button class="footer-button primary" id="startAnalysisBtn" disabled>Start Analysis</button>
+            <button class="footer-button primary" id="createBtn" disabled>Create</button>
         </div>
     </div>
 
@@ -915,6 +907,9 @@
         let isDragging = false;
         let currentBrushAssay = null;
         const MAX_COMBINATION_ASSAYS = 3;
+        
+        // Create broadcast channel for real-time updates
+        const presetChannel = new BroadcastChannel('preset_updates');
         
         // Rectangle selection
         let isRectangleSelecting = false;
@@ -1129,9 +1124,9 @@
             document.getElementById('plateInstruction').textContent = 
                 `Base assay: ${selectedAssay.name}. Select an assay to paint on plate.`;
 
-            // Enable reset and start analysis buttons
+            // Enable reset and create buttons
             document.getElementById('resetPlateBtn').disabled = false;
-            document.getElementById('startAnalysisBtn').disabled = false;
+            document.getElementById('createBtn').disabled = false;
 
             // Load compatible assays
             loadCombinationAssays();
@@ -1349,7 +1344,7 @@
                 
                 // Disable buttons
                 document.getElementById('resetPlateBtn').disabled = true;
-                document.getElementById('startAnalysisBtn').disabled = true;
+                document.getElementById('createBtn').disabled = true;
                 
                 // Hide legend
                 document.getElementById('plateLegend').style.display = 'none';
@@ -1465,7 +1460,7 @@
                 
                 // Disable buttons
                 document.getElementById('resetPlateBtn').disabled = true;
-                document.getElementById('startAnalysisBtn').disabled = true;
+                document.getElementById('createBtn').disabled = true;
                 
                 // Hide legend
                 document.getElementById('plateLegend').style.display = 'none';
@@ -1479,10 +1474,17 @@
             }
         });
 
-        // Start Analysis button
-        document.getElementById('startAnalysisBtn').addEventListener('click', function() {
+        // Create button
+        document.getElementById('createBtn').addEventListener('click', function() {
             if (!selectedAssay) {
                 alert('Please select an assay pack first.');
+                return;
+            }
+
+            // Check preset name
+            const presetName = document.getElementById('presetNameInput').value.trim();
+            if (!presetName) {
+                alert('Please enter a preset name.');
                 return;
             }
 
@@ -1495,27 +1497,45 @@
                 return;
             }
 
-            // Collect plate data
-            const plateConfig = {
-                pcrFile: document.querySelector('.pcr-filename').textContent,
+            // Collect preset data
+            const presetConfig = {
+                id: Date.now(),
+                name: presetName,
                 baseAssay: selectedAssay,
                 consumables: {
                     capFilm: capFilmSelected.value,
                     plateTube: plateTubeSelected.value
                 },
                 additionalAssays: selectedCombinationAssays,
-                plateData: plateData
+                plateData: JSON.parse(JSON.stringify(plateData))
             };
 
-            console.log('Starting analysis with configuration:', plateConfig);
-            alert('Starting analysis...\n\nConfiguration:\n' + 
+            // Load existing presets from localStorage
+            let savedPresets = [];
+            const storedPresets = localStorage.getItem('savedPresets');
+            if (storedPresets) {
+                savedPresets = JSON.parse(storedPresets);
+            }
+
+            // Add new preset
+            savedPresets.push(presetConfig);
+            
+            // Save to localStorage
+            localStorage.setItem('savedPresets', JSON.stringify(savedPresets));
+            
+            // Broadcast creation to other windows
+            presetChannel.postMessage({ type: 'created', preset: presetConfig });
+
+            console.log('Creating preset with configuration:', presetConfig);
+            alert('Preset created successfully!\n\nConfiguration:\n' + 
+                  `Name: ${presetName}\n` +
                   `Base Assay: ${selectedAssay.name}\n` +
                   `Cap/Film: ${capFilmSelected.value}\n` +
                   `Plate/Tube: ${plateTubeSelected.value}\n` +
                   `Additional Assays: ${selectedCombinationAssays.length}`);
             
-            // Here you would typically send the data to your backend
-            // window.close();
+            // Close window after creation
+            window.close();
         });
 
         // Close button
