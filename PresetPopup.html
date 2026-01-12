@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preset Management</title>
+    <title>Preset</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -277,36 +277,6 @@
             overflow: hidden;
         }
 
-        .add-preset-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 16px;
-            background: #2563EB;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Noto Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .add-preset-button:hover {
-            background: #1D4ED8;
-        }
-
-        .add-preset-button .material-icons {
-            font-size: 20px;
-            color: #FFFFFF;
-        }
-
-        .add-preset-button.hidden {
-            display: none;
-        }
-
         /* Preset List Section */
         .preset-list-section {
             display: flex;
@@ -392,33 +362,6 @@
             color: #1F2937;
         }
 
-        .preset-item-delete {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 4px;
-            background: transparent;
-            color: #EF4444;
-            cursor: pointer;
-            border: none;
-            padding: 0;
-            transition: background 0.2s;
-        }
-
-        .preset-item-delete:hover {
-            background: #FEE2E2;
-        }
-
-        .preset-item-delete.hidden {
-            display: none !important;
-        }
-
-        .preset-item-delete .material-icons {
-            font-size: 20px;
-        }
-
         .preset-item-info {
             display: flex;
             flex-direction: column;
@@ -502,7 +445,7 @@
     <div class="popup-container">
         <!-- Header -->
         <div class="popup-header">
-            <div class="popup-title">Preset Management</div>
+            <div class="popup-title">Preset</div>
             <button class="close-button" onclick="closePopup()">
                 <span class="material-icons">close</span>
             </button>
@@ -512,12 +455,6 @@
         <div class="popup-content">
             <!-- Left Section - List -->
             <div class="list-section">
-                <!-- Add Preset Button -->
-                <button class="add-preset-button" id="addPresetBtn" onclick="openCreatePreset()">
-                    <span class="material-icons">add</span>
-                    Add Preset
-                </button>
-
                 <div class="preset-list-section">
                     <div class="preset-list-header">Saved Presets</div>
                     <div class="preset-list-container" id="presetListContainer">
@@ -546,10 +483,6 @@
         let savedPresets = [];
         let selectedPresetId = null;
         
-        // User role: 'Master', 'Admin', or 'User'
-        // Change this value based on logged-in user
-        let userRole = 'Master'; // Default to Master for testing
-        
         // Create broadcast channel for real-time updates
         const presetChannel = new BroadcastChannel('preset_updates');
 
@@ -559,26 +492,6 @@
             if (storedPresets) {
                 savedPresets = JSON.parse(storedPresets);
                 updatePresetList();
-            }
-            
-            // Update UI based on user role
-            updateUIByRole();
-        }
-
-        // Update UI based on user role
-        function updateUIByRole() {
-            const addPresetBtn = document.getElementById('addPresetBtn');
-            
-            if (userRole !== 'Master') {
-                // Hide Add Preset button for non-Master users
-                if (addPresetBtn) {
-                    addPresetBtn.classList.add('hidden');
-                }
-            } else {
-                // Show Add Preset button for Master users
-                if (addPresetBtn) {
-                    addPresetBtn.classList.remove('hidden');
-                }
             }
         }
 
@@ -615,9 +528,6 @@
                 presetItem.innerHTML = `
                     <div class="preset-item-header">
                         <div class="preset-item-name">${preset.name}</div>
-                        <button class="preset-item-delete ${userRole !== 'Master' ? 'hidden' : ''}" data-preset-id="${preset.id}" title="Delete preset">
-                            <span class="material-icons">close</span>
-                        </button>
                     </div>
                     <div class="preset-item-info">
                         <div class="preset-item-row">
@@ -633,18 +543,7 @@
                 
                 // Add click event to show preview
                 presetItem.addEventListener('click', function(e) {
-                    // Don't trigger if clicking delete button
-                    if (e.target.closest('.preset-item-delete')) {
-                        return;
-                    }
                     selectPreset(preset.id);
-                });
-                
-                // Add delete button event
-                const deleteBtn = presetItem.querySelector('.preset-item-delete');
-                deleteBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    deletePreset(preset.id);
                 });
                 
                 presetListContainer.appendChild(presetItem);
@@ -754,34 +653,6 @@
             }
         }
 
-        // Delete Preset
-        function deletePreset(presetId) {
-            if (userRole !== 'Master') {
-                alert('Only Master users can delete presets.');
-                return;
-            }
-            
-            if (confirm('Delete this preset?')) {
-                savedPresets = savedPresets.filter(p => p.id !== presetId);
-                localStorage.setItem('savedPresets', JSON.stringify(savedPresets));
-                
-                // Broadcast deletion to other windows
-                presetChannel.postMessage({ type: 'deleted', presetId: presetId });
-                
-                // If deleted preset was selected, clear selection
-                if (selectedPresetId === presetId) {
-                    selectedPresetId = null;
-                    const previewContainer = document.getElementById('previewContainer');
-                    previewContainer.innerHTML = '<div class="preview-empty">Select a preset to preview</div>';
-                    
-                    // Disable Start Analysis button
-                    document.getElementById('startAnalysisBtn').disabled = true;
-                }
-                
-                updatePresetList();
-            }
-        }
-
         // Start Analysis
         function startAnalysis() {
             if (!selectedPresetId) {
@@ -810,15 +681,6 @@
             
             // Here you would typically send the data to your backend
             // window.close();
-        }
-
-        // Open Create Preset popup
-        function openCreatePreset() {
-            if (userRole !== 'Master') {
-                alert('Only Master users can create presets.');
-                return;
-            }
-            window.open('CreatePresetPopup.html', 'CreatePreset', 'width=1900,height=950');
         }
 
         // Close popup
