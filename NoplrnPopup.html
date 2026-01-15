@@ -682,6 +682,96 @@
             align-items: center;
             margin-bottom: 8px;
         }
+
+        /* Preset Save Dialog */
+        .preset-dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .preset-dialog-overlay.active {
+            display: flex;
+        }
+
+        .preset-dialog {
+            width: 480px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .preset-dialog-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .preset-dialog-title {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 28px;
+            color: #1F2937;
+        }
+
+        .preset-dialog-body {
+            padding: 24px;
+        }
+
+        .preset-input-label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .preset-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 15px;
+            color: #1F2937;
+            transition: border-color 0.2s;
+        }
+
+        .preset-input:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .preset-input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .preset-dialog-footer {
+            padding: 16px 24px;
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .footer-button.save-preset {
+            background: #FFFFFF;
+            color: #1F2937;
+            border: 1px solid #D1D5DB;
+        }
+
+        .footer-button.save-preset:hover {
+            background: #F3F4F6;
+        }
     </style>
 </head>
 <body>
@@ -904,7 +994,25 @@
         <!-- Footer -->
         <div class="popup-footer">
             <button class="footer-button cancel" id="cancelBtn">Cancel</button>
+            <button class="footer-button save-preset" id="savePresetBtn" style="display: none;" disabled>Save as Preset</button>
             <button class="footer-button primary" id="startAnalysisBtn" disabled>Start Analysis</button>
+        </div>
+    </div>
+
+    <!-- Preset Save Dialog -->
+    <div class="preset-dialog-overlay" id="presetDialogOverlay">
+        <div class="preset-dialog">
+            <div class="preset-dialog-header">
+                <div class="preset-dialog-title">Save as Preset</div>
+            </div>
+            <div class="preset-dialog-body">
+                <label class="preset-input-label">Preset Name</label>
+                <input type="text" class="preset-input" id="presetNameInput" placeholder="Enter preset name..." maxlength="50">
+            </div>
+            <div class="preset-dialog-footer">
+                <button class="footer-button cancel" id="presetCancelBtn">Cancel</button>
+                <button class="footer-button primary" id="presetConfirmBtn">Confirm</button>
+            </div>
         </div>
     </div>
 
@@ -915,6 +1023,9 @@
         let isDragging = false;
         let currentBrushAssay = null;
         const MAX_COMBINATION_ASSAYS = 3;
+        
+        // User permission (mock - should be retrieved from actual session/API)
+        let currentUserRole = 'admin'; // 'master', 'admin', 'user'
         
         // Rectangle selection
         let isRectangleSelecting = false;
@@ -1132,6 +1243,7 @@
             // Enable reset and start analysis buttons
             document.getElementById('resetPlateBtn').disabled = false;
             document.getElementById('startAnalysisBtn').disabled = false;
+            document.getElementById('savePresetBtn').disabled = false;
 
             // Load compatible assays
             loadCombinationAssays();
@@ -1466,6 +1578,7 @@
                 // Disable buttons
                 document.getElementById('resetPlateBtn').disabled = true;
                 document.getElementById('startAnalysisBtn').disabled = true;
+                document.getElementById('savePresetBtn').disabled = true;
                 
                 // Hide legend
                 document.getElementById('plateLegend').style.display = 'none';
@@ -1547,8 +1660,159 @@
             }
         }
 
+        // Check user permission and show/hide Save as Preset button
+        function checkUserPermission() {
+            const savePresetBtn = document.getElementById('savePresetBtn');
+            if (currentUserRole === 'master' || currentUserRole === 'admin') {
+                savePresetBtn.style.display = 'inline-flex';
+            } else {
+                savePresetBtn.style.display = 'none';
+            }
+        }
+
+        // Save current configuration as preset
+        function saveAsPreset() {
+            if (!selectedAssay) {
+                alert('Please select an assay pack first.');
+                return;
+            }
+
+            const capFilmSelected = document.querySelector('input[name="capFilm"]:checked');
+            const plateTubeSelected = document.querySelector('input[name="plateTube"]:checked');
+
+            if (!capFilmSelected || !plateTubeSelected) {
+                alert('Please select both Cap/Film and Plate/Tube consumables.');
+                return;
+            }
+
+            // Show preset name dialog
+            const overlay = document.getElementById('presetDialogOverlay');
+            const input = document.getElementById('presetNameInput');
+            overlay.classList.add('active');
+            input.value = '';
+            input.focus();
+        }
+
+        // Save preset with name
+        function confirmSavePreset() {
+            const presetName = document.getElementById('presetNameInput').value.trim();
+            
+            if (!presetName) {
+                alert('Please enter a preset name.');
+                return;
+            }
+
+            const capFilmSelected = document.querySelector('input[name="capFilm"]:checked');
+            const plateTubeSelected = document.querySelector('input[name="plateTube"]:checked');
+
+            // Collect preset data
+            const presetData = {
+                name: presetName,
+                pcrFile: document.querySelector('.pcr-filename').textContent,
+                baseAssay: selectedAssay,
+                consumables: {
+                    capFilm: capFilmSelected.value,
+                    plateTube: plateTubeSelected.value
+                },
+                additionalAssays: selectedCombinationAssays,
+                plateData: plateData,
+                createdBy: currentUserRole,
+                createdAt: new Date().toISOString()
+            };
+
+            console.log('Saving preset:', presetData);
+
+            // Here you would typically send the data to your backend to update PresetList
+            // Example API call:
+            // fetch('/api/presets', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(presetData)
+            // }).then(response => {
+            //     if (response.ok) {
+            //         alert('Preset saved successfully!');
+            //         closePresetDialog();
+            //     }
+            // });
+
+            // For now, show success message
+            alert(`Preset "${presetName}" saved successfully!\n\nConfiguration:\n` +
+                  `Base Assay: ${selectedAssay.name}\n` +
+                  `Cap/Film: ${capFilmSelected.value}\n` +
+                  `Plate/Tube: ${plateTubeSelected.value}\n` +
+                  `Additional Assays: ${selectedCombinationAssays.length}`);
+            
+            closePresetDialog();
+            
+            // Update PresetList (if available)
+            updatePresetList(presetData);
+        }
+
+        // Close preset dialog
+        function closePresetDialog() {
+            const overlay = document.getElementById('presetDialogOverlay');
+            overlay.classList.remove('active');
+            document.getElementById('presetNameInput').value = '';
+        }
+
+        // Update PresetList with new preset
+        function updatePresetList(presetData) {
+            // This function would communicate with PresetListPopup.html
+            // You can use localStorage, postMessage, or API call
+            
+            // Example using localStorage:
+            const presets = JSON.parse(localStorage.getItem('savedPresets') || '[]');
+            presets.push(presetData);
+            localStorage.setItem('savedPresets', JSON.stringify(presets));
+            
+            console.log('PresetList updated:', presets);
+        }
+
         // Initialize plate on load
         initializePlate();
+        checkUserPermission();
+
+        // Save as Preset button
+        document.getElementById('savePresetBtn').addEventListener('click', saveAsPreset);
+
+        // Preset dialog buttons
+        document.getElementById('presetCancelBtn').addEventListener('click', closePresetDialog);
+        document.getElementById('presetConfirmBtn').addEventListener('click', confirmSavePreset);
+
+        // Preset dialog overlay click to close
+        document.getElementById('presetDialogOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePresetDialog();
+            }
+        });
+
+        // Preset name input - Enter key to confirm
+        document.getElementById('presetNameInput').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                confirmSavePreset();
+            }
+        });
+
+        // Save as Preset button
+        document.getElementById('savePresetBtn').addEventListener('click', saveAsPreset);
+
+        // Preset dialog buttons
+        document.getElementById('presetCancelBtn').addEventListener('click', closePresetDialog);
+        document.getElementById('presetConfirmBtn').addEventListener('click', confirmSavePreset);
+
+        // Preset dialog overlay click to close
+        document.getElementById('presetDialogOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePresetDialog();
+            }
+        });
+
+        // Preset name input - Enter key to confirm
+        document.getElementById('presetNameInput').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                confirmSavePreset();
+            }
+        });
 
         // Add event listeners for consumables to update summary
         document.addEventListener('DOMContentLoaded', function() {
