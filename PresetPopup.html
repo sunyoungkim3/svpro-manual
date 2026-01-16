@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background: rgba(59, 59, 59, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .popup-container {
+            width: 1200px;
+            height: 700px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0px 0px 16px 20px rgba(59, 59, 59, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .popup-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: #FFFFFF;
+            border-radius: 16px 16px 0px 0px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .popup-title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: -0.5px;
+            color: #1F2937;
+        }
+
+        .close-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #FFFFFF;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .close-button:hover {
+            background: #F3F4F6;
+        }
+
+        .material-icons {
+            color: #1F2937;
+            font-size: 24px;
+        }
+
+        /* Content */
+        .popup-content {
+            display: flex;
+            flex-direction: row;
+            padding: 24px;
+            background: #FFFFFF;
+            flex: 1;
+            overflow: hidden;
+            gap: 24px;
+        }
+
+        /* Right Section - Preview */
+        .preview-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow: hidden;
+            border-left: 1px solid #E5E7EB;
+            padding-left: 24px;
+        }
+
+        .preview-header {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 24px;
+            color: #1F2937;
+        }
+
+        .preview-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #F9FAFB;
+            border-radius: 8px;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .preview-empty {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        .preview-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .preview-info-row {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .preview-info-label {
+            font-weight: 600;
+            color: #6B7280;
+            min-width: 90px;
+        }
+
+        .preview-info-value {
+            color: #1F2937;
+            flex: 1;
+        }
+
+        /* Plate Preview */
+        .plate-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .plate-preview-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .plate-grid-wrapper {
+            display: flex;
+            gap: 4px;
+        }
+
+        .plate-row-labels {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding-top: 22px;
+        }
+
+        .row-label {
+            width: 20px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 11px;
+            color: #1F2937;
+        }
+
+        .plate-grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .plate-col-labels {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 2px;
+        }
+
+        .col-label {
+            width: 28px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 11px;
+            color: #1F2937;
+        }
+
+        .plate-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 28px);
+            grid-template-rows: repeat(8, 28px);
+            gap: 2px;
+        }
+
+        .well-preview {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #9CA3AF;
+            border-radius: 3px;
+            background: #FFFFFF;
+        }
+
+        .preview-legend {
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        .preview-legend-title {
+            font-weight: 600;
+            font-size: 12px;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .preview-legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .preview-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            background: #F9FAFB;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+            font-size: 11px;
+        }
+
+        .preview-legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            border: 1px solid #9CA3AF;
+        }
+
+        /* Right Section - List */
+        .list-section {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        /* Left Section - List */
+        .list-section {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        /* Preset List Section */
+        .preset-list-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .preset-list-header {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 24px;
+            color: #1F2937;
+        }
+
+        .preset-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+            overflow-y: auto;
+            padding: 4px;
+        }
+
+        .preset-list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .preset-list-container::-webkit-scrollbar-track {
+            background: #F3F4F6;
+            border-radius: 4px;
+        }
+
+        .preset-list-container::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 4px;
+        }
+
+        .preset-list-container::-webkit-scrollbar-thumb:hover {
+            background: #9CA3AF;
+        }
+
+        .preset-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 16px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .preset-item:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-color: #D1D5DB;
+        }
+
+        .preset-item.selected {
+            background: #EFF6FF;
+            border-color: #2563EB;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+        }
+
+        .preset-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .preset-item-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1F2937;
+        }
+
+        .preset-item-name-emphasis {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1F2937;
+        }
+
+        .preset-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .preset-item-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .preset-item-label {
+            font-weight: 600;
+            color: #6B7280;
+            min-width: 90px;
+        }
+
+        .preset-item-value {
+            color: #1F2937;
+            flex: 1;
+        }
+
+        .preset-list-empty {
+            padding: 48px 24px;
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .popup-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 16px 24px;
+            gap: 12px;
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+            border-radius: 0px 0px 16px 16px;
+        }
+
+        .footer-button {
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .footer-button.cancel {
+            background: #FFFFFF;
+            color: #1F2937;
+            border: 1px solid #D1D5DB;
+        }
+
+        .footer-button.cancel:hover {
+            background: #F3F4F6;
+        }
+
+        .footer-button.primary {
+            background: #2563EB;
+            color: #FFFFFF;
+        }
+
+        .footer-button.primary:hover {
+            background: #1D4ED8;
+        }
+
+        .footer-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <div class="popup-header">
+            <div class="popup-title">Preset</div>
+            <button class="close-button" onclick="closePopup()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="popup-content">
+            <!-- Left Section - List -->
+            <div class="list-section">
+                <div class="preset-list-section">
+                    <div class="preset-list-header">Saved Presets</div>
+                    <div class="preset-list-container" id="presetListContainer">
+                        <div class="preset-list-empty" id="presetListEmpty">No presets saved yet</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section - Preview -->
+            <div class="preview-section">
+                <div class="preview-header">Preview</div>
+                <div class="preview-container" id="previewContainer">
+                    <div class="preview-empty">Select a preset to preview</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="popup-footer">
+            <button class="footer-button cancel" onclick="closePopup()">Cancel</button>
+            <button class="footer-button primary" id="startAnalysisBtn" onclick="startAnalysis()" disabled>Start Analysis</button>
+        </div>
+    </div>
+
+    <script>
+        let savedPresets = [];
+        let selectedPresetId = null;
+        
+        // Create broadcast channel for real-time updates
+        const presetChannel = new BroadcastChannel('preset_updates');
+
+        // Load presets from localStorage on page load
+        function loadPresets() {
+            const storedPresets = localStorage.getItem('savedPresets');
+            if (storedPresets) {
+                savedPresets = JSON.parse(storedPresets);
+                updatePresetList();
+            }
+        }
+
+        // Update Preset List
+        function updatePresetList() {
+            const presetListContainer = document.getElementById('presetListContainer');
+            const presetListEmpty = document.getElementById('presetListEmpty');
+            
+            // Remove all preset items first
+            presetListContainer.querySelectorAll('.preset-item').forEach(item => item.remove());
+            
+            if (savedPresets.length === 0) {
+                presetListEmpty.style.display = 'block';
+                return;
+            }
+            
+            presetListEmpty.style.display = 'none';
+            
+            savedPresets.forEach(preset => {
+                const presetItem = document.createElement('div');
+                presetItem.className = 'preset-item';
+                presetItem.dataset.presetId = preset.id;
+                
+                if (selectedPresetId === preset.id) {
+                    presetItem.classList.add('selected');
+                }
+                
+                // Build assays list
+                const assaysList = [preset.baseAssay.name];
+                if (preset.additionalAssays && preset.additionalAssays.length > 0) {
+                    preset.additionalAssays.forEach(a => assaysList.push(a.name));
+                }
+                
+                presetItem.innerHTML = `
+                    <div class="preset-item-header">
+                        <div class="preset-item-name">${preset.name}</div>
+                    </div>
+                    <div class="preset-item-info">
+                        <div class="preset-item-row">
+                            <div class="preset-item-label">Assay(s):</div>
+                            <div class="preset-item-value">${assaysList.join(', ')}</div>
+                        </div>
+                        <div class="preset-item-row">
+                            <div class="preset-item-label">Consumable:</div>
+                            <div class="preset-item-value">${preset.consumables.capFilm} / ${preset.consumables.plateTube}</div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event to show preview
+                presetItem.addEventListener('click', function(e) {
+                    selectPreset(preset.id);
+                });
+                
+                presetListContainer.appendChild(presetItem);
+            });
+            
+            // Auto-select first preset if none selected
+            if (!selectedPresetId && savedPresets.length > 0) {
+                selectPreset(savedPresets[0].id);
+            }
+        }
+
+        // Select Preset and show preview
+        function selectPreset(presetId) {
+            selectedPresetId = presetId;
+            
+            // Update selection UI
+            document.querySelectorAll('.preset-item').forEach(item => {
+                if (parseInt(item.dataset.presetId) === presetId) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+            
+            // Show preview
+            const preset = savedPresets.find(p => p.id === presetId);
+            if (preset) {
+                showPreview(preset);
+            }
+            
+            // Enable Start Analysis button
+            document.getElementById('startAnalysisBtn').disabled = false;
+        }
+
+        // Show Plate Preview
+        function showPreview(preset) {
+            const previewContainer = document.getElementById('previewContainer');
+            
+            // Build legend
+            const legendAssays = [preset.baseAssay];
+            if (preset.additionalAssays && preset.additionalAssays.length > 0) {
+                legendAssays.push(...preset.additionalAssays);
+            }
+            
+            previewContainer.innerHTML = `
+                <div class="preview-info">
+                    <div style="text-align: center; margin-bottom: 16px;">
+                        <div class="preset-item-name-emphasis">${preset.name}</div>
+                    </div>
+                </div>
+                
+                <div class="plate-preview">
+                    <div class="plate-preview-title">Plate Setting (96-well)</div>
+                    <div class="plate-grid-wrapper">
+                        <div class="plate-row-labels">
+                            <div class="row-label">A</div>
+                            <div class="row-label">B</div>
+                            <div class="row-label">C</div>
+                            <div class="row-label">D</div>
+                            <div class="row-label">E</div>
+                            <div class="row-label">F</div>
+                            <div class="row-label">G</div>
+                            <div class="row-label">H</div>
+                        </div>
+                        <div class="plate-grid-container">
+                            <div class="plate-col-labels">
+                                <div class="col-label">1</div>
+                                <div class="col-label">2</div>
+                                <div class="col-label">3</div>
+                                <div class="col-label">4</div>
+                                <div class="col-label">5</div>
+                                <div class="col-label">6</div>
+                                <div class="col-label">7</div>
+                                <div class="col-label">8</div>
+                                <div class="col-label">9</div>
+                                <div class="col-label">10</div>
+                                <div class="col-label">11</div>
+                                <div class="col-label">12</div>
+                            </div>
+                            <div class="plate-grid" id="platePreviewGrid"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-legend">
+                        <div class="preview-legend-title">Selected Assay(s):</div>
+                        <div class="preview-legend-items">
+                            ${legendAssays.map(assay => `
+                                <div class="preview-legend-item">
+                                    <div class="preview-legend-color" style="background-color: ${assay.color};"></div>
+                                    <span>${assay.name}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Render plate
+            const plateGrid = document.getElementById('platePreviewGrid');
+            if (preset.plateData && preset.plateData.length === 96) {
+                preset.plateData.forEach(well => {
+                    const wellElement = document.createElement('div');
+                    wellElement.className = 'well-preview';
+                    wellElement.style.backgroundColor = well.color || '#FFFFFF';
+                    plateGrid.appendChild(wellElement);
+                });
+            }
+        }
+
+        // Start Analysis
+        function startAnalysis() {
+            if (!selectedPresetId) {
+                alert('Please select a preset first.');
+                return;
+            }
+            
+            const selectedPreset = savedPresets.find(p => p.id === selectedPresetId);
+            if (!selectedPreset) {
+                alert('Selected preset not found.');
+                return;
+            }
+            
+            // Build assays list
+            const assaysList = [selectedPreset.baseAssay.name];
+            if (selectedPreset.additionalAssays && selectedPreset.additionalAssays.length > 0) {
+                selectedPreset.additionalAssays.forEach(a => assaysList.push(a.name));
+            }
+            
+            console.log('Starting analysis with preset:', selectedPreset);
+            alert('Starting analysis...\n\nPreset: ' + selectedPreset.name + '\n' +
+                  'Base Assay: ' + selectedPreset.baseAssay.name + '\n' +
+                  'Cap/Film: ' + selectedPreset.consumables.capFilm + '\n' +
+                  'Plate/Tube: ' + selectedPreset.consumables.plateTube + '\n' +
+                  'Additional Assays: ' + (selectedPreset.additionalAssays ? selectedPreset.additionalAssays.length : 0));
+            
+            // Here you would typically send the data to your backend
+            // window.close();
+        }
+
+        // Close popup
+        function closePopup() {
+            if (confirm('Close the popup?')) {
+                window.close();
+            }
+        }
+
+        // Listen for broadcast messages from other windows
+        presetChannel.onmessage = function(event) {
+            if (event.data.type === 'created' || event.data.type === 'deleted') {
+                // Reload presets from localStorage
+                const storedPresets = localStorage.getItem('savedPresets');
+                if (storedPresets) {
+                    savedPresets = JSON.parse(storedPresets);
+                } else {
+                    savedPresets = [];
+                }
+                updatePresetList();
+            }
+        };
+
+        // Listen for storage changes (when Create Preset saves a new preset)
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'savedPresets') {
+                loadPresets();
+            }
+        });
+
+        // Reload presets when window gains focus (after Create Preset closes)
+        window.addEventListener('focus', function() {
+            const storedPresets = localStorage.getItem('savedPresets');
+            if (storedPresets) {
+                const newPresets = JSON.parse(storedPresets);
+                // Check if presets have changed
+                if (JSON.stringify(newPresets) !== JSON.stringify(savedPresets)) {
+                    savedPresets = newPresets;
+                    updatePresetList();
+                }
+            }
+        });
+
+        // Initialize
+        loadPresets();
+    </script>
+</body>
+</html>
