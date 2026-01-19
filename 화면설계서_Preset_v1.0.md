@@ -90,8 +90,12 @@ SV Pro에는 세 가지 Preset 관련 팝업이 있습니다:
 - **동작**:
   1. 팝업 표시
   2. 저장된 Preset 목록 로드
-  3. Preset 목록이 있으면 첫 번째 Preset 자동 선택
-  4. Preset 목록이 없으면 "No presets saved yet" 메시지 표시
+  3. Preset 목록이 있으면:
+     - 첫 번째 Preset 자동 선택
+     - Start Analysis 버튼 활성화
+  4. Preset 목록이 없으면:
+     - "No presets saved yet" 메시지 표시
+     - Start Analysis 버튼 비활성화
 
 #### 닫기
 - **트리거**: 
@@ -99,17 +103,26 @@ SV Pro에는 세 가지 Preset 관련 팝업이 있습니다:
   2. Cancel 버튼 클릭
 
 - **동작**:
-  1. 확인 시 팝업 닫기, 취소 시 팝업 유지
+  1. 확인 팝업 표시
+  2. 확인 선택 시 팝업 닫기
+  3. 취소 선택 시 팝업 유지
 
 ### 4.2 Preset 선택
 
 #### 트리거
 - Preset 목록에서 Preset 항목 클릭
 
+#### 사전 조건
+- Preset 목록이 로드되어 있어야 함
+
 #### 동작
 1. 클릭된 Preset 항목에 선택 스타일 적용
 2. 이전에 선택된 항목 스타일 제거
 3. Preview 영역에 선택된 Preset 정보 표시
+4. Start Analysis 버튼 활성화 상태 유지
+
+#### 완료 후
+- 선택된 Preset이 변경되고 분석을 시작할 수 있는 상태
 
 ### 4.3 Preview 표시
 
@@ -154,17 +167,17 @@ Preset은 두 가지 경로로 생성할 수 있습니다:
 - Manual 팝업에서 [Save as Preset] 버튼 클릭
 
 **동작**:
-2. Preset 이름 입력 다이얼로그 표시
+1. Preset 이름 입력 다이얼로그 표시
    - 다이얼로그 제목: "Save as Preset"
    - 입력 필드: Preset Name (필수)
    - 버튼: Cancel / Save
-3. Save 클릭 시:
+2. Save 클릭 시:
    - 필수 검증: Preset 이름 입력 여부 확인
    - 이름 미입력 → 경고 메시지: "Please enter a preset name."
    - 이름 입력됨 → Preset 데이터 구성 및 저장
    - 성공 메시지: "Preset saved successfully!"
    - 다이얼로그 닫기
-4. Cancel 클릭 시:
+3. Cancel 클릭 시:
    - 다이얼로그 닫기, 작업 취소
 
 **저장 완료 후**:
@@ -184,12 +197,18 @@ Preset은 두 가지 경로로 생성할 수 있습니다:
 - Preset 항목 우측 상단의 [×] 버튼 클릭
 
 #### 동작
-2. 확인 팝업 표시: "Delete this preset?"
-3. 사용자 선택:
+1. 확인 팝업 표시: "Delete this preset?"
+2. 사용자 선택:
    - **취소**: 작업 취소
    - **확인**: 
-     5. Preset 목록 UI 업데이트
-     6. 남은 Preset 있으면 첫 번째 Preset 자동 선택
+     1. savedPresets 배열에서 해당 Preset 제거
+     2. 데이터 업데이트
+     3. 삭제된 Preset이 선택 상태였으면 선택 해제
+     4. Preset 목록 UI 업데이트
+     5. 남은 Preset 있으면 첫 번째 Preset 자동 선택
+
+#### 완료 후
+- Preset 목록이 갱신되고 다른 팝업들도 동기화됨
 
 ### 4.6 분석 시작
 
@@ -201,13 +220,19 @@ Preset은 두 가지 경로로 생성할 수 있습니다:
 
 #### 동작
 1. 선택된 Preset 데이터 가져오기
+2. 선택된 Preset이 없으면 경고 메시지 표시
+3. Assay 목록 구성 (Base Assay + Additional Assays)
+4. 백엔드로 분석 데이터 전송
 5. 팝업 닫기
+
+#### 완료 후
+- 분석 프로세스 시작
 
 ---
 
 ## 5. 예외 처리 및 에러 메시지
 
-### 6.1 권한 부족
+### 5.1 권한 부족
 
 #### Preset Management 접근 시도 (User)
 ```
@@ -230,19 +255,7 @@ Save as Preset 버튼: 표시되지 않음 (display: none 인라인 스타일)
 위치: Preset 목록 영역 중앙
 ```
 
-### 5.3 분석 시작 실패
-
-#### Preset 선택 안 됨
-```
-alert: "Please select a preset first."
-```
-
-#### 선택된 Preset 데이터 없음
-```
-alert: "Selected preset not found."
-```
-
-### 5.4 팝업 닫기 확인
+### 5.3 팝업 닫기 확인
 
 #### 닫기 시도 시
 ```
@@ -253,40 +266,7 @@ confirm: "Close the popup?"
 
 ---
 
-## 6. 향후 개선 사항
-
-### 6.1 검색 기능
-- Preset 목록에서 검색 기능 추가
-- 검색 범위: Preset 이름, Assay 이름
-
-### 6.2 정렬 기능
-- 생성일 기준 정렬
-- 이름 기준 정렬 (A-Z, Z-A)
-- 최근 사용 기준 정렬
-
-### 6.3 필터링
-- Assay 종류별 필터링
-- Consumable 종류별 필터링
-
-### 6.4 편집 기능
-- 기존 Preset 편집 (Master만)
-- 이름 변경, 설정 수정
-
-### 6.5 복제 기능
-- 기존 Preset 복제하여 새 Preset 생성
-- 빠른 Preset 생성 지원
-
-### 6.6 즐겨찾기
-- 자주 사용하는 Preset 즐겨찾기 표시
-- 즐겨찾기 Preset 상단 고정
-
-### 6.7 로딩 인디케이터
-- localStorage 로드 시 로딩 표시
-- 분석 시작 시 진행 상태 표시
-
----
-
-## 7. 테스트 시나리오
+## 6. 테스트 시나리오
 
 ### 7.1 기본 동작 테스트
 
@@ -304,7 +284,10 @@ confirm: "Close the popup?"
 
 #### 시나리오 3: 분석 시작
 1. Preset 선택
-2. Start Analysis 버튼 클릭
+2. Start Analysis 버튼 활성화 확인
+3. Start Analysis 버튼 클릭
+4. 팝업 닫힙 확인
+5. 분석 프로세스 시작 확인
 
 ### 7.2 권한 테스트 (Preset Management)
 
@@ -323,9 +306,11 @@ confirm: "Close the popup?"
 2. Manual 팝업 접근 확인
 3. Save as Preset 버튼 표시 확인
 4. Base Assay 선택
-5. Save as Preset 클릭 → 이름 입력 다이얼로그 표시 확인
-6. Preset 이름 입력 후 저장 → 성공 메시지 확인
-7. Preset 팝업/Management에서 새로 생성된 Preset 확인
+5. Consumables 선택
+6. Plate Setting (96-well) 구성
+7. Save as Preset 클릭 → 이름 입력 다이얼로그 표시 확인
+8. Preset 이름 입력 후 저장 → 성공 메시지 확인
+9. Preset 팝업/Management에서 새로 생성된 Preset 확인
 
 #### 시나리오 6: User 사용자
 1. User 권한일 때
