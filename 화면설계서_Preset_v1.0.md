@@ -23,34 +23,17 @@ SV Pro 소프트웨어에서 Preset을 조회하고 선택하여 분석을 시�
 
 SV Pro에는 세 가지 Preset 관련 팝업이 있습니다:
 
-### 2.1 Preset 팝업 (PresetPopup.html)
+### 2.1 Preset 팝업
 - **목적**: Preset 선택 및 분석 시작
-- **접근 권한**: User / Admin / Master (모든 사용자)
-- **진입 지점**: 분석 시작하기 단계에서 Plate Setting 옵션으로 "Preset" 선택 시
-- **주요 기능**:
-  - Preset 목록 조회
-  - Preset 미리보기
-  - 분석 시작
+- **주요 기능**: Preset 목록 조회, 미리보기, 분석 시작
 
-### 2.2 Preset Management 팝업 (PresetListPopup.html)
+### 2.2 Preset Management 팝업
 - **목적**: Preset 관리 (생성/삭제) 및 분석 시작
-- **접근 권한**: Admin / Master만 접근 가능
-- **진입 지점**: 메인 화면의 Preset Management 버튼 (Master/Admin에게만 노출, 위치 미정)
-- **주요 기능**:
-  - Preset 목록 조회
-  - Preset 생성 
-  - Preset 삭제 
-  - Preset 미리보기
-  - 분석 시작
+- **주요 기능**: Preset 목록 조회, Preset 생성/삭제, 미리보기, 분석 시작
 
-### 2.3 Manual 팝업 (NoplrnPopup.html)
+### 2.3 Manual 팝업
 - **목적**: 수동 Plate 설정 및 분석 시작
-- **접근 권한**: User / Admin / Master (모든 사용자)
-- **진입 지점**: 분석 시작하기 단계에서 Plate Setting 옵션으로 "Manual" 선택 시
-- **Preset 관련 기능**:
-  - **Save as Preset 버튼**: Admin / Master에게만 노출
-  - 현재 설정한 Plate 구성을 Preset으로 저장 가능
-  - 저장 시 Preset 이름 입력 다이얼로그 표시
+- **Preset 관련 기능**: Admin/Master는 Save as Preset 버튼으로 현재 설정을 Preset으로 저장 가능
 
 *참고: Manual 팝업의 전체 화면설계서는 별도 문서로 작성됩니다.*
 
@@ -74,43 +57,11 @@ SV Pro에는 세 가지 Preset 관련 팝업이 있습니다:
 
 ## 3. 권한별 기능 제어
 
-### 3.1 팝업별 접근 권한
+**중요 사항**:
+- **User**: Preset 팝업만 접근 가능. Preset Management 버튼 자체가 표시되지 않아 Preset Management 팝업 내부의 모든 기능을 사용할 수 없습니다.
+- **Admin/Master**: 모든 팝업 접근 가능. Preset Management에서 Preset 생성/삭제, Manual에서 Preset 저장 가능.
 
-#### Preset 팝업
-- **접근 가능**: User / Admin / Master (모든 사용자)
-- **진입 지점**: 분석 시작하기 단계에서 Plate Setting 옵션으로 "Preset" 선택 시
-
-#### Preset Management 팝업
-- **접근 가능**: Admin / Master만
-- **진입 지점**: 메인 화면의 Preset Management 버튼이 Admin/Master에게만 노출 (위치 미정)
-- **User는 접근 불가**: 진입 지점 자체가 보이지 않음
-
-### 3.2 공통 기능
-
-#### Preset 팝업 (모든 사용자)
-- Preset 목록 조회
-- Preset 선택 및 미리보기
-- 분석 시작
-- 팝업 닫기
-
-#### Preset Management 팝업 (Admin/Master만)
-- Preset 목록 조회
-- Preset 선택 및 미리보기
-- 분석 시작
-- 팝업 닫기
-- Preset 생성 (Add Preset 버튼)
-- Preset 삭제 (각 Preset 항목의 [×] 버튼)
-
-*참고: User는 Preset Management 진입점 자체가 없으므로 팝업을 열 수 없으며, 팝업 내의 어떤 기능도 사용할 수 없습니다.*
-
-### 3.3 Manual 팝업 - Preset 저장 기능
-- **Save as Preset 버튼** (Admin/Master만):
-  - 현재 설정한 Plate 구성을 Preset으로 저장
-  - User에게는 버튼 숨김 처리
-
-### 3.4 권한별 UI 표시
-
-**중요**: User는 Preset Management 버튼 자체가 표시되지 않아 팝업에 접근할 수 없으므로, Preset Management 팝업 내부의 모든 기능을 사용할 수 없습니다.
+### 3.1 권한별 UI 표시
 
 | UI 요소 | User | Admin | Master | 조건 |
 |---------|------|-------|--------|------|
@@ -417,12 +368,12 @@ confirm: "Close the popup?"
 
 ### 8.1 관련 파일
 
-| 파일 | 경로 | 설명 |
-|------|------|------|
-| Preset 팝업 | `manual/PresetPopup.html` | Preset 선택 및 분석 시작 |
-| Preset Management | `manual/PresetListPopup.html` | Preset 관리 (생성/삭제) |
-| Create Preset | `manual/CreatePresetPopup.html` | Preset 생성 팝업 (Management에서 호출) |
-| Manual 팝업 | `manual/NoplrnPopup.html` | 수동 Plate 설정 및 Preset 저장 (Admin/Master) |
+| 파일 | 설명 |
+|------|------|
+| Preset 팝업 | Preset 선택 및 분석 시작 |
+| Preset Management | Preset 관리 (생성/삭제) |
+| Create Preset | Preset 생성 팝업 (Management에서 호출) |
+| Manual 팝업 | 수동 Plate 설정 및 Preset 저장 (Admin/Master) |
 
 ---
 
