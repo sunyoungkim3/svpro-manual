@@ -147,19 +147,19 @@
         }
 
         .quick-menu-btn {
-            padding: 8px 16px;
+            padding: 8px;
+            width: 36px;
             height: 36px;
             background: transparent;
             border: 1px solid #4B5563;
             border-radius: 6px;
             color: #D1D5DB;
-            font-size: 14px;
-            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            position: relative;
         }
 
         .quick-menu-btn:hover {
@@ -170,6 +170,30 @@
 
         .quick-menu-btn .material-icons {
             font-size: 18px;
+        }
+
+        /* Tooltip */
+        .quick-menu-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 12px;
+            background: #1F2937;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            z-index: 1000;
+        }
+
+        .quick-menu-btn:hover::after {
+            opacity: 1;
         }
 
         .message-area {
@@ -354,21 +378,6 @@
             flex-direction: column;
             align-items: center;
             gap: 24px;
-        }
-
-        .empty-state-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .empty-state-icon .material-icons {
-            font-size: 40px;
-            color: #3B82F6;
         }
 
         .start-analysis-btn {
@@ -663,33 +672,29 @@
 
             <!-- Quick Menu Area -->
             <div class="quick-menu-area">
-                <button class="quick-menu-btn" data-action="new-analysis">
+                <button class="quick-menu-btn" data-action="new-analysis" data-tooltip="New Analysis">
                     <span class="material-icons">add_circle_outline</span>
-                    New Analysis
                 </button>
-                <button class="quick-menu-btn" data-action="open-history">
+                <button class="quick-menu-btn" data-action="open-history" data-tooltip="Open from History">
                     <span class="material-icons">history</span>
-                    History
                 </button>
-                <button class="quick-menu-btn" data-action="combine-open">
+                <button class="quick-menu-btn" data-action="combine-open" data-tooltip="Combine Open Results">
                     <span class="material-icons">merge_type</span>
-                    Combine
                 </button>
-                <button class="quick-menu-btn" data-action="save">
+                <button class="quick-menu-btn" data-action="save" data-tooltip="Save">
                     <span class="material-icons">save</span>
-                    Save
                 </button>
-                <button class="quick-menu-btn" data-action="print">
+                <button class="quick-menu-btn" data-action="print" data-tooltip="Print">
                     <span class="material-icons">print</span>
-                    Print
                 </button>
-                <button class="quick-menu-btn" data-action="export">
+                <button class="quick-menu-btn" data-action="export" data-tooltip="Export">
                     <span class="material-icons">file_download</span>
-                    Export
                 </button>
-                <button class="quick-menu-btn" data-action="hl7">
+                <button class="quick-menu-btn" data-action="hl7" data-tooltip="HL7">
                     <span class="material-icons">cable</span>
-                    HL7
+                </button>
+                <button class="quick-menu-btn" data-action="settings" data-tooltip="Settings">
+                    <span class="material-icons">settings</span>
                 </button>
             </div>
 
@@ -747,9 +752,6 @@
         <!-- Tab Page -->
         <div class="tab-page">
             <div class="empty-state">
-                <div class="empty-state-icon">
-                    <span class="material-icons">biotech</span>
-                </div>
                 <button class="start-analysis-btn">
                     <span class="material-icons">play_arrow</span>
                     Start Analysis
