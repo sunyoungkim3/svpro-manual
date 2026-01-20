@@ -1708,6 +1708,11 @@
                 // Reset plate data
                 initializePlateData();
                 
+                // Clear well colors on both plates
+                document.querySelectorAll('.well').forEach(well => {
+                    well.style.backgroundColor = '#FFFFFF';
+                });
+                
                 // Reset instruction
                 document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
                 
