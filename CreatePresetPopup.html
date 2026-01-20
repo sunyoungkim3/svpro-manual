@@ -984,39 +984,78 @@
         let selectionRect = null;
         let plateGridRect = null;
 
-        // Initialize plate based on type
-        function initializePlate() {
-            const isPlate96 = currentPlateType === '96';
-            const plateGrid = document.getElementById(isPlate96 ? 'plateGrid96' : 'plateGrid384');
-            plateGrid.innerHTML = '';
-            plateData = [];
-
-            const rows = isPlate96 ? ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'];
-            const cols = isPlate96 ? 12 : 24;
-            const wellSize = isPlate96 ? '36px' : '18px';
+        // Initialize all plates (both 96-well and 384-well)
+        function initializeBothPlates() {
+            // Initialize 96-well plate
+            const plateGrid96 = document.getElementById('plateGrid96');
+            plateGrid96.innerHTML = '';
             
-            for (let row = 0; row < rows.length; row++) {
-                for (let col = 0; col < cols; col++) {
+            const rows96 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            const cols96 = 12;
+            
+            for (let row = 0; row < rows96.length; row++) {
+                for (let col = 0; col < cols96; col++) {
                     const well = document.createElement('div');
                     well.className = 'well';
-                    well.style.width = wellSize;
-                    well.style.height = wellSize;
-                    well.style.fontSize = isPlate96 ? '10px' : '8px';
+                    well.style.width = '36px';
+                    well.style.height = '36px';
+                    well.style.fontSize = '10px';
                     well.style.border = '1px solid #9CA3AF';
-                    well.style.borderRadius = isPlate96 ? '4px' : '2px';
+                    well.style.borderRadius = '4px';
                     well.dataset.row = row;
                     well.dataset.col = col;
-                    well.dataset.wellId = `${rows[row]}${col + 1}`;
+                    well.dataset.wellId = `${rows96[row]}${col + 1}`;
+                    well.dataset.plateType = '96';
                     
-                    plateGrid.appendChild(well);
+                    plateGrid96.appendChild(well);
+                }
+            }
+            
+            // Initialize 384-well plate
+            const plateGrid384 = document.getElementById('plateGrid384');
+            plateGrid384.innerHTML = '';
+            
+            const rows384 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'];
+            const cols384 = 24;
+            
+            for (let row = 0; row < rows384.length; row++) {
+                for (let col = 0; col < cols384; col++) {
+                    const well = document.createElement('div');
+                    well.className = 'well';
+                    well.style.width = '18px';
+                    well.style.height = '18px';
+                    well.style.fontSize = '8px';
+                    well.style.border = '1px solid #9CA3AF';
+                    well.style.borderRadius = '2px';
+                    well.dataset.row = row;
+                    well.dataset.col = col;
+                    well.dataset.wellId = `${rows384[row]}${col + 1}`;
+                    well.dataset.plateType = '384';
+                    
+                    plateGrid384.appendChild(well);
+                }
+            }
+        }
+
+        // Initialize plate data based on current type
+        function initializePlateData() {
+            plateData = [];
+            const isPlate96 = currentPlateType === '96';
+            const rows = isPlate96 ? 8 : 16;
+            const cols = isPlate96 ? 12 : 24;
+            
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
                     plateData.push({ row, col, assayId: null, color: '#FFFFFF' });
                 }
             }
         }
 
-        // Fill entire plate with selected assay
+        // Fill entire plate with selected assay (current plate type only)
         function fillPlateWithAssay(assayId, color) {
-            const wells = document.querySelectorAll('.well');
+            const plateGrid = document.getElementById(currentPlateType === '96' ? 'plateGrid96' : 'plateGrid384');
+            const wells = plateGrid.querySelectorAll('.well');
+            
             wells.forEach((well, index) => {
                 well.style.backgroundColor = color;
                 plateData[index].assayId = assayId;
@@ -1192,8 +1231,8 @@
             consumablesSection.classList.add('section-collapsed');
             setDefaultConsumables();
 
-            // Initialize and fill plate
-            initializePlate();
+            // Initialize plate data and fill plate
+            initializePlateData();
             fillPlateWithAssay(selectedAssay.id, selectedAssay.color);
 
             // Update plate instruction
@@ -1412,8 +1451,8 @@
                 document.querySelectorAll('input[name="capFilm"]').forEach(radio => radio.checked = false);
                 document.querySelectorAll('input[name="plateTube"]').forEach(radio => radio.checked = false);
                 
-                // Reset plate
-                initializePlate();
+                // Reset plate data
+                initializePlateData();
                 
                 // Reset instruction
                 document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
@@ -1528,8 +1567,8 @@
                 // Clear combination summary
                 updateCombinationSummary();
                 
-                // Reset plate
-                initializePlate();
+                // Reset plate data
+                initializePlateData();
                 
                 // Reset instruction
                 document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
@@ -1666,10 +1705,31 @@
                 
                 // Reset if assay was selected
                 if (selectedAssay) {
-                    initializePlate();
-                    if (selectedAssay) {
-                        fillPlateWithAssay(selectedAssay.id, selectedAssay.color);
-                    }
+                    // Clear combination assays
+                    selectedCombinationAssays = [];
+                    currentBrushAssay = null;
+                    
+                    // Reset combination list visual state
+                    document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                        item.classList.remove('active');
+                        if (!item.classList.contains('base-assay')) {
+                            item.style.background = '#FFFFFF';
+                            item.style.borderColor = '#D1D5DB';
+                            item.classList.remove('has-selection');
+                        }
+                    });
+                    
+                    // Initialize plate data and fill with base assay
+                    initializePlateData();
+                    fillPlateWithAssay(selectedAssay.id, selectedAssay.color);
+                    
+                    // Update legend and summary
+                    updateLegend();
+                    updateCombinationSummary();
+                    
+                    // Update instruction
+                    document.getElementById('plateInstruction').textContent = 
+                        `Base assay: ${selectedAssay.name}. Select an assay to paint on plate.`;
                 }
                 
                 // Update event listeners
@@ -1694,8 +1754,8 @@
             }
         }
 
-        // Initialize plate on load
-        initializePlate();
+        // Initialize both plates on load
+        initializeBothPlates();
 
         // Add event listeners for consumables to update summary
         document.addEventListener('DOMContentLoaded', function() {
