@@ -426,8 +426,19 @@
             border-color: #E5E7EB;
         }
 
+        .tab-item.readonly.active {
+            background: #FFFFFF;
+            border-bottom-color: #FFFFFF;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        }
+
         .tab-item.readonly .tab-item-text {
             color: #6B7280;
+        }
+
+        .tab-item.readonly.active .tab-item-text {
+            color: #1F2937;
+        }
         }
 
         /* Mode Toggle (Developer Mode Only) */
@@ -836,14 +847,20 @@
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 09-15-42_BR1015" title="admin_2018-10-01 09-15-42_BR1015">
+                <div class="tab-item readonly" data-tab-name="admin_2018-10-01 09-15-42_BR1015" title="admin_2018-10-01 09-15-42_BR1015" data-readonly="true">
                     <span class="tab-item-text">admin_2018-10-01 09-15-42_BR1015</span>
+                    <div class="tab-item-readonly">
+                        <span class="material-icons">lock</span>
+                    </div>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 10-30-28_BR1016" title="admin_2018-10-01 10-30-28_BR1016">
+                <div class="tab-item readonly" data-tab-name="admin_2018-10-01 10-30-28_BR1016" title="admin_2018-10-01 10-30-28_BR1016" data-readonly="true">
                     <span class="tab-item-text">admin_2018-10-01 10-30-28_BR1016</span>
+                    <div class="tab-item-readonly">
+                        <span class="material-icons">lock</span>
+                    </div>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
@@ -1169,9 +1186,15 @@
             });
         });
 
-        // Tab click to activate
+        // Tab click to activate (read-only tabs can also be selected)
         document.querySelectorAll('.tab-item').forEach(function(tab) {
-            tab.addEventListener('click', function() {
+            tab.addEventListener('click', function(e) {
+                // Allow tab selection for both regular and read-only tabs
+                // Only prevent if clicking on close button
+                if (e.target.closest('.tab-item-close')) {
+                    return;
+                }
+                
                 document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
                 updateMenuStates(); // Update menu states when switching tabs
