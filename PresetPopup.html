@@ -525,11 +525,16 @@
                     preset.additionalAssays.forEach(a => assaysList.push(a.name));
                 }
                 
+                const plateType = preset.plateType || '96';
                 presetItem.innerHTML = `
                     <div class="preset-item-header">
                         <div class="preset-item-name">${preset.name}</div>
                     </div>
                     <div class="preset-item-info">
+                        <div class="preset-item-row">
+                            <div class="preset-item-label">Plate Type:</div>
+                            <div class="preset-item-value">${plateType}-well</div>
+                        </div>
                         <div class="preset-item-row">
                             <div class="preset-item-label">Assay(s):</div>
                             <div class="preset-item-value">${assaysList.join(', ')}</div>
@@ -588,6 +593,25 @@
                 legendAssays.push(...preset.additionalAssays);
             }
             
+            const plateType = preset.plateType || '96';
+            const is96Well = plateType === '96';
+            const rows = is96Well ? ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'];
+            const cols = is96Well ? 12 : 24;
+            const wellSize = is96Well ? '28px' : '14px';
+            const wellCount = is96Well ? 96 : 384;
+            
+            // Build column labels
+            let colLabelsHTML = '';
+            for (let i = 1; i <= cols; i++) {
+                colLabelsHTML += `<div class="col-label" style="width: ${wellSize}; font-size: ${is96Well ? '11px' : '9px'};">${i}</div>`;
+            }
+            
+            // Build row labels
+            let rowLabelsHTML = '';
+            rows.forEach(row => {
+                rowLabelsHTML += `<div class="row-label" style="height: ${wellSize}; font-size: ${is96Well ? '11px' : '9px'};">${row}</div>`;
+            });
+            
             previewContainer.innerHTML = `
                 <div class="preview-info">
                     <div style="text-align: center; margin-bottom: 16px;">
@@ -596,34 +620,16 @@
                 </div>
                 
                 <div class="plate-preview">
-                    <div class="plate-preview-title">Plate Setting (96-well)</div>
+                    <div class="plate-preview-title">Plate Setting (${plateType}-well)</div>
                     <div class="plate-grid-wrapper">
-                        <div class="plate-row-labels">
-                            <div class="row-label">A</div>
-                            <div class="row-label">B</div>
-                            <div class="row-label">C</div>
-                            <div class="row-label">D</div>
-                            <div class="row-label">E</div>
-                            <div class="row-label">F</div>
-                            <div class="row-label">G</div>
-                            <div class="row-label">H</div>
+                        <div class="plate-row-labels" style="padding-top: ${is96Well ? '22px' : '18px'}; gap: ${is96Well ? '2px' : '1px'};">
+                            ${rowLabelsHTML}
                         </div>
                         <div class="plate-grid-container">
-                            <div class="plate-col-labels">
-                                <div class="col-label">1</div>
-                                <div class="col-label">2</div>
-                                <div class="col-label">3</div>
-                                <div class="col-label">4</div>
-                                <div class="col-label">5</div>
-                                <div class="col-label">6</div>
-                                <div class="col-label">7</div>
-                                <div class="col-label">8</div>
-                                <div class="col-label">9</div>
-                                <div class="col-label">10</div>
-                                <div class="col-label">11</div>
-                                <div class="col-label">12</div>
+                            <div class="plate-col-labels" style="gap: ${is96Well ? '2px' : '1px'};">
+                                ${colLabelsHTML}
                             </div>
-                            <div class="plate-grid" id="platePreviewGrid"></div>
+                            <div class="plate-grid" id="platePreviewGrid" style="grid-template-columns: repeat(${cols}, ${wellSize}); grid-template-rows: repeat(${rows.length}, ${wellSize}); gap: ${is96Well ? '2px' : '1px'};"></div>
                         </div>
                     </div>
                     
@@ -643,11 +649,14 @@
             
             // Render plate
             const plateGrid = document.getElementById('platePreviewGrid');
-            if (preset.plateData && preset.plateData.length === 96) {
+            if (preset.plateData && preset.plateData.length === wellCount) {
                 preset.plateData.forEach(well => {
                     const wellElement = document.createElement('div');
                     wellElement.className = 'well-preview';
+                    wellElement.style.width = wellSize;
+                    wellElement.style.height = wellSize;
                     wellElement.style.backgroundColor = well.color || '#FFFFFF';
+                    wellElement.style.borderRadius = is96Well ? '3px' : '2px';
                     plateGrid.appendChild(wellElement);
                 });
             }
