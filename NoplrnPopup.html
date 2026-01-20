@@ -1321,6 +1321,21 @@
             const row = e.target.closest('.table-row');
             if (!row) return;
 
+            const newAssayId = row.dataset.assayId;
+
+            // Check if a different assay is already selected
+            if (selectedAssay && selectedAssay.id !== newAssayId) {
+                // Check if there are any changes that would be lost
+                const hasChanges = selectedCombinationAssays.length > 0;
+                
+                // Only show confirmation if there are changes
+                if (hasChanges) {
+                    if (!confirm('Changing the Assay Pack will reset the current configuration. Continue?')) {
+                        return; // Cancel selection
+                    }
+                }
+            }
+
             // Remove selection from all rows
             document.querySelectorAll('#assayPackTable .table-row').forEach(r => {
                 r.querySelectorAll('td').forEach(cell => {
@@ -1332,6 +1347,12 @@
             row.querySelectorAll('td').forEach(cell => {
                 cell.classList.add('selected');
             });
+
+            // If reselecting different assay, clear combination assays and brush
+            if (selectedAssay && selectedAssay.id !== newAssayId) {
+                selectedCombinationAssays = [];
+                currentBrushAssay = null;
+            }
 
             // Store selected assay
             selectedAssay = {
