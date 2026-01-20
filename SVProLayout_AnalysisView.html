@@ -196,6 +196,15 @@
             opacity: 1;
         }
 
+        .quick-menu-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .quick-menu-btn:disabled::after {
+            display: none;
+        }
+
         .message-area {
             flex: 2;
             display: flex;
@@ -514,6 +523,12 @@
 
         .menu-item:hover {
             background: #F3F4F6;
+        }
+
+        .menu-item.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .menu-item-content {
@@ -1006,6 +1021,8 @@
                 const tabItem = this.closest('.tab-item');
                 tabItem.remove();
                 console.log('Tab closed');
+                // Update menu states after closing tab
+                updateMenuStates();
             });
         });
 
@@ -1016,6 +1033,51 @@
                 this.classList.add('active');
             });
         });
+
+        // State Management
+        let hasChanges = false; // Track if there are unsaved changes
+
+        function updateMenuStates() {
+            const tabCount = document.querySelectorAll('.tab-item').length;
+            
+            // Get menu elements
+            const combineMenuItem = document.querySelector('.submenu-item[data-action="combine-open"]');
+            const combineBtn = document.querySelector('.quick-menu-btn[data-action="combine-open"]');
+            const saveBtn = document.querySelector('.quick-menu-btn[data-action="save"]');
+            
+            // Combine Open Results: Enable only when 2+ tabs
+            if (combineMenuItem) {
+                if (tabCount >= 2) {
+                    combineMenuItem.classList.remove('disabled');
+                } else {
+                    combineMenuItem.classList.add('disabled');
+                }
+            }
+            
+            if (combineBtn) {
+                combineBtn.disabled = (tabCount < 2);
+            }
+            
+            // Save: Enable only when there are changes
+            if (saveBtn) {
+                saveBtn.disabled = !hasChanges;
+            }
+        }
+        
+        // Example: Simulate data change (you can trigger this on actual data changes)
+        function markAsChanged() {
+            hasChanges = true;
+            updateMenuStates();
+        }
+        
+        // Example: Clear changes flag (after save)
+        function markAsSaved() {
+            hasChanges = false;
+            updateMenuStates();
+        }
+        
+        // Initialize menu states on page load
+        updateMenuStates();
     </script>
 </body>
 </html>

@@ -196,6 +196,15 @@
             opacity: 1;
         }
 
+        .quick-menu-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .quick-menu-btn:disabled::after {
+            display: none;
+        }
+
         .message-area {
             flex: 2;
             display: flex;
@@ -493,6 +502,12 @@
 
         .menu-item:hover {
             background: #F3F4F6;
+        }
+
+        .menu-item.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .menu-item-content {
@@ -829,6 +844,40 @@
             // Navigate to Analysis View
             window.location.href = 'SVProLayout_AnalysisView.html';
         });
+
+        // State Management
+        function updateMenuStates() {
+            const tabCount = document.querySelectorAll('.tab-item').length;
+            
+            // No tabs: disable Save, Report menus and specific quick buttons
+            // Save menu group
+            const saveMenuItem = document.querySelector('.menu-item[data-menu="save"]');
+            if (saveMenuItem) {
+                saveMenuItem.classList.add('disabled');
+            }
+            
+            // Report menu group
+            const reportMenuItem = document.querySelector('.menu-item[data-menu="report"]');
+            if (reportMenuItem) {
+                reportMenuItem.classList.add('disabled');
+            }
+            
+            // Disable specific quick menu buttons
+            const combineBtn = document.querySelector('.quick-menu-btn[data-action="combine-open"]');
+            const saveBtn = document.querySelector('.quick-menu-btn[data-action="save"]');
+            const printBtn = document.querySelector('.quick-menu-btn[data-action="print"]');
+            const exportBtn = document.querySelector('.quick-menu-btn[data-action="export"]');
+            const hl7Btn = document.querySelector('.quick-menu-btn[data-action="hl7"]');
+            
+            if (combineBtn) combineBtn.disabled = true;
+            if (saveBtn) saveBtn.disabled = true;
+            if (printBtn) printBtn.disabled = true;
+            if (exportBtn) exportBtn.disabled = true;
+            if (hl7Btn) hl7Btn.disabled = true;
+        }
+        
+        // Initialize menu states on page load
+        updateMenuStates();
     </script>
 </body>
 </html>
