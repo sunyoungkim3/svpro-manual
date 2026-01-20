@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seegene Viewer Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background: #F3F4F6;
+            overflow: hidden;
+        }
+
+        .app-container {
+            width: 1920px;
+            height: 980px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        .app-header {
+            height: 64px;
+            background: #1F2937;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 16px;
+            border-bottom: 1px solid #374151;
+            position: relative;
+            z-index: 100;
+        }
+
+        .hamburger-menu {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .hamburger-menu:hover {
+            background: #374151;
+        }
+
+        .hamburger-menu .material-icons {
+            color: #D1D5DB;
+            font-size: 24px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+            display: none;
+        }
+
+        .dropdown-overlay.active {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: fixed;
+            top: 72px;
+            left: 16px;
+            width: 280px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            display: none;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+            animation: dropdownSlide 0.2s ease;
+        }
+
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-content {
+            padding: 8px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 8px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: #FFFFFF;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 16px;
+            color: #FFFFFF;
+            letter-spacing: -0.25px;
+        }
+
+        .quick-menu-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 16px;
+        }
+
+        .quick-menu-btn {
+            padding: 8px 16px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid #4B5563;
+            border-radius: 6px;
+            color: #D1D5DB;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quick-menu-btn:hover {
+            background: #374151;
+            border-color: #6B7280;
+            color: #FFFFFF;
+        }
+
+        .quick-menu-btn .material-icons {
+            font-size: 18px;
+        }
+
+        .message-area {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+        }
+
+        .message-box {
+            width: 100%;
+            padding: 8px 12px;
+            background: #374151;
+            border: 1px solid #4B5563;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .message-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message-icon .material-icons {
+            font-size: 16px;
+            color: #10B981;
+        }
+
+        .message-text {
+            font-size: 13px;
+            color: #D1D5DB;
+            flex: 1;
+        }
+
+        .window-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .window-control-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .window-control-btn:hover {
+            background: #374151;
+        }
+
+        .window-control-btn.close:hover {
+            background: #DC2626;
+        }
+
+        .window-control-btn .material-icons {
+            color: #D1D5DB;
+            font-size: 20px;
+        }
+
+        .window-control-btn.close:hover .material-icons {
+            color: #FFFFFF;
+        }
+
+        /* Tab Area */
+        .tab-area {
+            height: 48px;
+            background: #F9FAFB;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 8px;
+            position: relative;
+        }
+
+        .tab-list {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            overflow: hidden;
+        }
+
+        .tab-item {
+            height: 36px;
+            padding: 0 16px;
+            background: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px 6px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .tab-item:hover {
+            background: #F3F4F6;
+        }
+
+        .tab-item.active {
+            background: #FFFFFF;
+            border-bottom-color: #FFFFFF;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-item-text {
+            font-size: 13px;
+            color: #1F2937;
+            font-weight: 500;
+        }
+
+        .tab-item-close {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+
+        .tab-item-close:hover {
+            background: #E5E7EB;
+        }
+
+        .tab-item-close .material-icons {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        .tab-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tab-control-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            background: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            transition: all 0.2s;
+        }
+
+        .tab-control-btn:hover {
+            background: #F3F4F6;
+            border-color: #9CA3AF;
+        }
+
+        .tab-control-btn .material-icons {
+            font-size: 18px;
+            color: #6B7280;
+        }
+
+        /* Tab Page */
+        .tab-page {
+            flex: 1;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .empty-state-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-state-icon .material-icons {
+            font-size: 40px;
+            color: #3B82F6;
+        }
+
+        .start-analysis-btn {
+            padding: 12px 32px;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            border: none;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .start-analysis-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        }
+
+        .start-analysis-btn:active {
+            transform: translateY(0);
+        }
+
+        .start-analysis-btn .material-icons {
+            font-size: 20px;
+        }
+
+        /* Hamburger Menu Sidebar */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100%;
+            background: #1F2937;
+            z-index: 1001;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            border-bottom: 1px solid #374151;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .sidebar-close:hover {
+            background: #374151;
+        }
+
+        .sidebar-close .material-icons {
+            color: #D1D5DB;
+            font-size: 20px;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 0;
+        }
+
+        .menu-group {
+            margin-bottom: 4px;
+        }
+
+        .menu-separator {
+            height: 1px;
+            background: #E5E7EB;
+            margin: 8px 0;
+        }
+
+        .menu-item {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #F3F4F6;
+        }
+
+        .menu-item-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1F2937;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .menu-item-content .material-icons {
+            font-size: 20px;
+            color: #6B7280;
+        }
+
+        .menu-arrow {
+            font-size: 20px;
+            color: #9CA3AF;
+            transition: transform 0.2s;
+        }
+
+        .menu-item.expanded .menu-arrow {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .submenu.expanded {
+            max-height: 500px;
+        }
+
+        .submenu-item {
+            padding: 10px 16px 10px 52px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+            color: #6B7280;
+            font-size: 13px;
+        }
+
+        .submenu-item:hover {
+            background: #F3F4F6;
+            color: #1F2937;
+        }
+            color: #1F2937;
+        }
+
+        .menu-separator {
+            height: 1px;
+            background: #374151;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dropdown Overlay -->
+    <div class="dropdown-overlay" id="dropdownOverlay"></div>
+
+    <!-- Dropdown Overlay -->
+    <div class="dropdown-overlay" id="dropdownOverlay"></div>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu" id="dropdownMenu">
+        <div class="dropdown-content">
+            <!-- Open Menu -->
+            <div class="menu-group">
+                <div class="menu-item" data-menu="open">
+                    <div class="menu-item-content">
+                        <span class="material-icons">folder_open</span>
+                        <span>Open</span>
+                    </div>
+                    <span class="material-icons menu-arrow">expand_more</span>
+                </div>
+                <div class="submenu" data-submenu="open">
+                    <div class="submenu-item" data-action="new-analysis">New Analysis</div>
+                    <div class="submenu-item" data-action="open-history">Open from History</div>
+                    <div class="submenu-item" data-action="combine-open">Combine Open Results</div>
+                </div>
+            </div>
+
+            <!-- Save Menu -->
+            <div class="menu-group">
+                <div class="menu-item" data-menu="save">
+                    <div class="menu-item-content">
+                        <span class="material-icons">save</span>
+                        <span>Save</span>
+                    </div>
+                    <span class="material-icons menu-arrow">expand_more</span>
+                </div>
+                <div class="submenu" data-submenu="save">
+                    <div class="submenu-item" data-action="save">Save</div>
+                    <div class="submenu-item" data-action="save-worklist">Save worklist</div>
+                </div>
+            </div>
+
+            <!-- Report Menu -->
+            <div class="menu-group">
+                <div class="menu-item" data-menu="report">
+                    <div class="menu-item-content">
+                        <span class="material-icons">description</span>
+                        <span>Report</span>
+                    </div>
+                    <span class="material-icons menu-arrow">expand_more</span>
+                </div>
+                <div class="submenu" data-submenu="report">
+                    <div class="submenu-item" data-action="print">Print</div>
+                    <div class="submenu-item" data-action="export">Export</div>
+                    <div class="submenu-item" data-action="hl7">HL7</div>
+                </div>
+            </div>
+
+            <div class="menu-separator"></div>
+
+            <!-- Settings Menu -->
+            <div class="menu-group">
+                <div class="menu-item menu-item-direct" data-action="settings">
+                    <div class="menu-item-content">
+                        <span class="material-icons">settings</span>
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-separator"></div>
+
+            <!-- Help Menu -->
+            <div class="menu-group">
+                <div class="menu-item" data-menu="help">
+                    <div class="menu-item-content">
+                        <span class="material-icons">help_outline</span>
+                        <span>Help</span>
+                    </div>
+                    <span class="material-icons menu-arrow">expand_more</span>
+                </div>
+                <div class="submenu" data-submenu="help">
+                    <div class="submenu-item" data-action="about">About Seegene Viewer Pro</div>
+                    <div class="submenu-item" data-action="release-note">Release note</div>
+                    <div class="submenu-item" data-action="notice">Notice</div>
+                    <div class="submenu-item" data-action="user-manual">User manual</div>
+                    <div class="submenu-item" data-action="error-report">Error report</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <!-- Hamburger Menu -->
+            <div class="hamburger-menu" id="hamburgerBtn">
+                <span class="material-icons">menu</span>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo-section">
+                <div class="logo-icon">SV</div>
+                <div class="logo-text">Seegene Viewer Pro</div>
+            </div>
+
+            <!-- Quick Menu Area -->
+            <div class="quick-menu-area">
+                <button class="quick-menu-btn" data-action="new-analysis">
+                    <span class="material-icons">add_circle_outline</span>
+                    New Analysis
+                </button>
+                <button class="quick-menu-btn" data-action="open-history">
+                    <span class="material-icons">history</span>
+                    History
+                </button>
+                <button class="quick-menu-btn" data-action="combine-open">
+                    <span class="material-icons">merge_type</span>
+                    Combine
+                </button>
+                <button class="quick-menu-btn" data-action="save">
+                    <span class="material-icons">save</span>
+                    Save
+                </button>
+                <button class="quick-menu-btn" data-action="print">
+                    <span class="material-icons">print</span>
+                    Print
+                </button>
+                <button class="quick-menu-btn" data-action="export">
+                    <span class="material-icons">file_download</span>
+                    Export
+                </button>
+                <button class="quick-menu-btn" data-action="hl7">
+                    <span class="material-icons">cable</span>
+                    HL7
+                </button>
+            </div>
+
+            <!-- Message Area -->
+            <div class="message-area">
+                <div class="message-box">
+                    <div class="message-icon">
+                        <span class="material-icons">check_circle</span>
+                    </div>
+                    <span class="message-text">Ready</span>
+                </div>
+            </div>
+
+            <!-- Window Controls -->
+            <div class="window-controls">
+                <div class="window-control-btn minimize">
+                    <span class="material-icons">remove</span>
+                </div>
+                <div class="window-control-btn maximize">
+                    <span class="material-icons">crop_square</span>
+                </div>
+                <div class="window-control-btn close">
+                    <span class="material-icons">close</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Area -->
+        <div class="tab-area">
+            <div class="tab-list">
+                <!-- Tabs will be added here dynamically -->
+                <!-- Example tab structure (commented out):
+                <div class="tab-item active">
+                    <span class="tab-item-text">Analysis_20240120.pcr</span>
+                    <div class="tab-item-close">
+                        <span class="material-icons">close</span>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <div class="tab-controls">
+                <div class="tab-control-btn" title="Previous">
+                    <span class="material-icons">chevron_left</span>
+                </div>
+                <div class="tab-control-btn" title="Next">
+                    <span class="material-icons">chevron_right</span>
+                </div>
+                <div class="tab-control-btn" title="Tab List">
+                    <span class="material-icons">list</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Page -->
+        <div class="tab-page">
+            <div class="empty-state">
+                <div class="empty-state-icon">
+                    <span class="material-icons">biotech</span>
+                </div>
+                <button class="start-analysis-btn">
+                    <span class="material-icons">play_arrow</span>
+                    Start Analysis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger Menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const dropdownOverlay = document.getElementById('dropdownOverlay');
+
+        // Toggle dropdown menu
+        hamburgerBtn.addEventListener('click', function() {
+            dropdownMenu.classList.toggle('active');
+            dropdownOverlay.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking overlay
+        dropdownOverlay.addEventListener('click', function() {
+            dropdownMenu.classList.remove('active');
+            dropdownOverlay.classList.remove('active');
+        });
+
+        // Toggle submenu when clicking top menu items
+        document.querySelectorAll('.menu-item[data-menu]').forEach(function(item) {
+            item.addEventListener('click', function() {
+                const menuName = this.getAttribute('data-menu');
+                const submenu = document.querySelector('.submenu[data-submenu="' + menuName + '"]');
+                const arrow = this.querySelector('.menu-arrow');
+                
+                const isExpanded = submenu.classList.contains('expanded');
+                
+                // Close all other submenus
+                document.querySelectorAll('.submenu').forEach(function(otherSubmenu) {
+                    if (otherSubmenu !== submenu) {
+                        otherSubmenu.classList.remove('expanded');
+                    }
+                });
+                document.querySelectorAll('.menu-item[data-menu]').forEach(function(otherItem) {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('expanded');
+                    }
+                });
+                
+                // Toggle current submenu
+                if (isExpanded) {
+                    submenu.classList.remove('expanded');
+                    this.classList.remove('expanded');
+                } else {
+                    submenu.classList.add('expanded');
+                    this.classList.add('expanded');
+                }
+            });
+        });
+
+        // Handle menu actions
+        function handleAction(action) {
+            console.log('Action:', action);
+            
+            // Close dropdown after action
+            dropdownMenu.classList.remove('active');
+            dropdownOverlay.classList.remove('active');
+            
+            // Handle specific actions
+            switch(action) {
+                case 'new-analysis':
+                    console.log('Open New Analysis dialog');
+                    break;
+                case 'open-history':
+                    console.log('Open History view');
+                    break;
+                case 'combine-open':
+                    console.log('Open Combine Results dialog');
+                    break;
+                case 'save':
+                    console.log('Save current analysis');
+                    break;
+                case 'save-worklist':
+                    console.log('Save worklist');
+                    break;
+                case 'print':
+                    console.log('Open Print dialog');
+                    break;
+                case 'export':
+                    console.log('Open Export dialog');
+                    break;
+                case 'hl7':
+                    console.log('Open HL7 dialog');
+                    break;
+                case 'settings':
+                    console.log('Open Settings');
+                    break;
+                case 'about':
+                    console.log('Open About dialog');
+                    break;
+                case 'release-note':
+                    console.log('Open Release Note');
+                    break;
+                case 'notice':
+                    console.log('Open Notice');
+                    break;
+                case 'user-manual':
+                    console.log('Open User Manual');
+                    break;
+                case 'error-report':
+                    console.log('Open Error Report dialog');
+                    break;
+            }
+        }
+
+        // Submenu item clicks
+        document.querySelectorAll('.submenu-item[data-action]').forEach(function(item) {
+            item.addEventListener('click', function() {
+                handleAction(this.getAttribute('data-action'));
+            });
+        });
+
+        // Direct menu item clicks (Settings)
+        document.querySelectorAll('.menu-item-direct[data-action]').forEach(function(item) {
+            item.addEventListener('click', function() {
+                handleAction(this.getAttribute('data-action'));
+            });
+        });
+
+        // Quick menu buttons
+        document.querySelectorAll('.quick-menu-btn[data-action]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                handleAction(this.getAttribute('data-action'));
+            });
+        });
+
+        // Window Controls
+        document.querySelector('.window-control-btn.minimize').addEventListener('click', function() {
+            console.log('Minimize window');
+            // window.minimize();
+        });
+
+        document.querySelector('.window-control-btn.maximize').addEventListener('click', function() {
+            console.log('Toggle maximize/restore');
+            // window.toggleMaximize();
+        });
+
+        document.querySelector('.window-control-btn.close').addEventListener('click', function() {
+            console.log('Close window');
+            // window.close();
+        });
+
+        // Start Analysis Button
+        document.querySelector('.start-analysis-btn').addEventListener('click', function() {
+            console.log('Start Analysis clicked');
+            // Open analysis dialog or navigate to analysis view
+        });
+
+        // Quick Menu Buttons
+        document.querySelectorAll('.quick-menu-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('Quick menu clicked:', this.textContent.trim());
+            });
+        });
+
+        // Tab Controls
+        document.querySelectorAll('.tab-control-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-icons').textContent;
+                if (icon === 'chevron_left') {
+                    console.log('Previous tab');
+                } else if (icon === 'chevron_right') {
+                    console.log('Next tab');
+                } else if (icon === 'list') {
+                    console.log('Show tab list');
+                }
+            });
+        });
+
+        // Example: Add a tab (for testing)
+        function addTab(title) {
+            const tabList = document.querySelector('.tab-list');
+            const tabItem = document.createElement('div');
+            tabItem.className = 'tab-item';
+            tabItem.innerHTML = `
+                <span class="tab-item-text">${title}</span>
+                <div class="tab-item-close">
+                    <span class="material-icons">close</span>
+                </div>
+            `;
+            
+            tabItem.addEventListener('click', function(e) {
+                if (!e.target.closest('.tab-item-close')) {
+                    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    console.log('Tab selected:', title);
+                }
+            });
+            
+            tabItem.querySelector('.tab-item-close').addEventListener('click', function(e) {
+                e.stopPropagation();
+                tabItem.remove();
+                console.log('Tab closed:', title);
+            });
+            
+            tabList.appendChild(tabItem);
+        }
+
+        // Uncomment to test with sample tabs:
+        // addTab('Analysis_20240120.pcr');
+        // addTab('Sample_Data_001.pcr');
+    </script>
+</body>
+</html>
