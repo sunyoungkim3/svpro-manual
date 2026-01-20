@@ -129,7 +129,10 @@ SV Pro에는 세 가지 Preset 관련 팝업이 있습니다:
 #### Preview 영역 구성
 
 1. **Preset 이름**: 선택된 Preset의 이름 표시
-2. **Plate Setting (96-well)**: 96-well Plate 그리드 시각화, 각 Well은 해당 Assay 색상으로 표시
+2. **Plate Setting (96-well / 384-well)**: Preset에 저장된 Plate 타입에 따라 표시
+   - **96-well**: 8 rows (A-H) × 12 columns, Well 크기 28px
+   - **384-well**: 16 rows (A-P) × 24 columns, Well 크기 14px
+   - 각 Well은 해당 Assay 색상으로 표시
 3. **Selected Assay(s) 범례**: 사용된 Assay 목록과 각각의 색상 표시
 
 ### 4.4 Preset 생성
@@ -347,8 +350,6 @@ confirm: "Close the popup?"
 3. 메인 화면에서 Preset Management 진입 버튼 숨김 확인
 4. Manual 팝업 Save as Preset 버튼 숨김 확인
 
----
-
 ## 8. 부록
 
 ### 8.1 관련 파일
@@ -359,6 +360,15 @@ confirm: "Close the popup?"
 | Preset Management | Preset 관리 (생성/삭제) |
 | Create Preset | Preset 생성 팝업 (Management에서 호출) |
 | Manual 팝업 | 수동 Plate 설정 및 Preset 저장 (Admin/Master) |
+
+### 8.2 Plate Type 정보
+
+Preset은 생성 시점의 Plate 타입(96-well 또는 384-well) 정보를 포함하며, Preview에서 해당 타입에 맞게 표시됩니다.
+
+| Plate Type | Rows | Columns | Total Wells | Well Size (Preview) |
+|-----------|------|---------|-------------|-------------------|
+| 96-well | 8 (A-H) | 12 | 96 | 28px × 28px |
+| 384-well | 16 (A-P) | 24 | 384 | 14px × 14px |
 
 ---
 
