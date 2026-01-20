@@ -366,6 +366,7 @@
             position: relative;
             flex-shrink: 0;
             min-width: fit-content;
+            max-width: 280px;
         }
 
         .tab-item:hover {
@@ -383,6 +384,9 @@
             color: #1F2937;
             font-weight: 500;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 220px;
         }
 
         .tab-item-close {
@@ -402,6 +406,66 @@
         .tab-item-close .material-icons {
             font-size: 14px;
             color: #6B7280;
+        }
+
+        .tab-item-readonly {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-item-readonly .material-icons {
+            font-size: 14px;
+            color: #9CA3AF;
+        }
+
+        .tab-item.readonly {
+            background: #F9FAFB;
+            border-color: #E5E7EB;
+        }
+
+        .tab-item.readonly .tab-item-text {
+            color: #6B7280;
+        }
+
+        /* Mode Toggle (Developer Mode Only) */
+        .mode-toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 16px;
+        }
+
+        .mode-toggle {
+            display: flex;
+            background: #E5E7EB;
+            border-radius: 6px;
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .mode-toggle-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #6B7280;
+        }
+
+        .mode-toggle-btn.active {
+            background: #FFFFFF;
+            color: #1F2937;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .mode-toggle-btn:hover:not(.active) {
+            color: #1F2937;
         }
 
         .tab-controls {
@@ -451,6 +515,28 @@
             gap: 12px;
         }
 
+        .analysis-view.simple-mode .analysis-top {
+            height: 100%;
+        }
+
+        .analysis-view.simple-mode .well-plate-section,
+        .analysis-view.simple-mode .graph-section {
+            display: none;
+        }
+
+        .analysis-view.simple-mode .result-section {
+            display: none;
+        }
+
+        .analysis-view.simple-mode .analysis-simple-result {
+            display: flex;
+        }
+
+        .analysis-simple-result {
+            display: none;
+            flex: 1;
+        }
+
         .analysis-top {
             display: flex;
             gap: 12px;
@@ -498,6 +584,10 @@
 
         .result-section {
             flex: 1;
+        }
+
+        .analysis-view:not(.simple-mode) .analysis-simple-result {
+            display: none;
         }
 
         /* Menu Styles */
@@ -737,73 +827,76 @@
         <!-- Tab Area -->
         <div class="tab-area">
             <div class="tab-list" id="tabList">
-                <div class="tab-item active" data-tab-name="admin_2018-10-01 08-30-15_BR1014">
+                <div class="tab-item active readonly" data-tab-name="admin_2018-10-01 08-30-15_BR1014" title="admin_2018-10-01 08-30-15_BR1014" data-readonly="true">
                     <span class="tab-item-text">admin_2018-10-01 08-30-15_BR1014</span>
+                    <div class="tab-item-readonly">
+                        <span class="material-icons">lock</span>
+                    </div>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 09-15-42_BR1015">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 09-15-42_BR1015" title="admin_2018-10-01 09-15-42_BR1015">
                     <span class="tab-item-text">admin_2018-10-01 09-15-42_BR1015</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 10-30-28_BR1016">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 10-30-28_BR1016" title="admin_2018-10-01 10-30-28_BR1016">
                     <span class="tab-item-text">admin_2018-10-01 10-30-28_BR1016</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 11-45-33_BR1017">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 11-45-33_BR1017" title="admin_2018-10-01 11-45-33_BR1017">
                     <span class="tab-item-text">admin_2018-10-01 11-45-33_BR1017</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 12-30-50_BR1018">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 12-30-50_BR1018" title="admin_2018-10-01 12-30-50_BR1018">
                     <span class="tab-item-text">admin_2018-10-01 12-30-50_BR1018</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 13-15-22_BR1019">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 13-15-22_BR1019" title="admin_2018-10-01 13-15-22_BR1019">
                     <span class="tab-item-text">admin_2018-10-01 13-15-22_BR1019</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 14-30-17_BR1020">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 14-30-17_BR1020" title="admin_2018-10-01 14-30-17_BR1020">
                     <span class="tab-item-text">admin_2018-10-01 14-30-17_BR1020</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 15-45-08_BR1021">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 15-45-08_BR1021" title="admin_2018-10-01 15-45-08_BR1021">
                     <span class="tab-item-text">admin_2018-10-01 15-45-08_BR1021</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 16-30-55_BR1022">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 16-30-55_BR1022" title="admin_2018-10-01 16-30-55_BR1022">
                     <span class="tab-item-text">admin_2018-10-01 16-30-55_BR1022</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 17-15-41_BR1023">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 17-15-41_BR1023" title="admin_2018-10-01 17-15-41_BR1023">
                     <span class="tab-item-text">admin_2018-10-01 17-15-41_BR1023</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 18-00-28_BR1024">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 18-00-28_BR1024" title="admin_2018-10-01 18-00-28_BR1024">
                     <span class="tab-item-text">admin_2018-10-01 18-00-28_BR1024</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 19-45-15_BR1025">
+                <div class="tab-item" data-tab-name="admin_2018-10-01 19-45-15_BR1025" title="admin_2018-10-01 19-45-15_BR1025">
                     <span class="tab-item-text">admin_2018-10-01 19-45-15_BR1025</span>
                     <div class="tab-item-close">
                         <span class="material-icons">close</span>
@@ -813,6 +906,14 @@
 
             <!-- Tab List Dropdown -->
             <div class="tab-list-dropdown" id="tabListDropdown"></div>
+
+            <!-- Mode Toggle (Developer Mode Only) -->
+            <div class="mode-toggle-container">
+                <div class="mode-toggle">
+                    <button class="mode-toggle-btn active" data-mode="analysis">Analysis</button>
+                    <button class="mode-toggle-btn" data-mode="simple">Simple</button>
+                </div>
+            </div>
 
             <div class="tab-controls">
                 <div class="tab-control-btn" id="tabPrevBtn" title="Previous">
@@ -843,7 +944,13 @@
                         <div class="section-title">Graph</div>
                         <div class="section-content">Graph will be displayed here</div>
                     </div>
+                    <!-- Simple Mode Result Section -->
+                    <div class="analysis-section analysis-simple-result result-section">
+                        <div class="section-title">Result</div>
+                        <div class="section-content">Result table will be displayed here (Simple Mode)</div>
+                    </div>
                 </div>
+                <!-- Analysis Mode Result Section -->
                 <div class="analysis-section result-section">
                     <div class="section-title">Result</div>
                     <div class="section-content">Result table will be displayed here</div>
@@ -853,6 +960,32 @@
     </div>
 
     <script>
+        // Check if opened from history (read-only mode)
+        const urlParams = new URLSearchParams(window.location.search);
+        const isReadOnlyMode = urlParams.get('readonly') === 'true';
+        
+        // If read-only mode, mark the first tab as read-only
+        if (isReadOnlyMode) {
+            const firstTab = document.querySelector('.tab-item');
+            if (firstTab && !firstTab.getAttribute('data-readonly')) {
+                firstTab.setAttribute('data-readonly', 'true');
+                firstTab.classList.add('readonly');
+                
+                // Check if lock icon already exists
+                if (!firstTab.querySelector('.tab-item-readonly')) {
+                    const lockIcon = document.createElement('div');
+                    lockIcon.className = 'tab-item-readonly';
+                    lockIcon.innerHTML = '<span class="material-icons">lock</span>';
+                    
+                    // Insert before close button
+                    const closeBtn = firstTab.querySelector('.tab-item-close');
+                    if (closeBtn) {
+                        firstTab.insertBefore(lockIcon, closeBtn);
+                    }
+                }
+            }
+        }
+        
         // Hamburger Menu
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
@@ -1021,8 +1154,18 @@
                 const tabItem = this.closest('.tab-item');
                 tabItem.remove();
                 console.log('Tab closed');
-                // Update menu states after closing tab
-                updateMenuStates();
+                
+                // Check remaining tabs
+                const remainingTabs = document.querySelectorAll('.tab-item').length;
+                
+                if (remainingTabs === 0) {
+                    // No tabs left, redirect to Empty State
+                    console.log('No tabs remaining, redirecting to Empty State');
+                    window.location.href = 'SVProLayout_EmptyState.html';
+                } else {
+                    // Update menu states after closing tab
+                    updateMenuStates();
+                }
             });
         });
 
@@ -1031,6 +1174,7 @@
             tab.addEventListener('click', function() {
                 document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
+                updateMenuStates(); // Update menu states when switching tabs
             });
         });
 
@@ -1039,11 +1183,14 @@
 
         function updateMenuStates() {
             const tabCount = document.querySelectorAll('.tab-item').length;
+            const activeTab = document.querySelector('.tab-item.active');
+            const isReadOnly = activeTab ? activeTab.getAttribute('data-readonly') === 'true' : false;
             
             // Get menu elements
             const combineMenuItem = document.querySelector('.submenu-item[data-action="combine-open"]');
             const combineBtn = document.querySelector('.quick-menu-btn[data-action="combine-open"]');
             const saveBtn = document.querySelector('.quick-menu-btn[data-action="save"]');
+            const saveMenuItem = document.querySelector('.menu-item[data-menu="save"]');
             
             // Combine Open Results: Enable only when 2+ tabs
             if (combineMenuItem) {
@@ -1058,9 +1205,19 @@
                 combineBtn.disabled = (tabCount < 2);
             }
             
-            // Save: Enable only when there are changes
+            // Save: Enable only when there are changes AND not read-only
             if (saveBtn) {
-                saveBtn.disabled = !hasChanges;
+                saveBtn.disabled = !hasChanges || isReadOnly;
+            }
+            
+            if (saveMenuItem) {
+                if (isReadOnly) {
+                    saveMenuItem.classList.add('disabled');
+                } else if (hasChanges) {
+                    saveMenuItem.classList.remove('disabled');
+                } else {
+                    saveMenuItem.classList.add('disabled');
+                }
             }
         }
         
@@ -1078,6 +1235,29 @@
         
         // Initialize menu states on page load
         updateMenuStates();
+
+        // Mode Toggle (Developer Mode Only)
+        const analysisView = document.querySelector('.analysis-view');
+        const modeToggleBtns = document.querySelectorAll('.mode-toggle-btn');
+
+        modeToggleBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const mode = this.getAttribute('data-mode');
+                
+                // Update active state
+                modeToggleBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Toggle view mode
+                if (mode === 'simple') {
+                    analysisView.classList.add('simple-mode');
+                } else {
+                    analysisView.classList.remove('simple-mode');
+                }
+                
+                console.log('Mode changed to:', mode);
+            });
+        });
     </script>
 </body>
 </html>

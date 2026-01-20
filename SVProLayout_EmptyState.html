@@ -799,6 +799,13 @@
         function handleAction(action) {
             console.log('Action:', action);
             
+            // Handle specific actions
+            if (action === 'open-history') {
+                // Navigate to Analysis View with read-only flag
+                window.location.href = 'SVProLayout_AnalysisView.html?readonly=true';
+                return;
+            }
+            
             // Close dropdown after action
             dropdownMenu.classList.remove('active');
             dropdownOverlay.classList.remove('active');
