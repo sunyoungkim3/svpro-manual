@@ -178,6 +178,24 @@ SV Pro 의 Main Layout 화면입니다.
 - **메뉴 닫기**: 오버레이 클릭 또는 메뉴 항목 선택 시
 - **비활성화 상태**: 클릭 불가
 
+#### 4.2.4 메뉴 액션
+| 메뉴 그룹 | 서브메뉴 | 선택 시 액션 |
+|----------|---------|-------------|
+| Open | New Analysis | 분석 시작하기 플로우 시작 |
+| Open | Open from History | History 목록을 보여주는 팝업 노출 |
+| Open | Combine Open Results | Combine을 수행하는 팝업 노출 |
+| Save | Save | 윈도우 저장창 호출 |
+| Save | Save worklist | 윈도우 저장창 호출 |
+| Report | Print | 프린트 매니저 호출 |
+| Report | Export | Export 액션 |
+| Report | HL7 | HL7 액션 |
+| Settings | (직접 실행) | Settings 팝업 호출 |
+| Help | About Seegene Viewer Pro | About Seegene Viewer Pro 팝업 호출 |
+| Help | Release note | Release note 팝업 호출 |
+| Help | Notice | Notice 팝업 호출 |
+| Help | User manual | User manual 팝업 호출 |
+| Help | Error report | Error report 팝업 호출 |
+
 ### 4.3 Tab Area
 
 #### 4.3.1 탭 리스트
