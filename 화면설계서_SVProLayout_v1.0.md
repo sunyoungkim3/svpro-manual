@@ -924,21 +924,6 @@ SV Pro 의 Main Layout 화면입니다.
 
 ---
 
-## 9. 기술 스택 및 제약사항
-
-### 9.1 기술 스택
-- **Frontend**: Vanilla JavaScript (ES6+)
-- **스타일**: CSS3 (Flexbox, Grid, Animations)
-- **아이콘**: Material Icons
-- **폰트**: Noto Sans (Google Fonts)
-
-### 9.2 제약사항
-- **브라우저**: 모던 브라우저 (Chrome, Edge, Firefox)
-- **JavaScript**: ES6 이상 지원 필요
-- **네트워크**: 폰트 및 아이콘 로드를 위한 인터넷 연결 필요
-
----
-
 ## 10. 변경 이력
 
 | 버전 | 날짜 | 작성자 | 변경 내용 |
