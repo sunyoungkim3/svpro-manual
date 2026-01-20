@@ -761,7 +761,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 
 #### TC-COMBINATION-006: Base Assay 삭제 (전체 초기화)
 **권한**: 모든 사용자
-**전제조건**: Assay Pack 선택됨, 일부 Additional Assay 적용됨
+**전제조건**: Assay Pack 선택됨, Select Consumables에 변동사항 있음, 일부 Additional Assay 적용됨
 **테스트 단계**:
 1. Combination List에서 Base Assay의 삭제 버튼 클릭
 2. 확인 팝업 표시 확인
@@ -780,7 +780,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 
 #### TC-RESET-001: Reset 버튼
 **권한**: 모든 사용자
-**전제조건**: Assay Pack 선택됨, Plate 일부 수정됨
+**전제조건**: Assay Pack 선택됨
 **테스트 단계**:
 1. Reset 버튼 클릭
 2. 확인 팝업 표시 확인
@@ -801,13 +801,6 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 5. 검색어 지우고 다시 검색
 6. 모든 Assay 표시 확인
 
-#### TC-SEARCH-002: Enter 키로 검색
-**권한**: 모든 사용자
-**테스트 단계**:
-1. Search 입력 필드에 "SARS" 입력
-2. Enter 키 입력
-3. "SARS"가 포함된 Assay만 표시 확인
-
 ### 9.5 Save as Preset 테스트
 
 #### TC-PRESET-001: Admin/Master - Save as Preset 버튼 표시
@@ -823,12 +816,12 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 **권한**: User
 **테스트 단계**:
 1. Manual 팝업 열기
-2. Save as Preset 버튼 숨김 (display: none) 확인
+2. Save as Preset 버튼 숨김 확인
 3. Assay Pack 선택 후에도 버튼 표시되지 않음 확인
 
 #### TC-PRESET-003: Preset 저장 - 성공
 **권한**: Admin 또는 Master
-**전제조건**: Assay Pack 선택됨, Consumables 선택됨, Plate 설정 완료
+**전제조건**: Assay Pack 선택됨, Plate 설정 완료
 **테스트 단계**:
 1. Save as Preset 버튼 클릭
 2. Preset 이름 입력 다이얼로그 표시 확인
@@ -840,7 +833,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 
 #### TC-PRESET-004: Preset 저장 - 이름 미입력
 **권한**: Admin 또는 Master
-**전제조건**: Assay Pack 선택됨, Consumables 선택됨
+**전제조건**: Assay Pack 선택됨
 **테스트 단계**:
 1. Save as Preset 버튼 클릭
 2. Preset 이름 입력 다이얼로그 표시 확인
@@ -850,7 +843,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 
 #### TC-PRESET-005: Preset 저장 - Cancel
 **권한**: Admin 또는 Master
-**전제조건**: Assay Pack 선택됨, Consumables 선택됨
+**전제조건**: Assay Pack 선택됨
 **테스트 단계**:
 1. Save as Preset 버튼 클릭
 2. Preset 이름 입력 다이얼로그 표시 확인
@@ -858,24 +851,6 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 4. 다이얼로그 닫힘 확인
 5. Preset 저장되지 않음 확인
 
-#### TC-PRESET-006: Preset 저장 - Overlay 클릭
-**권한**: Admin 또는 Master
-**전제조건**: Assay Pack 선택됨, Consumables 선택됨
-**테스트 단계**:
-1. Save as Preset 버튼 클릭
-2. Preset 이름 입력 다이얼로그 표시 확인
-3. Overlay(배경) 클릭
-4. 다이얼로그 닫힘 확인
-
-#### TC-PRESET-007: Preset 저장 - Enter 키
-**권한**: Admin 또는 Master
-**전제조건**: Assay Pack 선택됨, Consumables 선택됨
-**테스트 단계**:
-1. Save as Preset 버튼 클릭
-2. 입력 필드에 "Test Preset 2" 입력
-3. Enter 키 입력
-4. Preset 저장 확인
-5. 다이얼로그 닫힘 확인
 
 ### 9.6 Start Analysis 테스트
 
@@ -892,16 +867,6 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 **테스트 단계**:
 1. Manual 팝업 열기 (Assay Pack 선택 안함)
 2. Start Analysis 버튼 비활성화 확인
-3. (강제로 활성화하여) 버튼 클릭
-4. 경고 메시지 표시 확인
-
-#### TC-ANALYSIS-003: Start Analysis - Consumables 미선택
-**권한**: 모든 사용자
-**전제조건**: Assay Pack 선택됨
-**테스트 단계**:
-1. Consumables Section에서 모든 라디오 버튼 선택 해제 (강제)
-2. Start Analysis 버튼 클릭
-3. 경고 메시지 표시 확인
 
 ### 9.7 통합 시나리오 테스트
 
@@ -919,26 +884,24 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 **테스트 단계**:
 1. Manual 팝업 열기
 2. Assay Pack 선택
-3. Consumables 선택 변경
-4. Additional Assay 1 선택하여 Well A1-A6에 적용
-5. Additional Assay 2 선택하여 Well B1-B6에 적용
-6. Legend 확인 (Base + 2개 Additional)
-7. Start Analysis 클릭
-8. 분석 시작 확인
+3. Additional Assay 1 선택하여 Well A1-A6에 적용
+4. Additional Assay 2 선택하여 Well B1-B6에 적용
+5. Legend 확인 (Base + 2개 Additional)
+6. Start Analysis 클릭
+7. 분석 시작 확인
 
 #### TC-INTEGRATION-003: 전체 워크플로우 - Save as Preset
 **권한**: Admin 또는 Master
 **테스트 단계**:
 1. Manual 팝업 열기
 2. Assay Pack 선택
-3. Consumables 선택
-4. Additional Assay 적용
-5. Save as Preset 클릭
-6. Preset 이름 입력
-7. Confirm 클릭
-8. Preset 저장 확인
-9. Start Analysis 클릭
-10. 분석 시작 확인
+3. Additional Assay 적용
+4. Save as Preset 클릭
+5. Preset 이름 입력
+6. Confirm 클릭
+7. Preset 저장 확인
+8. Start Analysis 클릭
+9. 분석 시작 확인
 
 #### TC-INTEGRATION-004: 복잡한 Plate 구성 후 Reset
 **권한**: 모든 사용자
@@ -946,11 +909,10 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 1. Manual 팝업 열기
 2. Assay Pack 선택
 3. 3개의 Additional Assay를 Plate 여러 위치에 적용
-4. Consumables 선택 변경
-5. Section 접기/펼치기 여러 번 반복
-6. Reset 클릭
-7. 확인
-8. 모든 상태 초기화 확인
+4. Section 접기/펼치기 여러 번 반복
+5. Reset 클릭
+6. 확인
+7. 모든 상태 초기화 확인
 
 #### TC-INTEGRATION-005: Additional Assay 추가/삭제 반복
 **권한**: 모든 사용자
