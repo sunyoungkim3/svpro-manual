@@ -928,11 +928,16 @@
             <div class="right-section">
                 <div class="plate-section">
                     <div class="plate-header">
-                        <div class="section-title" style="margin-bottom: 0;">Plate Setting (96-well)</div>
+                        <div class="section-title" style="margin-bottom: 0;">Plate Setting</div>
+                        <div style="display: flex; gap: 4px; background: #F3F4F6; padding: 4px; border-radius: 6px;">
+                            <button class="plate-toggle-btn active" data-plate-type="96" style="padding: 6px 16px; border: none; border-radius: 4px; background: #FFFFFF; color: #1F2937; font-weight: 600; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.05); font-size: 13px;">96-well</button>
+                            <button class="plate-toggle-btn" data-plate-type="384" style="padding: 6px 16px; border: none; border-radius: 4px; background: transparent; color: #6B7280; font-weight: 600; cursor: pointer; font-size: 13px;">384-well</button>
+                        </div>
                     </div>
                     <div class="section-subtitle" id="plateInstruction">Select an assay pack to start</div>
                     
-                    <div class="plate-container">
+                    <!-- 96-well Plate -->
+                    <div class="plate-container" id="plate96Container">
                         <div class="plate-grid-wrapper">
                             <!-- Row Labels (A-H) -->
                             <div class="plate-row-labels">
@@ -965,7 +970,68 @@
                                 </div>
                                 
                                 <!-- Wells Grid -->
-                                <div class="plate-grid" id="plateGrid">
+                                <div class="plate-grid" id="plateGrid96">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 384-well Plate -->
+                    <div class="plate-container" id="plate384Container" style="display: none;">
+                        <div class="plate-grid-wrapper">
+                            <!-- Row Labels (A-P) -->
+                            <div class="plate-row-labels" style="padding-top: 17px;">
+                                <div class="row-label" style="height: 18px;">A</div>
+                                <div class="row-label" style="height: 18px;">B</div>
+                                <div class="row-label" style="height: 18px;">C</div>
+                                <div class="row-label" style="height: 18px;">D</div>
+                                <div class="row-label" style="height: 18px;">E</div>
+                                <div class="row-label" style="height: 18px;">F</div>
+                                <div class="row-label" style="height: 18px;">G</div>
+                                <div class="row-label" style="height: 18px;">H</div>
+                                <div class="row-label" style="height: 18px;">I</div>
+                                <div class="row-label" style="height: 18px;">J</div>
+                                <div class="row-label" style="height: 18px;">K</div>
+                                <div class="row-label" style="height: 18px;">L</div>
+                                <div class="row-label" style="height: 18px;">M</div>
+                                <div class="row-label" style="height: 18px;">N</div>
+                                <div class="row-label" style="height: 18px;">O</div>
+                                <div class="row-label" style="height: 18px;">P</div>
+                            </div>
+                            
+                            <!-- Plate Grid -->
+                            <div class="plate-grid-container">
+                                <!-- Column Labels (1-24) -->
+                                <div class="plate-col-labels" style="gap: 2px;">
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">1</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">2</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">3</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">4</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">5</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">6</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">7</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">8</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">9</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">10</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">11</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">12</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">13</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">14</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">15</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">16</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">17</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">18</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">19</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">20</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">21</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">22</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">23</div>
+                                    <div class="col-label" style="width: 18px; font-size: 10px;">24</div>
+                                </div>
+                                
+                                <!-- Wells Grid -->
+                                <div class="plate-grid" id="plateGrid384" style="grid-template-columns: repeat(24, 18px); grid-template-rows: repeat(16, 18px); gap: 2px;">
                                     <!-- Will be populated dynamically -->
                                 </div>
                             </div>
@@ -1022,6 +1088,7 @@
         let plateData = [];
         let isDragging = false;
         let currentBrushAssay = null;
+        let currentPlateType = '96'; // '96' or '384'
         const MAX_COMBINATION_ASSAYS = 3;
         
         // User permission (mock - should be retrieved from actual session/API)
@@ -1033,18 +1100,26 @@
         let selectionRect = null;
         let plateGridRect = null;
 
-        // Initialize 96-well plate
+        // Initialize plate based on type
         function initializePlate() {
-            const plateGrid = document.getElementById('plateGrid');
+            const isPlate96 = currentPlateType === '96';
+            const plateGrid = document.getElementById(isPlate96 ? 'plateGrid96' : 'plateGrid384');
             plateGrid.innerHTML = '';
             plateData = [];
 
-            const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            const rows = isPlate96 ? ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'];
+            const cols = isPlate96 ? 12 : 24;
+            const wellSize = isPlate96 ? '36px' : '18px';
             
-            for (let row = 0; row < 8; row++) {
-                for (let col = 0; col < 12; col++) {
+            for (let row = 0; row < rows.length; row++) {
+                for (let col = 0; col < cols; col++) {
                     const well = document.createElement('div');
                     well.className = 'well';
+                    well.style.width = wellSize;
+                    well.style.height = wellSize;
+                    well.style.fontSize = isPlate96 ? '10px' : '8px';
+                    well.style.border = '1px solid #9CA3AF';
+                    well.style.borderRadius = isPlate96 ? '4px' : '2px';
                     well.dataset.row = row;
                     well.dataset.col = col;
                     well.dataset.wellId = `${rows[row]}${col + 1}`;
@@ -1073,7 +1148,7 @@
             }
             
             isRectangleSelecting = true;
-            const plateGrid = document.getElementById('plateGrid');
+            const plateGrid = document.getElementById(currentPlateType === '96' ? 'plateGrid96' : 'plateGrid384');
             plateGridRect = plateGrid.getBoundingClientRect();
             
             selectionStart = {
@@ -1123,7 +1198,8 @@
             
             const row = parseInt(well.dataset.row);
             const col = parseInt(well.dataset.col);
-            const index = row * 12 + col;
+            const cols = currentPlateType === '96' ? 12 : 24;
+            const index = row * cols + col;
             
             // Add to selectedCombinationAssays if not already there and not base assay
             if (currentBrushAssay && currentBrushAssay.id !== selectedAssay.id) {
@@ -1639,9 +1715,60 @@
         });
 
         // Add global mouse event listeners for rectangle selection
-        document.getElementById('plateGrid').addEventListener('mousedown', startDrag);
+        const updatePlateGridListeners = () => {
+            const plateGrid = document.getElementById(currentPlateType === '96' ? 'plateGrid96' : 'plateGrid384');
+            const oldGrid96 = document.getElementById('plateGrid96');
+            const oldGrid384 = document.getElementById('plateGrid384');
+            
+            if (oldGrid96) oldGrid96.removeEventListener('mousedown', startDrag);
+            if (oldGrid384) oldGrid384.removeEventListener('mousedown', startDrag);
+            
+            plateGrid.addEventListener('mousedown', startDrag);
+        };
+        
+        updatePlateGridListeners();
         document.addEventListener('mousemove', onDragOver);
         document.addEventListener('mouseup', endDrag);
+
+        // Plate type toggle
+        document.querySelectorAll('.plate-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (selectedAssay && !confirm('Changing plate type will reset the current configuration. Continue?')) {
+                    return;
+                }
+                
+                // Update button states
+                document.querySelectorAll('.plate-toggle-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'transparent';
+                    b.style.color = '#6B7280';
+                    b.style.boxShadow = 'none';
+                });
+                
+                this.classList.add('active');
+                this.style.background = '#FFFFFF';
+                this.style.color = '#1F2937';
+                this.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
+                
+                // Update plate type
+                currentPlateType = this.dataset.plateType;
+                
+                // Show/hide appropriate plate
+                document.getElementById('plate96Container').style.display = currentPlateType === '96' ? 'flex' : 'none';
+                document.getElementById('plate384Container').style.display = currentPlateType === '384' ? 'flex' : 'none';
+                
+                // Reset if assay was selected
+                if (selectedAssay) {
+                    initializePlate();
+                    if (selectedAssay) {
+                        fillPlateWithAssay(selectedAssay.id, selectedAssay.color);
+                    }
+                }
+                
+                // Update event listeners
+                updatePlateGridListeners();
+            });
+        });
 
         // Toggle section collapse/expand
         function toggleSection(sectionId) {
