@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seegene Viewer Pro</title>
+    <title>Seegene Viewer Pro - Analysis View</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -293,12 +293,6 @@
             display: none;
         }
 
-        .tab-list-inner {
-            display: flex;
-            gap: 4px;
-            transition: transform 0.3s ease;
-        }
-
         /* Tab List Dropdown */
         .tab-list-dropdown {
             position: absolute;
@@ -430,20 +424,12 @@
             color: #6B7280;
         }
 
-        /* Tab Page */
+        /* Tab Page - Analysis View */
         .tab-page {
             flex: 1;
             background: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .tab-page.has-content {
             display: block;
-            align-items: initial;
-            justify-content: initial;
+            overflow: hidden;
         }
 
         /* Analysis View */
@@ -505,117 +491,7 @@
             flex: 1;
         }
 
-        .empty-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .start-analysis-btn {
-            padding: 12px 32px;
-            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-            border: none;
-            border-radius: 8px;
-            color: #FFFFFF;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .start-analysis-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-        }
-
-        .start-analysis-btn:active {
-            transform: translateY(0);
-        }
-
-        .start-analysis-btn .material-icons {
-            font-size: 20px;
-        }
-
-        /* Hamburger Menu Sidebar */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            display: none;
-        }
-
-        .sidebar-overlay.active {
-            display: block;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -320px;
-            width: 320px;
-            height: 100%;
-            background: #1F2937;
-            z-index: 1001;
-            transition: left 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .sidebar.active {
-            left: 0;
-        }
-
-        .sidebar-header {
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 16px;
-            border-bottom: 1px solid #374151;
-        }
-
-        .sidebar-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-
-        .sidebar-close {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-
-        .sidebar-close:hover {
-            background: #374151;
-        }
-
-        .sidebar-close .material-icons {
-            color: #D1D5DB;
-            font-size: 20px;
-        }
-
-        .sidebar-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 8px 0;
-        }
-
+        /* Menu Styles */
         .menu-group {
             margin-bottom: 4px;
         }
@@ -687,20 +563,9 @@
             background: #F3F4F6;
             color: #1F2937;
         }
-            color: #1F2937;
-        }
-
-        .menu-separator {
-            height: 1px;
-            background: #374151;
-            margin: 8px 0;
-        }
     </style>
 </head>
 <body>
-    <!-- Dropdown Overlay -->
-    <div class="dropdown-overlay" id="dropdownOverlay"></div>
-
     <!-- Dropdown Overlay -->
     <div class="dropdown-overlay" id="dropdownOverlay"></div>
 
@@ -836,7 +701,7 @@
                     <div class="message-icon">
                         <span class="material-icons">check_circle</span>
                     </div>
-                    <span class="message-text">Ready</span>
+                    <span class="message-text">Analysis in progress...</span>
                 </div>
             </div>
 
@@ -887,36 +752,6 @@
                         <span class="material-icons">close</span>
                     </div>
                 </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 13-15-22_BR1019">
-                    <span class="tab-item-text">admin_2018-10-01 13-15-22_BR1019</span>
-                    <div class="tab-item-close">
-                        <span class="material-icons">close</span>
-                    </div>
-                </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 14-30-17_BR1020">
-                    <span class="tab-item-text">admin_2018-10-01 14-30-17_BR1020</span>
-                    <div class="tab-item-close">
-                        <span class="material-icons">close</span>
-                    </div>
-                </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 15-45-08_BR1021">
-                    <span class="tab-item-text">admin_2018-10-01 15-45-08_BR1021</span>
-                    <div class="tab-item-close">
-                        <span class="material-icons">close</span>
-                    </div>
-                </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 16-30-55_BR1022">
-                    <span class="tab-item-text">admin_2018-10-01 16-30-55_BR1022</span>
-                    <div class="tab-item-close">
-                        <span class="material-icons">close</span>
-                    </div>
-                </div>
-                <div class="tab-item" data-tab-name="admin_2018-10-01 17-15-41_BR1023">
-                    <span class="tab-item-text">admin_2018-10-01 17-15-41_BR1023</span>
-                    <div class="tab-item-close">
-                        <span class="material-icons">close</span>
-                    </div>
-                </div>
             </div>
 
             <!-- Tab List Dropdown -->
@@ -935,13 +770,27 @@
             </div>
         </div>
 
-        <!-- Tab Page -->
+        <!-- Tab Page - Analysis View -->
         <div class="tab-page">
-            <div class="empty-state">
-                <button class="start-analysis-btn">
-                    <span class="material-icons">play_arrow</span>
-                    Start Analysis
-                </button>
+            <div class="analysis-view">
+                <div class="analysis-top">
+                    <div class="analysis-section summary-section">
+                        <div class="section-title">Summary</div>
+                        <div class="section-content">Summary data will be displayed here</div>
+                    </div>
+                    <div class="analysis-section well-plate-section">
+                        <div class="section-title">Well Plate</div>
+                        <div class="section-content">Well plate layout will be displayed here</div>
+                    </div>
+                    <div class="analysis-section graph-section">
+                        <div class="section-title">Graph</div>
+                        <div class="section-content">Graph will be displayed here</div>
+                    </div>
+                </div>
+                <div class="analysis-section result-section">
+                    <div class="section-title">Result</div>
+                    <div class="section-content">Result table will be displayed here</div>
+                </div>
             </div>
         </div>
     </div>
@@ -969,7 +818,6 @@
             item.addEventListener('click', function() {
                 const menuName = this.getAttribute('data-menu');
                 const submenu = document.querySelector('.submenu[data-submenu="' + menuName + '"]');
-                const arrow = this.querySelector('.menu-arrow');
                 
                 const isExpanded = submenu.classList.contains('expanded');
                 
@@ -1003,52 +851,6 @@
             // Close dropdown after action
             dropdownMenu.classList.remove('active');
             dropdownOverlay.classList.remove('active');
-            
-            // Handle specific actions
-            switch(action) {
-                case 'new-analysis':
-                    console.log('Open New Analysis dialog');
-                    break;
-                case 'open-history':
-                    console.log('Open History view');
-                    break;
-                case 'combine-open':
-                    console.log('Open Combine Results dialog');
-                    break;
-                case 'save':
-                    console.log('Save current analysis');
-                    break;
-                case 'save-worklist':
-                    console.log('Save worklist');
-                    break;
-                case 'print':
-                    console.log('Open Print dialog');
-                    break;
-                case 'export':
-                    console.log('Open Export dialog');
-                    break;
-                case 'hl7':
-                    console.log('Open HL7 dialog');
-                    break;
-                case 'settings':
-                    console.log('Open Settings');
-                    break;
-                case 'about':
-                    console.log('Open About dialog');
-                    break;
-                case 'release-note':
-                    console.log('Open Release Note');
-                    break;
-                case 'notice':
-                    console.log('Open Notice');
-                    break;
-                case 'user-manual':
-                    console.log('Open User Manual');
-                    break;
-                case 'error-report':
-                    console.log('Open Error Report dialog');
-                    break;
-            }
         }
 
         // Submenu item clicks
@@ -1075,99 +877,15 @@
         // Window Controls
         document.querySelector('.window-control-btn.minimize').addEventListener('click', function() {
             console.log('Minimize window');
-            // window.minimize();
         });
 
         document.querySelector('.window-control-btn.maximize').addEventListener('click', function() {
             console.log('Toggle maximize/restore');
-            // window.toggleMaximize();
         });
 
         document.querySelector('.window-control-btn.close').addEventListener('click', function() {
             console.log('Close window');
-            // window.close();
         });
-
-        // Start Analysis Button
-        let startAnalysisHandler = function() {
-            console.log('Start Analysis clicked');
-            
-            // Create new tab
-            const tabList = document.querySelector('.tab-list');
-            const tabPage = document.querySelector('.tab-page');
-            
-            // Generate tab name with timestamp
-            const now = new Date();
-            const tabName = 'Analysis_' + now.getFullYear() + 
-                           String(now.getMonth() + 1).padStart(2, '0') + 
-                           String(now.getDate()).padStart(2, '0') + '_' +
-                           String(now.getHours()).padStart(2, '0') + 
-                           String(now.getMinutes()).padStart(2, '0');
-            
-            // Remove active class from existing tabs
-            document.querySelectorAll('.tab-item').forEach(tab => tab.classList.remove('active'));
-            
-            // Create tab element
-            const tabItem = document.createElement('div');
-            tabItem.className = 'tab-item active';
-            tabItem.innerHTML = `
-                <span class="tab-item-text">${tabName}</span>
-                <div class="tab-item-close">
-                    <span class="material-icons">close</span>
-                </div>
-            `;
-            
-            // Add tab to list
-            tabList.appendChild(tabItem);
-            
-            // Add close functionality
-            tabItem.querySelector('.tab-item-close').addEventListener('click', function(e) {
-                e.stopPropagation();
-                tabItem.remove();
-                
-                // If no tabs left, show empty state
-                if (tabList.children.length === 0) {
-                    tabPage.classList.remove('has-content');
-                    tabPage.innerHTML = `
-                        <div class="empty-state">
-                            <button class="start-analysis-btn">
-                                <span class="material-icons">play_arrow</span>
-                                Start Analysis
-                            </button>
-                        </div>
-                    `;
-                    // Re-attach event listener
-                    document.querySelector('.start-analysis-btn').addEventListener('click', startAnalysisHandler);
-                }
-            });
-            
-            // Show analysis view
-            tabPage.classList.add('has-content');
-            tabPage.innerHTML = `
-                <div class="analysis-view">
-                    <div class="analysis-top">
-                        <div class="analysis-section summary-section">
-                            <div class="section-title">Summary</div>
-                            <div class="section-content">Summary data will be displayed here</div>
-                        </div>
-                        <div class="analysis-section well-plate-section">
-                            <div class="section-title">Well Plate</div>
-                            <div class="section-content">Well plate layout will be displayed here</div>
-                        </div>
-                        <div class="analysis-section graph-section">
-                            <div class="section-title">Graph</div>
-                            <div class="section-content">Graph will be displayed here</div>
-                        </div>
-                    </div>
-                    <div class="analysis-section result-section">
-                        <div class="section-title">Result</div>
-                        <div class="section-content">Result table will be displayed here</div>
-                    </div>
-                </div>
-            `;
-        };
-        
-        document.querySelector('.start-analysis-btn').addEventListener('click', startAnalysisHandler);
 
         // Tab Controls
         const tabListElement = document.getElementById('tabList');
@@ -1245,21 +963,7 @@
                 e.stopPropagation();
                 const tabItem = this.closest('.tab-item');
                 tabItem.remove();
-                
-                // If no tabs left, show empty state
-                if (document.querySelectorAll('.tab-item').length === 0) {
-                    const tabPage = document.querySelector('.tab-page');
-                    tabPage.classList.remove('has-content');
-                    tabPage.innerHTML = `
-                        <div class="empty-state">
-                            <button class="start-analysis-btn">
-                                <span class="material-icons">play_arrow</span>
-                                Start Analysis
-                            </button>
-                        </div>
-                    `;
-                    document.querySelector('.start-analysis-btn').addEventListener('click', startAnalysisHandler);
-                }
+                console.log('Tab closed');
             });
         });
 
@@ -1270,32 +974,6 @@
                 this.classList.add('active');
             });
         });
-
-        // Show analysis view for the first tab
-        const tabPage = document.querySelector('.tab-page');
-        tabPage.classList.add('has-content');
-        tabPage.innerHTML = `
-            <div class="analysis-view">
-                <div class="analysis-top">
-                    <div class="analysis-section summary-section">
-                        <div class="section-title">Summary</div>
-                        <div class="section-content">Summary data will be displayed here</div>
-                    </div>
-                    <div class="analysis-section well-plate-section">
-                        <div class="section-title">Well Plate</div>
-                        <div class="section-content">Well plate layout will be displayed here</div>
-                    </div>
-                    <div class="analysis-section graph-section">
-                        <div class="section-title">Graph</div>
-                        <div class="section-content">Graph will be displayed here</div>
-                    </div>
-                </div>
-                <div class="analysis-section result-section">
-                    <div class="section-title">Result</div>
-                    <div class="section-content">Result table will be displayed here</div>
-                </div>
-            </div>
-        `;
     </script>
 </body>
 </html>
