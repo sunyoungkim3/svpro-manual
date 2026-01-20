@@ -13,7 +13,7 @@ SV Pro 소프트웨어에서 Preset을 조회하고 선택하여 분석을 시�
 
 ### 1.2 주요 특징
 - **Preset 조회**: 저장된 모든 Preset 목록 표시
-- **미리보기**: 선택한 Preset의 상세 정보와 96-well Plate 설정 시각화
+- **미리보기**: 선택한 Preset의 상세 정보와 well Plate 설정 시각화
 - **빠른 분석 시작**: Preset 선택 후 바로 분석 시작 가능
 - **실시간 동기화**: Preset Management, Manual 팝업에서 생성/삭제된 Preset 자동 반영
 
@@ -130,8 +130,8 @@ SV Pro에는 세 가지 Preset 관련 팝업이 있습니다:
 
 1. **Preset 이름**: 선택된 Preset의 이름 표시
 2. **Plate Setting (96-well / 384-well)**: Preset에 저장된 Plate 타입에 따라 표시
-   - **96-well**: 8 rows (A-H) × 12 columns, Well 크기 28px
-   - **384-well**: 16 rows (A-P) × 24 columns, Well 크기 14px
+   - **96-well**: 8 rows (A-H) × 12 columns
+   - **384-well**: 16 rows (A-P) × 24 columns
    - 각 Well은 해당 Assay 색상으로 표시
 3. **Selected Assay(s) 범례**: 사용된 Assay 목록과 각각의 색상 표시
 
@@ -163,7 +163,7 @@ Preset은 두 가지 경로로 생성할 수 있습니다:
 - Base Assay 선택 완료
 - Consumables 선택 완료
 - Assay Combination (Optional) 선택 완료
-- Plate Setting (96-well) 선택 완료
+- Plate Setting 선택 완료
 
 
 **트리거**:
@@ -246,8 +246,7 @@ Preset은 두 가지 경로로 생성할 수 있습니다:
 #### Manual - Save as Preset 시도 (User)
 ```
 진입 가능: Manual 팝업 접근 가능
-Save as Preset 버튼: 표시되지 않음 (display: none 인라인 스타일)
-추가 안전장치 (버튼이 보이는 경우): "You don't have permission to save presets."
+Save as Preset 버튼: 표시되지 않음
 ```
 
 ### 5.2 데이터 없음
