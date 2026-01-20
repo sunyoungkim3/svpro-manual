@@ -1262,6 +1262,11 @@
         // Update Additional Assays visual selection state
         function updateAdditionalAssaysSelection() {
             document.querySelectorAll('#combinationList .checkbox-item').forEach(item => {
+                // Skip Base Assay - it should always maintain its state
+                if (item.classList.contains('base-assay')) {
+                    return;
+                }
+                
                 const isSelected = selectedCombinationAssays.find(a => a.id === item.dataset.assayId);
                 if (isSelected) {
                     item.style.background = '#F3F4F6';
@@ -1558,50 +1563,66 @@
 
         // Remove base assay and reset to initial state
         function removeBaseAssay() {
-            if (confirm('Remove base assay? This will reset everything.')) {
-                // Clear all state
-                selectedAssay = null;
-                selectedCombinationAssays = [];
-                currentBrushAssay = null;
-                
-                // Remove table selection
-                document.querySelectorAll('#assayPackTable .table-row').forEach(r => {
-                    r.querySelectorAll('td').forEach(cell => {
-                        cell.classList.remove('selected');
-                    });
-                });
-                
-                // Hide consumables and combination sections
-                document.getElementById('consumablesSection').classList.add('hidden-section');
-                document.getElementById('combinationSection').classList.add('hidden-section');
-                
-                // Expand sections
-                document.getElementById('assayPackSection').classList.remove('section-collapsed');
-                document.getElementById('consumablesSection').classList.remove('section-collapsed');
-                document.getElementById('combinationSection').classList.remove('section-collapsed');
-                
-                // Clear summaries
-                document.getElementById('assayPackSummary').textContent = '';
-                document.getElementById('consumablesSummary').textContent = '';
-                document.getElementById('combinationSummary').textContent = '';
-                
-                // Clear consumables selection
-                document.querySelectorAll('input[name="capFilm"]').forEach(radio => radio.checked = false);
-                document.querySelectorAll('input[name="plateTube"]').forEach(radio => radio.checked = false);
-                
-                // Reset plate data
-                initializePlateData();
-                
-                // Reset instruction
-                document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
-                
-                // Disable buttons
-                document.getElementById('resetPlateBtn').disabled = true;
-                document.getElementById('startAnalysisBtn').disabled = true;
-                
-                // Hide legend
-                document.getElementById('plateLegend').style.display = 'none';
+            // Check if there are any changes that would be lost
+            const hasAdditionalAssays = selectedCombinationAssays.length > 0;
+            
+            // Check if consumables have been changed from defaults
+            const capFilmSelected = document.querySelector('input[name="capFilm"]:checked');
+            const plateTubeSelected = document.querySelector('input[name="plateTube"]:checked');
+            const capFilmDefault = document.getElementById('cap1');
+            const plateTubeDefault = document.getElementById('plate1');
+            const consumablesChanged = (capFilmSelected && capFilmSelected.id !== capFilmDefault.id) || 
+                                      (plateTubeSelected && plateTubeSelected.id !== plateTubeDefault.id);
+            
+            const hasChanges = hasAdditionalAssays || consumablesChanged;
+            
+            // Only show confirmation if there are changes
+            if (hasChanges && !confirm('Remove base assay? This will reset everything.')) {
+                return;
             }
+            
+            // Clear all state
+            selectedAssay = null;
+            selectedCombinationAssays = [];
+            currentBrushAssay = null;
+            
+            // Remove table selection
+            document.querySelectorAll('#assayPackTable .table-row').forEach(r => {
+                r.querySelectorAll('td').forEach(cell => {
+                    cell.classList.remove('selected');
+                });
+            });
+            
+            // Hide consumables and combination sections
+            document.getElementById('consumablesSection').classList.add('hidden-section');
+            document.getElementById('combinationSection').classList.add('hidden-section');
+            
+            // Expand sections
+            document.getElementById('assayPackSection').classList.remove('section-collapsed');
+            document.getElementById('consumablesSection').classList.remove('section-collapsed');
+            document.getElementById('combinationSection').classList.remove('section-collapsed');
+            
+            // Clear summaries
+            document.getElementById('assayPackSummary').textContent = '';
+            document.getElementById('consumablesSummary').textContent = '';
+            document.getElementById('combinationSummary').textContent = '';
+            
+            // Clear consumables selection
+            document.querySelectorAll('input[name="capFilm"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('input[name="plateTube"]').forEach(radio => radio.checked = false);
+            
+            // Reset plate data
+            initializePlateData();
+            
+            // Reset instruction
+            document.getElementById('plateInstruction').textContent = 'Select an assay pack to start';
+            
+            // Disable buttons
+            document.getElementById('resetPlateBtn').disabled = true;
+            document.getElementById('startAnalysisBtn').disabled = true;
+            
+            // Hide legend
+            document.getElementById('plateLegend').style.display = 'none';
         }
 
         // Remove assay from plate and revert to base assay

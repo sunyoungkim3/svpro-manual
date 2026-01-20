@@ -400,8 +400,14 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 - Assay Combination 목록의 Base Assay 항목 삭제 버튼 [×] 클릭
 
 **동작**:
-1. 확인 팝업 표시
-2. 확인 선택 시:
+1. 변경 사항 확인:
+   - Additional Assay가 Plate에 적용되었는지 확인
+   - Consumables 선택이 기본값에서 변경되었는지 확인
+   - 변경 사항이 있는 경우: 확인 팝업 표시
+     - 메시지: "Remove base assay? This will reset everything."
+     - 취소 선택 시: 현재 상태 유지
+   - 변경 사항이 없는 경우: 확인 팝업 없이 바로 2번 단계 진행
+2. 확인 선택 시 (또는 변경 사항 없는 경우):
    - 모든 선택 상태 초기화
    - Assay Pack 테이블 선택 해제
    - Consumables Section 숨김
@@ -697,18 +703,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 
 ### 9.2 Assay Combination 테스트
 
-#### TC-COMBINATION-001: Base Assay 브러시 선택
-**권한**: 모든 사용자
-**전제조건**: Assay Pack 선택됨
-**테스트 단계**:
-1. Assay Combination Section 펼치기
-2. Base Assay 항목 클릭
-3. 항목 활성 상태 표시 확인
-4. Instruction 업데이트 확인: "Click or drag on wells to apply: [Base Assay Name]"
-5. Plate Well 클릭
-6. Well 색상이 Base Assay 색상으로 유지됨 확인
-
-#### TC-COMBINATION-002: Additional Assay 선택 및 적용
+#### TC-COMBINATION-001: Additional Assay 선택 및 적용
 **권한**: 모든 사용자
 **전제조건**: Assay Pack 선택됨
 **테스트 단계**:
@@ -722,7 +717,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 8. Combination List 항목 배경색 변경 및 삭제 버튼 표시 확인
 9. Combination Summary 업데이트 확인
 
-#### TC-COMBINATION-003: Drag Selection
+#### TC-COMBINATION-002: Drag Selection
 **권한**: 모든 사용자
 **전제조건**: Assay Pack 선택됨, Additional Assay 브러시 선택됨
 **테스트 단계**:
@@ -731,7 +726,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 3. Legend 업데이트 확인
 4. Combination List 항목 상태 업데이트 확인
 
-#### TC-COMBINATION-004: 여러 Additional Assay 적용
+#### TC-COMBINATION-003: 여러 Additional Assay 적용
 **권한**: 모든 사용자
 **전제조건**: Assay Pack 선택됨
 **테스트 단계**:
@@ -743,16 +738,14 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 6. Legend에 세 번째 Assay 추가 확인
 7. Plate Grid에 3가지 색상 + Base Assay 색상 표시 확인
 
-#### TC-COMBINATION-005: Additional Assay 최대 제한
+#### TC-COMBINATION-004: Additional Assay 최대 제한
 **권한**: 모든 사용자
 **전제조건**: Assay Pack 선택됨, 3개의 Additional Assay가 Plate에 적용됨
 **테스트 단계**:
 1. 네 번째 Additional Assay 선택
 2. 경고 메시지 표시 확인
-3. 브러시 선택 해제 확인
-4. Instruction 초기 상태로 복원 확인
 
-#### TC-COMBINATION-006: Additional Assay 삭제
+#### TC-COMBINATION-005: Additional Assay 삭제
 **권한**: 모든 사용자
 **전제조건**: Additional Assay가 Plate에 적용됨
 **테스트 단계**:
@@ -766,7 +759,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 8. Combination List 항목 상태 업데이트 (삭제 버튼 숨김) 확인
 9. Summary 업데이트 확인
 
-#### TC-COMBINATION-007: Base Assay 삭제 (전체 초기화)
+#### TC-COMBINATION-006: Base Assay 삭제 (전체 초기화)
 **권한**: 모든 사용자
 **전제조건**: Assay Pack 선택됨, 일부 Additional Assay 적용됨
 **테스트 단계**:
@@ -794,7 +787,7 @@ SV Pro에서 96-well 또는 384-well Plate를 수동으로 설정하는 팝업�
 3. 취소 클릭 → 작업 취소, 현재 상태 유지 확인
 4. 다시 Reset 버튼 클릭
 5. 확인 클릭
-6. TC-COMBINATION-007의 4-12번 단계와 동일하게 확인
+6. TC-COMBINATION-006의 4-12번 단계와 동일하게 확인
 
 ### 9.4 검색 테스트
 
