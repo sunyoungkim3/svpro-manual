@@ -162,16 +162,15 @@ SV Pro 의 Main Layout 화면입니다.
 #### 4.2.1 메뉴 구조
 - **표시 조건**: 햄버거 메뉴 클릭 시
 - **위치**: Header 하단 좌측
-- **애니메이션**: dropdownSlide
 
 #### 4.2.2 메뉴 항목
-| 메뉴 그룹 | 서브메뉴 | 아이콘 | 동작 타입 | 활성화 조건 |
-|----------|---------|--------|----------|-------------|
-| Open | New Analysis<br>Open from History<br>Combine Open Results | folder_open | 아코디언 | Combine은 탭 2개 이상일 때만 활성화 |
-| Save | Save<br>Save worklist | save | 아코디언 | 변경사항이 있을 때만 활성화<br>(탭이 없으면 메뉴 그룹 전체 비활성화) |
-| Report | Print<br>Export<br>HL7 | description | 아코디언 | 탭이 없으면 비활성화 |
-| Settings | (서브메뉴 없음) | settings | 직접 실행 | 항상 활성화 |
-| Help | About Seegene Viewer Pro<br>Release note<br>Notice<br>User manual<br>Error report | help_outline | 아코디언 | 항상 활성화 |
+| 메뉴 그룹 | 서브메뉴 | 동작 타입 | 활성화 조건 |
+|----------|---------|----------|-------------|
+| Open | New Analysis<br>Open from History<br>Combine Open Results | 아코디언 | Combine은 탭 2개 이상일 때만 활성화 |
+| Save | Save<br>Save worklist | 아코디언 | 변경사항이 있을 때만 활성화<br>(탭이 없으면 메뉴 그룹 전체 비활성화) |
+| Report | Print<br>Export<br>HL7 | 아코디언 | 탭이 없으면 비활성화 |
+| Settings | (서브메뉴 없음) | 직접 실행 | 항상 활성화 |
+| Help | About Seegene Viewer Pro<br>Release note<br>Notice<br>User manual<br>Error report | 아코디언 | 항상 활성화 |
 
 #### 4.2.3 메뉴 동작
 - **아코디언 방식**: 하나의 서브메뉴가 열리면 다른 서브메뉴는 닫힘
