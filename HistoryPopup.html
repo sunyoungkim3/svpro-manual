@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1720, initial-scale=1.0">
+    <title>Open from History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background: #F3F4F6;
+            margin: 0;
+            padding: 0;
+        }
+        .history-popup {
+            width: 1720px;
+            height: 856px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .popup-header {
+            height: 64px;
+            background: #1F2937;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+        .popup-title {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .popup-close {
+            background: none;
+            border: none;
+            color: #D1D5DB;
+            font-size: 28px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .popup-close:hover {
+            background: #374151;
+            color: #fff;
+        }
+        .popup-content {
+            flex: 1;
+            padding: 32px;
+            overflow: auto;
+            background: #F9FAFB;
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .history-table th, .history-table td {
+            padding: 16px 12px;
+            text-align: left;
+            font-size: 15px;
+        }
+        .history-table th {
+            background: #F3F4F6;
+            color: #374151;
+            font-weight: 700;
+            border-bottom: 2px solid #E5E7EB;
+        }
+        .history-table tr {
+            transition: background 0.15s;
+        }
+        .history-table tbody tr:hover {
+            background: #EFF6FF;
+        }
+        .history-table td {
+            color: #374151;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .popup-footer {
+            height: 72px;
+            background: #F9FAFB;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            padding: 0 32px;
+            border-top: 1px solid #E5E7EB;
+        }
+        .footer-btn {
+            min-width: 120px;
+            height: 44px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .footer-btn.cancel {
+            background: #E5E7EB;
+            color: #374151;
+        }
+        .footer-btn.cancel:hover {
+            background: #D1D5DB;
+        }
+        .footer-btn.open {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            color: #fff;
+        }
+        .footer-btn.open:hover {
+            background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="history-popup">
+        <div class="popup-header">
+            <span class="popup-title">Open from History</span>
+            <button class="popup-close" title="Close">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <div class="popup-content">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date and Time</th>
+                        <th>User ID</th>
+                        <th>PCR Raw Data File</th>
+                        <th>Assay Pack(s)</th>
+                        <th>Intended Use</th>
+                        <th>Tube/Plate</th>
+                        <th>Cap/File</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example row -->
+                    <tr>
+                        <td>2026-01-20 14:22</td>
+                        <td>admin</td>
+                        <td>rawdata_20260120.csv</td>
+                        <td>Pack A, Pack B</td>
+                        <td>IVD</td>
+                        <td>Plate</td>
+                        <td>Cap</td>
+                    </tr>
+                    <!-- More rows here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="popup-footer">
+            <button class="footer-btn cancel">Cancel</button>
+            <button class="footer-btn open">Open</button>
+        </div>
+    </div>
+</body>
+</html>
